@@ -21,12 +21,12 @@ export const API_CONFIG = {
 export const requestInterceptor = (config) => {
   const authStore = useAuthStore()
 
+  // 初始化请求头
+  config.header = config.header || {}
+
   // 添加认证令牌
   if (authStore.accessToken) {
-    config.header = {
-      ...config.header,
-      'Authorization': `Bearer ${authStore.accessToken}`
-    }
+    config.header['Authorization'] = `Bearer ${authStore.accessToken}`
   }
 
   // 添加基础URL
@@ -37,79 +37,130 @@ export const requestInterceptor = (config) => {
   // 设置超时时间
   config.timeout = config.timeout || API_CONFIG.TIMEOUT
 
-  // 添加默认请求头
+  // 根据请求类型设置Content-Type
+  if (config.method && config.method.toUpperCase() !== 'GET') {
+    // 如果是文件上传，不设置Content-Type，让浏览器自动设置
+    if (!config.isUpload && !config.header['Content-Type']) {
+      config.header['Content-Type'] = 'application/json'
+    }
+  }
+
+  // 添加其他默认请求头
   config.header = {
-    ...API_CONFIG.HEADERS,
+    'Accept': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest',
     ...config.header
   }
 
-  console.log('Request:', config)
   return config
 }
 
 // 响应拦截器
 export const responseInterceptor = (response) => {
-  console.log('Response:', response)
-
   const authStore = useAuthStore()
 
   // 处理HTTP状态码
   if (response.statusCode === 200) {
     return response.data
   } else if (response.statusCode === 401) {
-    // 未授权，清除令牌并跳转到登录页
-    authStore.logout()
-    uni.showToast({
-      title: 'Please login again',
-      icon: 'none',
-      duration: 2000
-    })
+    // 未授权处理
+    handleUnauthorizedError(authStore)
     return Promise.reject(new Error('Unauthorized'))
   } else if (response.statusCode === 403) {
-    // 禁止访问 - 可能是CORS问题
-    const errorMessage = response.data === 'Invalid CORS request' 
-      ? 'CORS configuration error. Please check server settings.' 
-      : 'Access denied';
-    
-    uni.showToast({
-      title: errorMessage,
-      icon: 'none',
-      duration: 3000
-    })
-    
-    console.error('403 Error Details:', {
-      data: response.data,
-      headers: response.header,
-      statusCode: response.statusCode
-    })
-    
-    return Promise.reject(new Error('Forbidden: ' + response.data))
+    // 禁止访问处理 - 区分CORS错误和权限错误
+    return handleForbiddenError(response)
   } else if (response.statusCode >= 500) {
-    // 服务器错误
-    uni.showToast({
-      title: 'Server error, please try again',
-      icon: 'none',
-      duration: 2000
-    })
-    return Promise.reject(new Error('Server Error'))
+    // 服务器错误处理
+    return handleServerError(response)
   } else {
-    // 其他错误
-    const errorMessage = response.data?.message || 'Request failed'
-    uni.showToast({
-      title: errorMessage,
-      icon: 'none',
-      duration: 2000
-    })
-    return Promise.reject(new Error(errorMessage))
+    // 其他客户端错误处理
+    return handleClientError(response)
   }
 }
 
+// 处理401未授权错误
+const handleUnauthorizedError = (authStore) => {
+  // 清除认证信息
+  authStore.logout()
+  
+  // 显示友好提示
+  uni.showModal({
+    title: 'Session Expired',
+    content: 'Your login session has expired. Please log in again.',
+    showCancel: false,
+    confirmText: 'Login',
+    success: () => {
+      // 跳转到登录页面
+      uni.reLaunch({
+        url: '/pages/auth/login'
+      })
+    }
+  })
+}
+
+// 处理403禁止访问错误
+const handleForbiddenError = (response) => {
+  const responseData = response.data
+  const isCorsError = typeof responseData === 'string' && 
+    (responseData.includes('CORS') || responseData.includes('Invalid CORS request'))
+  
+  if (isCorsError) {
+    // CORS错误特殊处理
+    uni.showModal({
+      title: 'CORS Configuration Error',
+      content: 'Cross-origin request blocked. Please check if the backend server is running and CORS is properly configured.',
+      showCancel: false,
+      confirmText: 'OK'
+    })
+    
+    return Promise.reject(new Error(`CORS Error: ${responseData}`))
+  } else {
+    // 权限错误
+    uni.showModal({
+      title: 'Access Denied',
+      content: 'You do not have permission to access this resource. Please contact the administrator.',
+      showCancel: false,
+      confirmText: 'OK'
+    })
+    
+    return Promise.reject(new Error(`Access Denied: ${responseData?.message || responseData}`))
+  }
+}
+
+// 处理服务器错误
+const handleServerError = (response) => {
+  const errorMessage = response.data?.message || 'Internal server error'
+  
+  uni.showModal({
+    title: 'Server Error',
+    content: `The server encountered a problem. Please try again later.\nError code: ${response.statusCode}`,
+    showCancel: true,
+    cancelText: 'Cancel',
+    confirmText: 'Retry'
+  })
+  
+  return Promise.reject(new Error(`Server Error (${response.statusCode}): ${errorMessage}`))
+}
+
+// 处理客户端错误
+const handleClientError = (response) => {
+  const errorMessage = response.data?.message || `Request failed (${response.statusCode})`
+  
+  uni.showToast({
+    title: errorMessage,
+    icon: 'none',
+    duration: 3000
+  })
+  
+  return Promise.reject(new Error(errorMessage))
+}
+
+
+
 // 错误处理器
 export const errorHandler = (error) => {
-  console.error('API Error:', error)
-
   if (error.errMsg) {
-    // 网络错误
+    // 网络错误处理
     if (error.errMsg.includes('timeout')) {
       uni.showToast({
         title: 'Request timeout',
@@ -127,3 +178,4 @@ export const errorHandler = (error) => {
 
   return Promise.reject(error)
 }
+

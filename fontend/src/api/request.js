@@ -84,13 +84,23 @@ class HttpRequest {
   // 文件上传
   upload(url, filePath, formData = {}, options = {}) {
     return new Promise((resolve, reject) => {
-      // 应用请求拦截器获取认证头
-      const config = this.interceptors.request({ url, header: {} })
+      // 应用请求拦截器获取认证头，标记为上传请求
+      const config = this.interceptors.request({ 
+        url, 
+        method: 'POST',
+        header: {}, 
+        isUpload: true 
+      })
+      
+      // 移除Content-Type，让uni.uploadFile自动设置
+      if (config.header['Content-Type']) {
+        delete config.header['Content-Type']
+      }
       
       uni.uploadFile({
         url: config.url,
         filePath,
-        name: 'file',
+        name: options.name || 'file',
         formData,
         header: config.header,
         success: (response) => {
@@ -113,7 +123,11 @@ class HttpRequest {
   // 文件下载
   download(url, options = {}) {
     return new Promise((resolve, reject) => {
-      const config = this.interceptors.request({ url, header: {} })
+      const config = this.interceptors.request({ 
+        url, 
+        method: 'GET',
+        header: {} 
+      })
       
       uni.downloadFile({
         url: config.url,

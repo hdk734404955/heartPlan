@@ -211,26 +211,12 @@ export default {
       } catch (error) {
         console.error('Login error:', error)
         
-        // CORS错误特殊处理
-        if (error.message && error.message.includes('Invalid CORS request')) {
-          // 运行CORS调试
-          corsDebug.showDebugInfo()
-          corsDebug.analyzeCorsError(error)
-          
-          uni.showModal({
-            title: 'CORS Configuration Error',
-            content: 'There is a cross-origin request issue. Please check if the backend server is running and CORS is properly configured.',
-            showCancel: false,
-            confirmText: 'OK'
-          })
-        } else {
-          // 显示网络错误提示
-          uni.showToast({
-            title: 'Network error, please try again',
-            icon: 'error',
-            duration: 2000
-          })
-        }
+        // 显示网络错误提示
+        uni.showToast({
+          title: 'Network error, please try again',
+          icon: 'none',
+          duration: 2000
+        })
       } finally {
         // 清除加载状态
         authStore.setLoginLoading(false)

@@ -14,7 +14,6 @@ com\heartplan\entity\UserPreferences$Language.class
 com\heartplan\controller\TestController.class
 com\heartplan\entity\User$UserBuilder.class
 com\heartplan\HeartPlanApplication.class
-com\heartplan\config\CorsConfig.class
 com\heartplan\dto\RegisterResponse.class
 com\heartplan\dto\LoginResponse$UserInfo.class
 com\heartplan\entity\PrivacySettings.class
@@ -22,7 +21,9 @@ com\heartplan\dto\LoginRequest.class
 com\heartplan\entity\PrivacySettings$PrivacySettingsBuilder.class
 com\heartplan\config\FileUploadConfig.class
 com\heartplan\entity\UserPreferences$Theme.class
+com\heartplan\security\JwtAuthenticationEntryPoint.class
 com\heartplan\service\FileService.class
+com\heartplan\security\JwtAuthenticationFilter.class
 com\heartplan\config\SwaggerConfig.class
 com\heartplan\repository\UserRepository.class
 com\heartplan\entity\UserPreferences$UserPreferencesBuilder.class

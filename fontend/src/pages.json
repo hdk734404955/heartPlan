@@ -1,0 +1,178 @@
+{
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
+			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+			"^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+		}
+	},
+	"pages": [ 
+		{
+			"path": "pages/splash/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "HeartPlan"
+			}
+		},
+		{
+			"path": "pages/test/api-test",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "API Test"
+			}
+		},
+		{
+			"path": "pages/test/scroll-test",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Scroll Test"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "HeartPlan"
+			}
+		},
+		{
+			"path": "pages/auth/login",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Sign In",
+				"app-plus": {
+					"animationType": "slide-in-bottom",
+					"animationDuration": 300
+				},
+				"h5": {
+					"animationType": "fade-in",
+					"animationDuration": 300
+				}
+			}
+		},
+		{
+			"path": "pages/auth/register",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Create Account",
+				"app-plus": {
+					"animationType": "slide-in-right",
+					"animationDuration": 300
+				},
+				"h5": {
+					"animationType": "slide-in-right",
+					"animationDuration": 300
+				}
+			}
+		},
+		{
+			"path": "pages/main/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "AI Templates",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"animationType": "fade-in",
+					"animationDuration": 250
+				},
+				"h5": {
+					"animationType": "slide-in-right",
+					"animationDuration": 250
+				}
+			}
+		},
+		{
+			"path": "pages/community/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Community",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"animationType": "fade-in",
+					"animationDuration": 250
+				},
+				"h5": {
+					"animationType": "slide-in-right",
+					"animationDuration": 250
+				}
+			}
+		},
+		{
+			"path": "pages/chat/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Chat",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"animationType": "fade-in",
+					"animationDuration": 250
+				},
+				"h5": {
+					"animationType": "slide-in-right",
+					"animationDuration": 250
+				}
+			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Profile",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"animationType": "fade-in",
+					"animationDuration": 250
+				},
+				"h5": {
+					"animationType": "slide-in-right",
+					"animationDuration": 250
+				}
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7F8C8D",
+		"selectedColor": "#FF6B6B",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"list": [
+			{
+				"pagePath": "pages/main/index",
+				"text": "AI Templates"
+			},
+			{
+				"pagePath": "pages/community/index",
+				"text": "Community"
+			},
+			{
+				"pagePath": "pages/chat/index",
+				"text": "Chat"
+			},
+			{
+				"pagePath": "pages/profile/index",
+				"text": "Profile"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "HeartPlan",
+		"navigationBarBackgroundColor": "#FF6B6B",
+		"backgroundColor": "#FFF5F5",
+		"backgroundColorTop": "#FF6B6B",
+		"backgroundColorBottom": "#FFF5F5",
+		"app-plus": {
+			"titleNView": {
+				"backgroundColor": "#FF6B6B",
+				"titleColor": "#FFFFFF",
+				"type": "default"
+			}
+		},
+		"h5": {
+			"titleNView": {
+				"backgroundColor": "#FF6B6B",
+				"titleColor": "#FFFFFF"
+			}
+		}
+	}
+}

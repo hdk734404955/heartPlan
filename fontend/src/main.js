@@ -2,6 +2,7 @@ import { createSSRApp } from "vue";
 import { createPinia } from 'pinia';
 import App from "./App.vue";
 import uviewPlus from 'uview-plus'
+import PageTransition from '@/components/PageTransition.vue'
 
 // #ifdef VUE3
 export function createApp() {
@@ -38,6 +39,9 @@ export function createApp() {
 			}
 		}
 	});
+
+	// 全局注册转场组件
+	app.component('PageTransition', PageTransition);
 
 	return {
 		app,

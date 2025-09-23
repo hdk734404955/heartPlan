@@ -1,0 +1,488 @@
+/* HeartPlan 全局样式文件 */
+
+/* ==================== 基础样式 ==================== */
+* {
+    box-sizing: border-box;
+}
+
+page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #FFF5F5;
+    color: #2C3E50;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* ==================== uView组件样式修复 ==================== */
+
+/* 按钮组件样式修复 */
+.u-button {
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden;
+}
+
+/* 按钮点击波纹效果 */
+.u-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.u-button:active::before {
+    width: 600rpx;
+    height: 600rpx;
+}
+
+.u-button__text {
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    color: #fff;
+    font-size: 32rpx !important;
+}
+
+.u-button__loading-text {
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.u-text {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* 表单组件样式修复 */
+.u-form-item {
+    transition: all 0.3s ease;
+    position: relative !important;
+    margin-bottom: 48rpx !important;
+    /* 为错误提示预留空间 */
+}
+
+.u-form-item__label {
+    transition: all 0.3s ease;
+    font-size: 30rpx !important;
+    font-weight: 600 !important;
+    color: #2C3E50 !important;
+    margin-bottom: 16rpx !important;
+}
+
+/* 表单错误提示定位修复 */
+.u-form-item__body__right__message {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-top: 0 !important;
+    font-size: 24rpx !important;
+    color: #FF4757 !important;
+    line-height: 1.4 !important;
+    z-index: 10 !important;
+    animation: errorFadeIn 0.3s ease-out !important;
+}
+
+@keyframes errorFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8rpx);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 输入框样式 */
+.u-input {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.u-input--focus {
+    transform: translateY(-4rpx);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+    border: 1px solid #FF6B6B !important;
+}
+
+.u-input__input {
+    transition: all 0.3s ease;
+}
+
+.u-textarea {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.u-textarea--focus {
+    transform: translateY(-4rpx);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+    border: 1px solid #FF6B6B !important;
+}
+
+/* ==================== 自定义组件样式 ==================== */
+
+/* 主要按钮样式 */
+.primary-button {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%) !important;
+    border-radius: 48rpx !important;
+    height: 100rpx !important;
+    border: none !important;
+    box-shadow: 0 4px 16px 0 rgba(255, 107, 107, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.primary-button:active {
+    transform: translateY(2rpx) scale(0.98) !important;
+    box-shadow: 0 2px 8px 0 rgba(255, 107, 107, 0.4) !important;
+}
+
+.primary-button:hover {
+    transform: translateY(-2rpx) !important;
+    box-shadow: 0 6px 20px 0 rgba(255, 107, 107, 0.3) !important;
+}
+
+/* 次要按钮样式 */
+.secondary-button {
+    background: linear-gradient(135deg, #FFB3BA 0%, #FF9AA2 100%) !important;
+    border-radius: 40rpx !important;
+    height: 72rpx !important;
+    border: none !important;
+    color: #2C3E50 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.secondary-button:active {
+    transform: translateY(1rpx) scale(0.98) !important;
+}
+
+/* 输入框样式 */
+.warm-input {
+    background-color: #FFF5F5 !important;
+    border-radius: 24rpx !important;
+    padding: 32rpx 40rpx !important;
+    font-size: 30rpx !important;
+    border: 1px solid transparent !important;
+    /* 默认透明边框，防止聚焦时偏移 */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease !important;
+    /* 平滑的边框颜色过渡 */
+}
+
+/* warm-input聚焦状态 - 当内部输入框聚焦时改变边框颜色 */
+.warm-input:focus-within {
+    border-color: #FF6B6B !important;
+    /* 只改变颜色，不改变尺寸 */
+}
+
+/* 移除内部输入框的默认聚焦样式 */
+.warm-input .uni-input-input:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+/* 移除所有内部输入框的默认聚焦边框 */
+.warm-input input:focus,
+.warm-input textarea:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+/* ==================== 温暖色系主题 ==================== */
+
+/* 单选框 */
+.u-radio__icon-wrap--checked {
+    background-color: #FF6B6B !important;
+    border-color: #FF6B6B !important;
+}
+
+/* 步骤条 */
+.u-steps-item__line--active {
+    background-color: #FF6B6B !important;
+}
+
+.u-steps-item__icon--active {
+    background-color: #FF6B6B !important;
+    border-color: #FF6B6B !important;
+}
+
+/* 卡片悬停效果 */
+.u-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.u-card:hover {
+    transform: translateY(-4rpx);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
+}
+
+/* ==================== 工具类样式 ==================== */
+
+/* 容器样式 */
+.container {
+    padding: 32rpx;
+    min-height: 100vh;
+}
+
+.page-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.main-content {
+    padding-bottom: 140rpx;
+    /* 为底部导航栏预留空间 */
+}
+
+/* 文本样式 */
+.page-title {
+    font-size: 56rpx;
+    font-weight: 600;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 48rpx;
+}
+
+.page-subtitle {
+    font-size: 30rpx;
+    color: #7F8C8D;
+    text-align: center;
+    margin-bottom: 64rpx;
+    line-height: 1.6;
+}
+
+.text-title {
+    font-size: 56rpx;
+}
+
+.text-subtitle {
+    font-size: 48rpx;
+}
+
+.text-body {
+    font-size: 30rpx;
+}
+
+.text-caption {
+    font-size: 26rpx;
+}
+
+.text-button {
+    font-size: 32rpx;
+}
+
+.text-primary {
+    color: #FF6B6B;
+}
+
+.text-secondary {
+    color: #7F8C8D;
+}
+
+.text-success {
+    color: #00B894;
+}
+
+.text-warm {
+    color: #FFAAA5;
+}
+
+/* 间距工具类 */
+.mt-16 {
+    margin-top: 16rpx;
+}
+
+.mt-32 {
+    margin-top: 32rpx;
+}
+
+.mt-48 {
+    margin-top: 48rpx;
+}
+
+.mt-64 {
+    margin-top: 64rpx;
+}
+
+.mb-16 {
+    margin-bottom: 16rpx;
+}
+
+.mb-32 {
+    margin-bottom: 32rpx;
+}
+
+.mb-48 {
+    margin-bottom: 48rpx;
+}
+
+.mb-64 {
+    margin-bottom: 64rpx;
+}
+
+.p-16 {
+    padding: 16rpx;
+}
+
+.p-32 {
+    padding: 32rpx;
+}
+
+.p-48 {
+    padding: 48rpx;
+}
+
+/* 布局工具类 */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%) !important;
+    border: none !important;
+    border-radius: 48rpx !important;
+    color: #FEFEFE !important;
+    font-weight: 500 !important;
+    font-size: 32rpx !important;
+    height: 88rpx !important;
+    line-height: 88rpx !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.btn-secondary {
+    background: #FEFEFE !important;
+    border: 2rpx solid #FF6B6B !important;
+    border-radius: 48rpx !important;
+    color: #FF6B6B !important;
+    font-weight: 500 !important;
+    font-size: 32rpx !important;
+    height: 88rpx !important;
+    line-height: 88rpx !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 卡片样式 */
+.card {
+    background: #FEFEFE;
+    border-radius: 24rpx;
+    box-shadow: 0 4px 16px 0 rgba(255, 107, 107, 0.15);
+    padding: 48rpx 32rpx;
+    margin-bottom: 32rpx;
+}
+
+/* 输入框样式 */
+.input-wrapper {
+    margin-bottom: 32rpx;
+}
+
+.input-label {
+    font-size: 30rpx;
+    color: #2C3E50;
+    margin-bottom: 16rpx;
+    font-weight: 500;
+}
+
+/* 渐变背景 */
+.gradient-bg {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+}
+
+.gradient-secondary-bg {
+    background: linear-gradient(135deg, #FFB3BA 0%, #FF9AA2 100%);
+}
+
+/* 动画样式 */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20rpx);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 页面切换动画 */
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-enter-from {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.page-leave-to {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+/* 安全区域适配 */
+.safe-area-inset-bottom {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-inset-top {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+
+/* ==================== 响应式适配 ==================== */
+
+/* 确保按钮在不同屏幕尺寸下都能正确居中 */
+@media screen and (max-width: 768px) {
+    .u-button {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    .u-button__text {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+}

@@ -23,6 +23,20 @@
       
       <!-- 进度指示器 -->
       <view class="progress-section">
+        <!-- 简单的步骤指示器作为备用 -->
+        <view class="simple-steps">
+          <view class="step-item" :class="{ active: currentStep >= 0 }">
+            <view class="step-number">1</view>
+            <view class="step-name">Basic Info</view>
+          </view>
+          <view class="step-line" :class="{ active: currentStep >= 1 }"></view>
+          <view class="step-item" :class="{ active: currentStep >= 1 }">
+            <view class="step-number">2</view>
+            <view class="step-name">Profile</view>
+          </view>
+        </view>
+        
+        <!-- uView步骤条 -->
         <u-steps
           :current="currentStep"
           :list="stepsList"
@@ -30,6 +44,8 @@
           direction="row"
           active-color="#FF6B6B"
           inactive-color="#E5E7EB"
+          :dot="false"
+          style="display: none;"
         ></u-steps>
       </view>
       
@@ -68,8 +84,9 @@
             <u-form-item prop="password" label="Password">
               <u-input
                 v-model="registerForm.password"
-                placeholder="min 6 characters"
+                placeholder="(min 6 characters)"
                 :password="!showPassword"
+                border="none"
                 class="warm-input"
                 prefix-icon="lock"
                 prefix-icon-style="color: #FF6B6B"
@@ -258,14 +275,7 @@
       cancel-text="Cancel"
     ></u-action-sheet>
     
-    <!-- 页面转场动画 -->
-    <u-transition
-      :show="showTransition"
-      mode="fade"
-      :duration="300"
-    >
-      <view class="transition-overlay"></view>
-    </u-transition>
+
   </view>
 </template>
 
@@ -289,7 +299,6 @@ export default {
     const showPassword = ref(false)
     const showAgePicker = ref(false)
     const showAvatarPicker = ref(false)
-    const showTransition = ref(false)
     
     // 表单数据
     const registerForm = reactive({
@@ -421,7 +430,16 @@ export default {
       if (currentStep.value > 0) {
         currentStep.value--
       } else {
-        uni.navigateBack()
+        // 确保能够返回到登录页面
+        uni.navigateBack({
+          delta: 1,
+          fail: () => {
+            // 如果navigateBack失败，直接跳转到登录页面
+            uni.redirectTo({
+              url: '/pages/auth/login'
+            })
+          }
+        })
       }
     }
     
@@ -524,15 +542,10 @@ export default {
             duration: 2000
           })
           
-          // 页面转场动画
-          showTransition.value = true
-          
-          // 延迟跳转到主页面
-          setTimeout(() => {
-            uni.reLaunch({
-              url: '/pages/main/index'
-            })
-          }, 300)
+          // 跳转到主页面
+          uni.reLaunch({
+            url: '/pages/main/index'
+          })
         } else {
           // 显示错误信息
           uni.showToast({
@@ -557,11 +570,9 @@ export default {
     }
     
     const goToLogin = () => {
-      showTransition.value = true
-      setTimeout(() => {
-        uni.navigateBack()
-        showTransition.value = false
-      }, 300)
+      uni.reLaunch({
+        url: '/pages/auth/login'
+      })
     }
     
     // 生命周期
@@ -583,7 +594,7 @@ export default {
       showPassword,
       showAgePicker,
       showAvatarPicker,
-      showTransition,
+
       registerForm,
       stepsList,
       genderOptions,
@@ -611,7 +622,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/components.scss';
 .register-container {
   background: linear-gradient(135deg, #FFF5F5 0%, #FEFEFE 100%);
   position: relative;
@@ -691,13 +701,107 @@ export default {
 
 .progress-section {
   margin-bottom: 48rpx;
+  padding: 0 32rpx;
+  
+  .simple-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32rpx;
+    
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .step-number {
+        width: 64rpx;
+        height: 64rpx;
+        border-radius: 50%;
+        background-color: #E5E7EB;
+        color: #7F8C8D;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28rpx;
+        font-weight: 600;
+        margin-bottom: 16rpx;
+        transition: all 0.3s ease;
+      }
+      
+      .step-name {
+        font-size: 24rpx;
+        color: #7F8C8D;
+        transition: all 0.3s ease;
+      }
+      
+      &.active {
+        .step-number {
+          background-color: #FF6B6B;
+          color: #FFFFFF;
+        }
+        
+        .step-name {
+          color: #FF6B6B;
+          font-weight: 600;
+        }
+      }
+    }
+    
+    .step-line {
+      width: 120rpx;
+      height: 4rpx;
+      background-color: #E5E7EB;
+      margin: 0 32rpx;
+      margin-bottom: 40rpx;
+      transition: all 0.3s ease;
+      
+      &.active {
+        background-color: #FF6B6B;
+      }
+    }
+  }
+  
+  :deep(.u-steps) {
+    display: flex !important;
+    visibility: visible !important;
+  }
+  
+  :deep(.u-steps-item) {
+    display: flex !important;
+    visibility: visible !important;
+    flex: 1;
+  }
   
   :deep(.u-steps-item__line) {
-    background-color: #E5E7EB;
+    background-color: #E5E7EB !important;
+    height: 2px !important;
   }
   
   :deep(.u-steps-item__line--active) {
-    background-color: #FF6B6B;
+    background-color: #FF6B6B !important;
+  }
+  
+  :deep(.u-steps-item__icon) {
+    background-color: #E5E7EB !important;
+    border-color: #E5E7EB !important;
+    color: #7F8C8D !important;
+  }
+  
+  :deep(.u-steps-item__icon--active) {
+    background-color: #FF6B6B !important;
+    border-color: #FF6B6B !important;
+    color: #FFFFFF !important;
+  }
+  
+  :deep(.u-steps-item__title) {
+    color: #7F8C8D !important;
+    font-size: 24rpx !important;
+  }
+  
+  :deep(.u-steps-item__title--active) {
+    color: #FF6B6B !important;
+    font-weight: 600 !important;
   }
 }
 
@@ -737,7 +841,8 @@ export default {
   }
   
   :deep(.u-form-item) {
-    margin-bottom: 48rpx; /* 大间距：48rpx */
+    margin-bottom: 64rpx; /* 增加间距为错误提示预留空间 */
+    position: relative;
     display: block !important;
     visibility: visible !important;
   }
@@ -796,15 +901,7 @@ export default {
   flex-shrink: 0;
 }
 
-.transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
-  z-index: 9999;
-}
+
 
 /* 动画定义 */
 @keyframes slideInRight {

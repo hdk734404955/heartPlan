@@ -12,7 +12,8 @@ export const API_CONFIG = {
   // 请求头配置
   HEADERS: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest'
   }
 }
 
@@ -65,13 +66,24 @@ export const responseInterceptor = (response) => {
     })
     return Promise.reject(new Error('Unauthorized'))
   } else if (response.statusCode === 403) {
-    // 禁止访问
+    // 禁止访问 - 可能是CORS问题
+    const errorMessage = response.data === 'Invalid CORS request' 
+      ? 'CORS configuration error. Please check server settings.' 
+      : 'Access denied';
+    
     uni.showToast({
-      title: 'Access denied',
+      title: errorMessage,
       icon: 'none',
-      duration: 2000
+      duration: 3000
     })
-    return Promise.reject(new Error('Forbidden'))
+    
+    console.error('403 Error Details:', {
+      data: response.data,
+      headers: response.header,
+      statusCode: response.statusCode
+    })
+    
+    return Promise.reject(new Error('Forbidden: ' + response.data))
   } else if (response.statusCode >= 500) {
     // 服务器错误
     uni.showToast({

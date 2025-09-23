@@ -9,12 +9,138 @@
         '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
         (coverSupport ? ', viewport-fit=cover' : '') + '" />')
     </script>
-    <title></title>
+    <title>HeartPlan</title>
     <!--preload-links-->
     <!--app-context-->
+    <style>
+      /* 启动画面样式 */
+      #app-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB3BA 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        overflow: hidden;
+      }
+      
+      .loading-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.8);
+        animation: fadeInContent 0.4s ease-out 0.1s forwards;
+      }
+      
+      .heart-icon {
+        font-size: 80px;
+        margin-bottom: 20px;
+        animation: heartBeat 1.5s ease-in-out infinite;
+      }
+      
+      .ripple-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px;
+        height: 120px;
+      }
+      
+      .ripple {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        animation: rippleEffect 2s ease-out infinite;
+      }
+      
+      .ripple-1 { animation-delay: 0s; }
+      .ripple-2 { animation-delay: 0.5s; }
+      .ripple-3 { animation-delay: 1s; }
+      
+      @keyframes fadeInContent {
+        from {
+          opacity: 0;
+          transform: scale(0.8) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      
+      @keyframes heartBeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      
+      @keyframes rippleEffect {
+        0% {
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
+        100% {
+          width: 120px;
+          height: 120px;
+          opacity: 0;
+        }
+      }
+      
+      /* 隐藏启动画面的动画 */
+      .loading-fade-out {
+        opacity: 1;
+        animation: fadeOut 0.5s ease-out forwards;
+      }
+      
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- 启动画面 -->
+    <div id="app-loading">
+      <div class="loading-content">
+        <div class="heart-icon">💖</div>
+        <div class="ripple-container">
+          <div class="ripple ripple-1"></div>
+          <div class="ripple ripple-2"></div>
+          <div class="ripple ripple-3"></div>
+        </div>
+      </div>
+    </div>
+    
     <div id="app"><!--app-html--></div>
     <script type="module" src="/src/main.js"></script>
+    
+    <script>
+      // 当应用加载完成后隐藏启动画面
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingEl = document.getElementById('app-loading');
+          if (loadingEl) {
+            loadingEl.classList.add('loading-fade-out');
+            setTimeout(function() {
+              loadingEl.remove();
+            }, 500);
+          }
+        }, 1000); // 显示1秒后开始淡出
+      });
+    </script>
   </body>
 </html>

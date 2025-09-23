@@ -52,22 +52,20 @@
               class="warm-input"
               prefix-icon="lock"
               prefix-icon-style="color: #FF6B6B"
-              :suffix-icon="showPassword ? 'eye-off' : 'eye'"
-              suffix-icon-style="color: #7F8C8D"
               @suffix-icon-click="togglePassword"
             ></u-input>
           </u-form-item>
         </u-form>
         
         <!-- 忘记密码链接 -->
-        <view class="forgot-password">
+       <!-- <view class="forgot-password">
           <u-text
             text="Forgot Password?"
             color="#FF6B6B"
             size="14"
             @click="handleForgotPassword"
           ></u-text>
-        </view>
+        </view> -->
         
         <!-- 登录按钮 -->
         <view class="button-section">
@@ -101,14 +99,7 @@
       </view>
     </view>
     
-    <!-- 页面转场动画 -->
-    <u-transition
-      :show="showTransition"
-      mode="fade"
-      :duration="300"
-    >
-      <view class="transition-overlay"></view>
-    </u-transition>
+
   </view>
 </template>
 
@@ -128,7 +119,6 @@ export default {
     // 响应式数据
     const loginFormRef = ref(null)
     const showPassword = ref(false)
-    const showTransition = ref(false)
     
     // 表单数据
     const loginForm = reactive({
@@ -206,15 +196,10 @@ export default {
             duration: 2000
           })
           
-          // 页面转场动画
-          showTransition.value = true
-          
-          // 延迟跳转到主页面
-          setTimeout(() => {
-            uni.reLaunch({
-              url: '/pages/main/index'
-            })
-          }, 300)
+          // 跳转到主页面
+          uni.reLaunch({
+            url: '/pages/main/index'
+          })
         } else {
           // 显示错误信息
           uni.showToast({
@@ -226,12 +211,26 @@ export default {
       } catch (error) {
         console.error('Login error:', error)
         
-        // 显示网络错误提示
-        uni.showToast({
-          title: 'Network error, please try again',
-          icon: 'error',
-          duration: 2000
-        })
+        // CORS错误特殊处理
+        if (error.message && error.message.includes('Invalid CORS request')) {
+          // 运行CORS调试
+          corsDebug.showDebugInfo()
+          corsDebug.analyzeCorsError(error)
+          
+          uni.showModal({
+            title: 'CORS Configuration Error',
+            content: 'There is a cross-origin request issue. Please check if the backend server is running and CORS is properly configured.',
+            showCancel: false,
+            confirmText: 'OK'
+          })
+        } else {
+          // 显示网络错误提示
+          uni.showToast({
+            title: 'Network error, please try again',
+            icon: 'error',
+            duration: 2000
+          })
+        }
       } finally {
         // 清除加载状态
         authStore.setLoginLoading(false)
@@ -248,13 +247,9 @@ export default {
     }
     
     const goToRegister = () => {
-      showTransition.value = true
-      setTimeout(() => {
-        uni.navigateTo({
-          url: '/pages/auth/register'
-        })
-        showTransition.value = false
-      }, 300)
+      uni.navigateTo({
+        url: '/pages/auth/register'
+      })
     }
     
     
@@ -266,7 +261,7 @@ export default {
       // 响应式数据
       loginFormRef,
       showPassword,
-      showTransition,
+
       loginForm,
       loginRules,
       
@@ -284,7 +279,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/components.scss';
 .login-container {
   width: 100vw;
   height: 100vh;
@@ -386,16 +380,7 @@ export default {
   flex-direction: column;
   min-height: 0;
   
-  :deep(.u-form-item__label) {
-    font-size: 30rpx; /* 正文内容：28-32rpx */
-    font-weight: 600;
-    color: #2C3E50;
-    margin-bottom: 16rpx;
-  }
-  
-  :deep(.u-form-item) {
-    margin-bottom: 32rpx; /* 中间距：32rpx */
-  }
+
 }
 
 .forgot-password {
@@ -435,15 +420,7 @@ export default {
   }
 }
 
-.transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
-  z-index: 9999;
-}
+
 
 /* 动画定义 */
 @keyframes fadeInDown {
@@ -497,7 +474,8 @@ export default {
   
   .form-section {
     :deep(.u-form-item) {
-      margin-bottom: 32rpx;
+      margin-bottom: 64rpx; /* 增加间距为错误提示预留空间 */
+      position: relative;
     }
   }
   
@@ -569,7 +547,8 @@ export default {
   
   .form-section {
     :deep(.u-form-item) {
-      margin-bottom: 28rpx;
+      margin-bottom: 64rpx; /* 增加间距为错误提示预留空间 */
+      position: relative;
     }
   }
 }

@@ -28,6 +28,15 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8080',
         changeOrigin: true,
+        secure: false,
+        // 添加更多CORS相关配置
+        configure: (proxy, options) => {
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            // 添加必要的请求头
+            proxyReq.setHeader('Origin', 'http://localhost:5100');
+            proxyReq.setHeader('Referer', 'http://localhost:5100');
+          });
+        },
         // 如果后端接口没有 /api 前缀，可以重写路径
         // rewrite: (path) => path.replace(/^\/api/, '')
       }

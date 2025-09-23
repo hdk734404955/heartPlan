@@ -48,6 +48,7 @@
             ref="step1FormRef"
             label-position="top"
             border="none"
+            :label-width="'auto'"
           >
             <!-- 邮箱输入 -->
             <u-form-item prop="email" label="Email Address">
@@ -56,7 +57,7 @@
                 placeholder="Enter your email"
                 type="email"
                 border="none"
-                :custom-style="inputStyle"
+                class="warm-input"
                 prefix-icon="email"
                 prefix-icon-style="color: #FF6B6B"
                 @blur="checkEmailAvailability"
@@ -67,14 +68,11 @@
             <u-form-item prop="password" label="Password">
               <u-input
                 v-model="registerForm.password"
-                placeholder="Create a password (min 6 characters)"
+                placeholder="min 6 characters"
                 :password="!showPassword"
-                border="none"
-                :custom-style="inputStyle"
+                class="warm-input"
                 prefix-icon="lock"
                 prefix-icon-style="color: #FF6B6B"
-                :suffix-icon="showPassword ? 'eye-off' : 'eye'"
-                suffix-icon-style="color: #7F8C8D"
                 @suffix-icon-click="togglePassword"
               ></u-input>
             </u-form-item>
@@ -85,7 +83,7 @@
                 v-model="registerForm.age"
                 placeholder="Select your age"
                 border="none"
-                :custom-style="inputStyle"
+                class="warm-input"
                 prefix-icon="calendar"
                 prefix-icon-style="color: #FF6B6B"
                 suffix-icon="arrow-down"
@@ -104,7 +102,7 @@
                   :label="item.value"
                   :name="item.value"
                   active-color="#FF6B6B"
-                  :custom-style="{ marginRight: '32px' }"
+                  style="margin-right: 32rpx;"
                 >
                   {{ item.label }}
                 </u-radio>
@@ -133,7 +131,7 @@
                 v-model="registerForm.username"
                 placeholder="Choose a username"
                 border="none"
-                :custom-style="inputStyle"
+                class="warm-input"
                 prefix-icon="account"
                 prefix-icon-style="color: #FF6B6B"
               ></u-input>
@@ -148,7 +146,7 @@
                   :label="item.value"
                   :name="item.value"
                   active-color="#FF6B6B"
-                  :custom-style="{ marginBottom: '16px' }"
+                  style="margin-bottom: 32rpx;"
                 >
                   <view class="relationship-option">
                     <view class="option-title">{{ item.label }}</view>
@@ -176,14 +174,14 @@
                     text="Choose Avatar"
                     type="primary"
                     size="small"
-                    :custom-style="secondaryButtonStyle"
+                    class="secondary-button"
                     @click="showAvatarPicker = true"
                   ></u-button>
                   <u-button
                     text="Upload Photo"
                     type="primary"
                     size="small"
-                    :custom-style="secondaryButtonStyle"
+                    class="secondary-button"
                     @click="uploadAvatar"
                   ></u-button>
                 </view>
@@ -196,7 +194,7 @@
                 v-model="registerForm.location"
                 placeholder="Enter your city"
                 border="none"
-                :custom-style="inputStyle"
+                class="warm-input"
                 prefix-icon="map"
                 prefix-icon-style="color: #FF6B6B"
               ></u-input>
@@ -210,20 +208,22 @@
         <u-button
           v-if="currentStep === 0"
           :loading="false"
-          :custom-style="primaryButtonStyle"
+          loading-icon="spinner-cycle"
+          class="primary-button"
+          text="Continue"
           @click="nextStep"
         >
-          <u-text text="Continue" color="#FFFFFF" size="16" bold></u-text>
         </u-button>
         
         <u-button
           v-if="currentStep === 1"
           :loading="authStore.registerLoading"
           loading-text="Creating Account..."
-          :custom-style="primaryButtonStyle"
+          loading-icon="spinner-cycle"
+          class="primary-button"
+          text="Create Account"
           @click="handleRegister"
         >
-          <u-text text="Create Account" color="#FFFFFF" size="16" bold></u-text>
         </u-button>
       </view>
       
@@ -414,30 +414,7 @@ export default {
       ]
     })
     
-    // 样式配置 - 使用rpx响应式单位
-    const inputStyle = computed(() => ({
-      backgroundColor: '#FFF5F5',
-      borderRadius: '24rpx',
-      padding: '32rpx 40rpx',
-      fontSize: '30rpx',
-      border: 'none'
-    }))
-    
-    const primaryButtonStyle = computed(() => ({
-      background: 'linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%)',
-      borderRadius: '48rpx',
-      height: '100rpx',
-      border: 'none',
-      boxShadow: '0 4px 16px 0 rgba(255, 107, 107, 0.3)'
-    }))
-    
-    const secondaryButtonStyle = computed(() => ({
-      background: 'linear-gradient(135deg, #FFB3BA 0%, #FF9AA2 100%)',
-      borderRadius: '40rpx',
-      height: '72rpx',
-      border: 'none',
-      color: '#2C3E50'
-    }))
+
     
     // 方法
     const handleBack = () => {
@@ -616,10 +593,7 @@ export default {
       step1Rules,
       step2Rules,
       
-      // 计算属性
-      inputStyle,
-      primaryButtonStyle,
-      secondaryButtonStyle,
+
       
       // 方法
       handleBack,
@@ -637,9 +611,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/components.scss';
 .register-container {
-  width: 100vw;
-  height: 100vh;
   background: linear-gradient(135deg, #FFF5F5 0%, #FEFEFE 100%);
   position: relative;
   overflow: hidden;
@@ -765,6 +738,18 @@ export default {
   
   :deep(.u-form-item) {
     margin-bottom: 48rpx; /* 大间距：48rpx */
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  :deep(.u-input) {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  :deep(.u-radio-group) {
+    display: flex !important;
+    visibility: visible !important;
   }
 }
 
@@ -803,40 +788,6 @@ export default {
 .button-section {
   margin-bottom: 32rpx;
   flex-shrink: 0;
-  
-  :deep(.u-button) {
-    width: 100%;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: center !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative;
-    
-    &:active {
-      transform: translateY(2rpx) scale(0.98);
-      box-shadow: 0 2px 8px 0 rgba(255, 107, 107, 0.4);
-    }
-    
-    &:hover {
-      transform: translateY(-2rpx);
-      box-shadow: 0 6px 20px 0 rgba(255, 107, 107, 0.3);
-    }
-  }
-  
-  :deep(.u-button__text) {
-    text-align: center !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 1 !important;
-  }
-  
-  :deep(.u-text) {
-    text-align: center !important;
-    width: 100% !important;
-  }
 }
 
 .login-section {

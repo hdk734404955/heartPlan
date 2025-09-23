@@ -26,6 +26,7 @@
           ref="loginFormRef"
           label-position="top"
           border="none"
+          :label-width="'auto'"
         >
           <!-- 邮箱输入 -->
           <u-form-item prop="email" label="Email Address">
@@ -34,7 +35,7 @@
               placeholder="Enter your email"
               type="email"
               border="none"
-              :custom-style="inputStyle"
+              class="warm-input"
               prefix-icon="email"
               prefix-icon-style="color: #FF6B6B"
               @blur="validateEmail"
@@ -48,7 +49,7 @@
               placeholder="Enter your password"
               :password="!showPassword"
               border="none"
-              :custom-style="inputStyle"
+              class="warm-input"
               prefix-icon="lock"
               prefix-icon-style="color: #FF6B6B"
               :suffix-icon="showPassword ? 'eye-off' : 'eye'"
@@ -73,10 +74,11 @@
           <u-button
             :loading="authStore.loginLoading"
             loading-text="Signing In..."
-            :custom-style="primaryButtonStyle"
+            loading-icon="spinner-cycle"
+            class="primary-button"
             @click="handleLogin"
+            text="Sign In"
           >
-            <u-text text="Sign In" color="#FFFFFF" size="16" bold></u-text>
           </u-button>
         </view>
         
@@ -162,22 +164,7 @@ export default {
       ]
     })
     
-    // 样式配置 - 使用rpx响应式单位
-    const inputStyle = computed(() => ({
-      backgroundColor: '#FFF5F5',
-      borderRadius: '24rpx',
-      padding: '32rpx 40rpx',
-      fontSize: '30rpx',
-      border: 'none'
-    }))
-    
-    const primaryButtonStyle = computed(() => ({
-      background: 'linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%)',
-      borderRadius: '48rpx',
-      height: '100rpx',
-      border: 'none',
-      boxShadow: '0 4px 16px 0 rgba(255, 107, 107, 0.3)'
-    }))
+
     
     // 方法
     const togglePassword = () => {
@@ -283,9 +270,7 @@ export default {
       loginForm,
       loginRules,
       
-      // 计算属性
-      inputStyle,
-      primaryButtonStyle,
+
       
       // 方法
       togglePassword,
@@ -299,6 +284,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/components.scss';
 .login-container {
   width: 100vw;
   height: 100vh;
@@ -421,40 +407,6 @@ export default {
 .button-section {
   margin-bottom: 40rpx;
   flex-shrink: 0;
-  
-  :deep(.u-button) {
-    width: 100%;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: center !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative;
-    
-    &:active {
-      transform: translateY(2rpx) scale(0.98);
-      box-shadow: 0 2px 8px 0 rgba(255, 107, 107, 0.4);
-    }
-    
-    &:hover {
-      transform: translateY(-2rpx);
-      box-shadow: 0 6px 20px 0 rgba(255, 107, 107, 0.3);
-    }
-  }
-  
-  :deep(.u-button__text) {
-    text-align: center !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 1 !important;
-  }
-  
-  :deep(.u-text) {
-    text-align: center !important;
-    width: 100% !important;
-  }
 }
 
 .divider {

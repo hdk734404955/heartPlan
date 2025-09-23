@@ -15,20 +15,7 @@
 				"navigationBarTitleText": "HeartPlan"
 			}
 		},
-		{
-			"path": "pages/test/api-test",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "API Test"
-			}
-		},
-		{
-			"path": "pages/test/scroll-test",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "Scroll Test"
-			}
-		},
+
 		{
 			"path": "pages/index/index",
 			"style": {

@@ -65,9 +65,10 @@ export const useAuthStore = defineStore('auth', () => {
         throw new Error('No refresh token available')
       }
       
-      // 这里应该调用刷新令牌的API
-      // const response = await authAPI.refreshToken(refreshToken.value)
-      // setTokens(response.data)
+      // 调用刷新令牌的API - 响应拦截器已处理统一格式，直接获取data
+      const { authAPI } = await import('@/api/auth')
+      const responseData = await authAPI.refreshToken(refreshToken.value)
+      setTokens(responseData)
       
       return true
     } catch (error) {

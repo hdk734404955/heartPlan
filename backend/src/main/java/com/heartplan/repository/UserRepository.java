@@ -7,14 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * 用户数据访问接口
  * 继承JpaRepository，提供基础的CRUD操作
- * 定义用户相关的数据查询方法
+ * 定义用户相关的数据查询方法，与简化后的User实体兼容
  * 
  * @author HeartPlan Team
  */
@@ -76,15 +75,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByRelationshipStatus(User.RelationshipStatus relationshipStatus);
 
     /**
-     * 查找指定时间之后登录的用户
-     * 用于统计活跃用户
-     * 
-     * @param dateTime 指定时间
-     * @return 用户列表
-     */
-    List<User> findByLastLoginAtAfter(LocalDateTime dateTime);
-
-    /**
      * 根据年龄范围查找用户
      * 用于用户匹配和推荐
      * 
@@ -139,8 +129,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     long countByEnabledTrue();
 
     /**
-     * 使用自定义查询查找相似兴趣的用户
-     * 用于智能推荐系统
+     * 使用自定义查询查找推荐用户
+     * 用于智能推荐系统，简化查询条件
      * 
      * @param userId 当前用户ID
      * @param relationshipStatus 目标恋爱状态
@@ -150,27 +140,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.id != :userId " +
            "AND u.relationshipStatus = :relationshipStatus " +
            "AND u.enabled = true " +
-           "AND u.deleted = false " +
            "ORDER BY u.createdAt DESC")
     List<User> findRecommendedUsers(@Param("userId") Long userId, 
                                    @Param("relationshipStatus") User.RelationshipStatus relationshipStatus,
                                    Pageable pageable);
 
     /**
-     * 查找在指定时间范围内活跃的用户
-     * 用于活跃度分析
-     * 
-     * @param startTime 开始时间
-     * @param endTime 结束时间
-     * @return 活跃用户列表
-     */
-    @Query("SELECT u FROM User u WHERE u.lastLoginAt BETWEEN :startTime AND :endTime " +
-           "AND u.enabled = true AND u.deleted = false")
-    List<User> findActiveUsersBetween(@Param("startTime") LocalDateTime startTime, 
-                                     @Param("endTime") LocalDateTime endTime);
-
-    /**
-     * 根据用户ID列表批量查找用户
+     * 根据用户ID列表批量查找启用的用户
      * 用于批量操作和关系查询
      * 
      * @param userIds 用户ID列表

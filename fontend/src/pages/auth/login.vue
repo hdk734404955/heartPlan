@@ -176,47 +176,34 @@ export default {
         // 设置加载状态
         authStore.setLoginLoading(true)
         
-        // 调用登录API
-        const response = await authAPI.login(loginForm)
+        // 调用登录API - 响应拦截器已处理统一格式，直接获取data
+        const responseData = await authAPI.login(loginForm)
         
-        if (response.data.success) {
-          // 保存认证信息
-          authStore.setTokens({
-            accessToken: response.data.data.accessToken,
-            refreshToken: response.data.data.refreshToken
-          })
-          
-          // 保存用户信息
-          userStore.setUserProfile(response.data.data.userProfile)
-          
-          // 显示成功提示
-          uni.showToast({
-            title: 'Login Successful',
-            icon: 'success',
-            duration: 2000
-          })
-          
-          // 跳转到主页面
-          uni.reLaunch({
-            url: '/pages/main/index'
-          })
-        } else {
-          // 显示错误信息
-          uni.showToast({
-            title: response.data.message || 'Login failed',
-            icon: 'error',
-            duration: 2000
-          })
-        }
+        // 保存认证信息
+        authStore.setTokens({
+          accessToken: responseData.accessToken,
+          refreshToken: responseData.refreshToken
+        })
+        
+        // 保存用户信息
+        userStore.setUserProfile(responseData.userProfile)
+        
+        // 显示成功提示
+        uni.showToast({
+          title: 'Login Successful',
+          icon: 'success',
+          duration: 2000
+        })
+        
+        // 跳转到主页面
+        uni.reLaunch({
+          url: '/pages/main/index'
+        })
       } catch (error) {
         console.error('Login error:', error)
         
-        // 显示网络错误提示
-        uni.showToast({
-          title: 'Network error, please try again',
-          icon: 'none',
-          duration: 2000
-        })
+        // 显示错误提示 - 响应拦截器已处理错误信息显示
+        // 这里只需要记录日志，用户已经看到错误提示
       } finally {
         // 清除加载状态
         authStore.setLoginLoading(false)

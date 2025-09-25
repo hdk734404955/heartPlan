@@ -55,125 +55,280 @@ export const requestInterceptor = (config) => {
   return config
 }
 
-// 响应拦截器
+/**
+ * 响应拦截器 - 统一处理ApiResponse格式 {code, data, message}
+ * 
+ * 优化说明：
+ * - 统一响应格式处理逻辑，基于code字段判断成功/失败
+ * - 简化错误处理流程，减少重复代码
+ * - 提供向后兼容支持，同时支持新旧响应格式
+ * 
+ * @param {Object} response - uni.request的响应对象
+ * @returns {*} 处理后的响应数据或抛出错误
+ */
 export const responseInterceptor = (response) => {
   const authStore = useAuthStore()
 
-  // 处理HTTP状态码
+  // 处理HTTP状态码 - 只有200状态码才进行业务逻辑处理
   if (response.statusCode === 200) {
-    return response.data
-  } else if (response.statusCode === 401) {
-    // 未授权处理
-    handleUnauthorizedError(authStore)
-    return Promise.reject(new Error('Unauthorized'))
-  } else if (response.statusCode === 403) {
-    // 禁止访问处理 - 区分CORS错误和权限错误
-    return handleForbiddenError(response)
-  } else if (response.statusCode >= 500) {
-    // 服务器错误处理
-    return handleServerError(response)
+    const responseData = response.data
+    
+    // 检查是否为统一ApiResponse格式：{code, data, message}
+    if (responseData && typeof responseData === 'object' && 'code' in responseData) {
+      // 统一ApiResponse格式处理
+      // 基于code字段判断业务成功/失败状态
+      if (responseData.code >= 200 && responseData.code < 300) {
+        // 业务成功：直接返回data字段给业务代码使用
+        return responseData.data
+      } else {
+        // 业务错误：根据code字段统一处理不同类型的业务错误
+        return handleBusinessError(responseData, authStore)
+      }
+    } else {
+      // 向后兼容：支持旧格式响应，直接返回原始数据
+      return responseData
+    }
   } else {
-    // 其他客户端错误处理
-    return handleClientError(response)
+    // HTTP错误状态码：统一处理网络层面的错误
+    return handleHttpError(response, authStore)
   }
 }
 
-// 处理401未授权错误
-const handleUnauthorizedError = (authStore) => {
-  // 清除认证信息
-  authStore.logout()
+/**
+ * 处理业务错误（基于ApiResponse的code字段）
+ * 
+ * 优化说明：
+ * - 统一业务错误处理逻辑，基于code字段分类处理
+ * - 简化错误提示显示，使用统一的用户体验
+ * - 减少重复的错误处理代码
+ * 
+ * @param {Object} responseData - ApiResponse格式的响应数据
+ * @param {Object} authStore - 认证状态管理器
+ * @returns {Promise} 拒绝的Promise，包含错误信息
+ */
+const handleBusinessError = (responseData, authStore) => {
+  const { code, message } = responseData
   
-  // 显示友好提示
-  uni.showModal({
-    title: 'Session Expired',
-    content: 'Your login session has expired. Please log in again.',
-    showCancel: false,
-    confirmText: 'Login',
-    success: () => {
-      // 跳转到登录页面
-      uni.reLaunch({
-        url: '/pages/auth/login'
-      })
-    }
-  })
-}
-
-// 处理403禁止访问错误
-const handleForbiddenError = (response) => {
-  const responseData = response.data
-  const isCorsError = typeof responseData === 'string' && 
-    (responseData.includes('CORS') || responseData.includes('Invalid CORS request'))
-  
-  if (isCorsError) {
-    // CORS错误特殊处理
-    uni.showModal({
-      title: 'CORS Configuration Error',
-      content: 'Cross-origin request blocked. Please check if the backend server is running and CORS is properly configured.',
-      showCancel: false,
-      confirmText: 'OK'
-    })
-    
-    return Promise.reject(new Error(`CORS Error: ${responseData}`))
-  } else {
-    // 权限错误
+  // 根据code字段统一处理不同类型的业务错误
+  if (code === 401) {
+    // 401认证失败：自动清除认证信息并跳转登录
+    handleUnauthorizedError(authStore)
+    return Promise.reject(new Error(message || 'Unauthorized'))
+  } else if (code === 403) {
+    // 403权限不足：显示权限错误提示
     uni.showModal({
       title: 'Access Denied',
-      content: 'You do not have permission to access this resource. Please contact the administrator.',
+      content: message || 'You do not have permission to access this resource.',
       showCancel: false,
       confirmText: 'OK'
     })
-    
-    return Promise.reject(new Error(`Access Denied: ${responseData?.message || responseData}`))
+    return Promise.reject(new Error(message || 'Access Denied'))
+  } else if (code >= 400 && code < 500) {
+    // 4xx客户端错误：参数错误、资源不存在等
+    uni.showToast({
+      title: message || 'Request failed',
+      icon: 'none',
+      duration: 3000
+    })
+    return Promise.reject(new Error(message || 'Client Error'))
+  } else if (code >= 500) {
+    // 5xx服务器错误：显示重试选项
+    uni.showModal({
+      title: 'Server Error',
+      content: message || 'The server encountered a problem. Please try again later.',
+      showCancel: true,
+      cancelText: 'Cancel',
+      confirmText: 'Retry'
+    })
+    return Promise.reject(new Error(message || 'Server Error'))
+  } else {
+    // 其他未知错误码：显示通用错误提示
+    uni.showToast({
+      title: message || 'Unknown error',
+      icon: 'none',
+      duration: 3000
+    })
+    return Promise.reject(new Error(message || 'Unknown Error'))
   }
 }
 
-// 处理服务器错误
-const handleServerError = (response) => {
-  const errorMessage = response.data?.message || 'Internal server error'
+/**
+ * 统一处理HTTP错误状态码
+ * 
+ * 优化说明：
+ * - 简化HTTP错误处理逻辑，减少重复代码
+ * - 统一错误提示显示方式，提供一致的用户体验
+ * - 清晰区分不同类型的HTTP错误
+ * 
+ * @param {Object} response - HTTP响应对象
+ * @param {Object} authStore - 认证状态管理器
+ * @returns {Promise} 拒绝的Promise，包含错误信息
+ */
+const handleHttpError = (response, authStore) => {
+  const { statusCode, data } = response
   
-  uni.showModal({
-    title: 'Server Error',
-    content: `The server encountered a problem. Please try again later.\nError code: ${response.statusCode}`,
-    showCancel: true,
-    cancelText: 'Cancel',
-    confirmText: 'Retry'
-  })
-  
-  return Promise.reject(new Error(`Server Error (${response.statusCode}): ${errorMessage}`))
+  if (statusCode === 401) {
+    // 401未授权：自动清除认证信息并跳转登录页面
+    handleUnauthorizedError(authStore)
+    return Promise.reject(new Error('Unauthorized'))
+  } else if (statusCode === 403) {
+    // 403禁止访问：区分CORS错误和权限错误
+    return handleForbiddenError(data)
+  } else if (statusCode >= 500) {
+    // 5xx服务器错误：显示简洁的错误提示
+    return handleServerError(statusCode, data)
+  } else {
+    // 4xx客户端错误：显示简洁的错误提示
+    return handleClientError(statusCode, data)
+  }
 }
 
-// 处理客户端错误
-const handleClientError = (response) => {
-  const errorMessage = response.data?.message || `Request failed (${response.statusCode})`
+/**
+ * 简化401错误处理 - 自动清除认证信息并跳转登录页面
+ * 
+ * 优化说明：
+ * - 统一认证失败处理逻辑，自动清理状态
+ * - 简化用户提示，提供清晰的操作指引
+ * 
+ * @param {Object} authStore - 认证状态管理器
+ */
+const handleUnauthorizedError = (authStore) => {
+  // 清除认证信息，触发自动跳转登录页面
+  authStore.logout()
   
+  // 显示简洁的会话过期提示
+  uni.showToast({
+    title: 'Session expired, please login again',
+    icon: 'none',
+    duration: 2000
+  })
+}
+
+/**
+ * 简化403错误处理 - 清晰区分CORS错误和权限错误
+ * 
+ * 优化说明：
+ * - 智能识别CORS错误和权限错误，提供针对性提示
+ * - 简化错误分类逻辑，减少判断复杂度
+ * 
+ * @param {*} data - 响应数据
+ * @returns {Promise} 拒绝的Promise，包含错误信息
+ */
+const handleForbiddenError = (data) => {
+  const responseText = typeof data === 'string' ? data : JSON.stringify(data)
+  const isCorsError = responseText.includes('CORS') || responseText.includes('Invalid CORS request')
+  
+  if (isCorsError) {
+    // CORS错误：显示网络配置错误提示
+    uni.showToast({
+      title: 'Network configuration error',
+      icon: 'none',
+      duration: 3000
+    })
+    return Promise.reject(new Error('CORS Error'))
+  } else {
+    // 权限错误：显示访问被拒绝提示
+    uni.showToast({
+      title: 'Access denied',
+      icon: 'none',
+      duration: 3000
+    })
+    return Promise.reject(new Error('Access Denied'))
+  }
+}
+
+/**
+ * 简化服务器错误处理 - 显示简洁的错误提示
+ * 
+ * 优化说明：
+ * - 统一服务器错误提示，提供一致的用户体验
+ * - 简化错误信息构建，减少重复代码
+ * 
+ * @param {number} statusCode - HTTP状态码
+ * @param {*} data - 响应数据
+ * @returns {Promise} 拒绝的Promise，包含错误信息
+ */
+const handleServerError = (statusCode, data) => {
+  // 显示统一的服务器错误提示
+  uni.showToast({
+    title: 'Server error, please try again later',
+    icon: 'none',
+    duration: 3000
+  })
+  
+  const errorMessage = data?.message || 'Internal server error'
+  return Promise.reject(new Error(`Server Error (${statusCode}): ${errorMessage}`))
+}
+
+/**
+ * 简化客户端错误处理
+ * 
+ * 优化说明：
+ * - 统一客户端错误提示显示方式
+ * - 简化错误信息提取和显示逻辑
+ * 
+ * @param {number} statusCode - HTTP状态码
+ * @param {*} data - 响应数据
+ * @returns {Promise} 拒绝的Promise，包含错误信息
+ */
+const handleClientError = (statusCode, data) => {
+  const errorMessage = data?.message || 'Request failed'
+  
+  // 显示客户端错误提示
   uni.showToast({
     title: errorMessage,
     icon: 'none',
     duration: 3000
   })
   
-  return Promise.reject(new Error(errorMessage))
+  return Promise.reject(new Error(`Client Error (${statusCode}): ${errorMessage}`))
 }
 
 
 
-// 错误处理器
+/**
+ * 简化网络错误处理器 - 实现简单直观的网络错误处理机制
+ * 
+ * 优化说明：
+ * - 统一网络错误分类和提示显示
+ * - 简化错误类型判断逻辑，提供清晰的用户反馈
+ * - 减少重复的错误处理代码
+ * 
+ * @param {Object} error - 网络错误对象
+ * @returns {Promise} 拒绝的Promise，包含原始错误
+ */
 export const errorHandler = (error) => {
   if (error.errMsg) {
-    // 网络错误处理
+    // 根据错误消息类型提供不同的用户提示
     if (error.errMsg.includes('timeout')) {
+      // 请求超时错误
       uni.showToast({
         title: 'Request timeout',
         icon: 'none',
         duration: 2000
       })
-    } else if (error.errMsg.includes('fail')) {
+    } else if (error.errMsg.includes('fail') || error.errMsg.includes('network')) {
+      // 网络连接失败错误
+      uni.showToast({
+        title: 'Network connection failed',
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      // 其他网络相关错误
       uni.showToast({
         title: 'Network error',
         icon: 'none',
         duration: 2000
       })
     }
+  } else {
+    // 未知类型错误
+    uni.showToast({
+      title: 'Unknown error occurred',
+      icon: 'none',
+      duration: 2000
+    })
   }
 
   return Promise.reject(error)

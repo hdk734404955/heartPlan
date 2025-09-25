@@ -1,8 +1,6 @@
 package com.heartplan;
 
 import com.heartplan.entity.User;
-import com.heartplan.entity.UserPreferences;
-import com.heartplan.entity.PrivacySettings;
 import com.heartplan.repository.UserRepository;
 import com.heartplan.service.AuthService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 认证功能集成测试
- * 测试用户实体、认证服务和相关功能
+ * 测试简化后的用户实体、认证服务和相关功能
  * 
  * @author HeartPlan Team
  */
@@ -37,28 +35,13 @@ public class AuthIntegrationTest {
     private PasswordEncoder passwordEncoder;
 
     /**
-     * 测试用户实体的创建和保存
+     * 测试简化后的用户实体的创建和保存
      */
     @Test
     public void testUserEntityCreationAndSave() {
-        log.info("开始测试用户实体的创建和保存");
+        log.info("开始测试简化后的用户实体的创建和保存");
 
-        // 创建用户偏好设置
-        UserPreferences preferences = UserPreferences.builder()
-                .language(UserPreferences.Language.ENGLISH)
-                .theme(UserPreferences.Theme.LIGHT)
-                .pushNotifications(true)
-                .emailNotifications(true)
-                .build();
-
-        // 创建隐私设置
-        PrivacySettings privacySettings = PrivacySettings.builder()
-                .profileVisibility(PrivacySettings.ProfileVisibility.PUBLIC)
-                .allowStrangerMessages(true)
-                .searchable(true)
-                .build();
-
-        // 创建用户
+        // 创建简化的用户实体
         User user = User.builder()
                 .email("test@example.com")
                 .username("testuser")
@@ -66,9 +49,9 @@ public class AuthIntegrationTest {
                 .age(25)
                 .gender(User.Gender.MALE)
                 .relationshipStatus(User.RelationshipStatus.SINGLE)
-                .location("北京")
-                .preferences(preferences)
-                .privacySettings(privacySettings)
+                .location("Beijing")
+                .avatarUrl("https://example.com/avatar.jpg")
+                .enabled(true)
                 .build();
 
         // 保存用户
@@ -81,21 +64,13 @@ public class AuthIntegrationTest {
         assertEquals(25, savedUser.getAge());
         assertEquals(User.Gender.MALE, savedUser.getGender());
         assertEquals(User.RelationshipStatus.SINGLE, savedUser.getRelationshipStatus());
-        assertEquals("北京", savedUser.getLocation());
+        assertEquals("Beijing", savedUser.getLocation());
+        assertEquals("https://example.com/avatar.jpg", savedUser.getAvatarUrl());
         assertTrue(savedUser.getEnabled());
         assertNotNull(savedUser.getCreatedAt());
         assertNotNull(savedUser.getUpdatedAt());
 
-        // 验证嵌入式对象
-        assertNotNull(savedUser.getPreferences());
-        assertEquals(UserPreferences.Language.ENGLISH, savedUser.getPreferences().getLanguage());
-        assertTrue(savedUser.getPreferences().getPushNotifications());
-
-        assertNotNull(savedUser.getPrivacySettings());
-        assertEquals(PrivacySettings.ProfileVisibility.PUBLIC, savedUser.getPrivacySettings().getProfileVisibility());
-        assertTrue(savedUser.getPrivacySettings().getAllowStrangerMessages());
-
-        log.info("用户实体创建和保存测试通过，用户ID: {}", savedUser.getId());
+        log.info("简化后的用户实体创建和保存测试通过，用户ID: {}", savedUser.getId());
     }
 
     /**
@@ -113,7 +88,9 @@ public class AuthIntegrationTest {
                 .age(28)
                 .gender(User.Gender.FEMALE)
                 .relationshipStatus(User.RelationshipStatus.IN_RELATIONSHIP)
-                .location("上海")
+                .location("Shanghai")
+                .avatarUrl("https://example.com/query-avatar.jpg")
+                .enabled(true)
                 .build();
 
         userRepository.save(user);
@@ -135,6 +112,13 @@ public class AuthIntegrationTest {
         // 测试根据恋爱状态查找用户
         assertFalse(userRepository.findByRelationshipStatus(User.RelationshipStatus.IN_RELATIONSHIP).isEmpty());
 
+        // 测试根据年龄范围查找用户
+        assertFalse(userRepository.findByAgeBetween(25, 30).isEmpty());
+
+        // 测试根据性别和恋爱状态查找用户
+        assertFalse(userRepository.findByGenderAndRelationshipStatus(
+                User.Gender.FEMALE, User.RelationshipStatus.IN_RELATIONSHIP).isEmpty());
+
         log.info("UserRepository查询方法测试通过");
     }
 
@@ -153,6 +137,8 @@ public class AuthIntegrationTest {
                 .age(30)
                 .gender(User.Gender.MALE)
                 .relationshipStatus(User.RelationshipStatus.SINGLE)
+                .location("Guangzhou")
+                .enabled(true)
                 .build();
 
         userRepository.save(user);

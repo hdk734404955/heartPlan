@@ -106,7 +106,7 @@ java -jar target/heartplan-backend-0.0.1-SNAPSHOT.jar
 ## 开发规范
 
 ### 代码规范
-1. 所有实体类继承`BaseEntity`
+1. 实体类直接实现必要接口（如UserDetails），使用JPA审计功能管理时间字段
 2. 使用Lombok注解简化代码
 3. 控制器类使用`@Slf4j`和`@RequiredArgsConstructor`
 4. 服务类使用`@Slf4j`和`@RequiredArgsConstructor`

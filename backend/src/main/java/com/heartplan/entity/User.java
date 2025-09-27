@@ -17,8 +17,10 @@ import lombok.*;
     @Index(name = "idx_user_email", columnList = "email", unique = true),
     @Index(name = "idx_user_username", columnList = "username", unique = true)
 })
-@Data // Lombok注解：自动生成getter、setter、toString、equals、hashCode方法
-@EqualsAndHashCode(callSuper = true) // 包含父类字段进行equals和hashCode计算
+@Getter // Lombok注解：自动生成getter方法
+@Setter // Lombok注解：自动生成setter方法
+@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true) // 不包含父类，只包含明确指定的字段
+@ToString(onlyExplicitlyIncluded = true) // 只包含明确指定的字段，避免循环引用
 @Builder // Lombok注解：自动生成建造者模式
 @NoArgsConstructor // Lombok注解：自动生成无参构造函数
 @AllArgsConstructor // Lombok注解：自动生成全参构造函数
@@ -32,6 +34,8 @@ public class User extends BaseEntity {
     @Email
     @NotBlank
     @Column(name = "email", nullable = false, unique = true, length = 100)
+    @EqualsAndHashCode.Include // 明确包含在equals和hashCode中
+    @ToString.Include // 明确包含在toString中
     private String email;
 
     /**

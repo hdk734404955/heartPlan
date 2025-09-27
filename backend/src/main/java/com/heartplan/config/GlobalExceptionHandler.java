@@ -11,6 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -38,8 +39,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<Object>> handleBadCredentialsException(BadCredentialsException e) {
         log.warn("认证失败: {}", e.getMessage());
+        // 保留原始的错误信息，而不是统一替换为"Invalid credentials"
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body(ApiResponse.error(401, "Invalid credentials"));
+                .body(ApiResponse.error(401, e.getMessage()));
     }
 
     /**
@@ -134,6 +136,20 @@ public class GlobalExceptionHandler {
         log.warn("请求方法不支持: {}", errorMessage);
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED)
                 .body(ApiResponse.error(405, errorMessage));
+    }
+
+    /**
+     * 处理HTTP媒体类型不支持异常
+     * HttpMediaTypeNotSupportedException - 请求内容类型不支持
+     */
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    public ResponseEntity<ApiResponse<Object>> handleMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
+        String errorMessage = String.format("Content type '%s' not supported. Please use 'application/json'", 
+                e.getContentType());
+        
+        log.warn("媒体类型不支持: {}", errorMessage);
+        return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+                .body(ApiResponse.error(415, "Content type not supported. Please use 'application/json'"));
     }
 
     /**

@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "com.heartplan.repository") // 启用JPA仓库，指定扫描包
-@EnableJpaAuditing // 启用JPA审计功能，自动填充创建时间、更新时间等
 @EnableTransactionManagement // 启用事务管理
 @Slf4j // Lombok注解：自动生成日志对象
 public class DatabaseConfig {
@@ -26,7 +25,6 @@ public class DatabaseConfig {
     public DatabaseConfig() {
         log.info("初始化数据库配置...");
         log.info("JPA仓库扫描包: com.heartplan.repository");
-        log.info("JPA审计功能已启用");
         log.info("事务管理已启用");
         log.info("数据库配置初始化完成");
     }

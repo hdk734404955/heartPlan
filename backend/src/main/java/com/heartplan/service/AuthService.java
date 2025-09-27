@@ -10,15 +10,10 @@ import com.heartplan.repository.UserRepository;
 import com.heartplan.util.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
-import java.util.Collections;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,7 +31,6 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
-    private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
 
@@ -54,20 +48,23 @@ public class AuthService {
         log.info("User attempting login, email: {}", loginRequest.getEmail());
 
         try {
-            // 使用Spring Security进行身份验证
-            Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                    loginRequest.getEmail(),
-                    loginRequest.getPassword()
-                )
-            );
+            // 查找用户
+            User user = userRepository.findByEmailAndEnabledTrue(loginRequest.getEmail())
+                    .orElseThrow(() -> {
+                        log.warn("User login failed, email: {}, reason: User not found or disabled", loginRequest.getEmail());
+                        return new BadCredentialsException("Invalid email or password");
+                    });
 
-            // 获取认证成功的用户信息
-            User user = (User) authentication.getPrincipal();
+            // 验证密码
+            if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
+                log.warn("User login failed, email: {}, reason: Invalid password", loginRequest.getEmail());
+                throw new BadCredentialsException("Invalid email or password");
+            }
+
             log.info("User login successful, ID: {}, Username: {}", user.getId(), user.getUsername());
 
-            // 生成JWT令牌
-            String accessToken = jwtTokenProvider.generateAccessToken(authentication);
+            // 生成JWT令牌，使用新的generateAccessToken(User)方法
+            String accessToken = jwtTokenProvider.generateAccessToken(user);
             String refreshToken = jwtTokenProvider.generateRefreshToken(user.getEmail());
 
             // 构建登录响应，使用MapStruct简化构建过程
@@ -78,12 +75,8 @@ public class AuthService {
             return response;
 
         } catch (BadCredentialsException e) {
-            log.warn("User login failed, email: {}, reason: Invalid credentials", loginRequest.getEmail());
-            throw new BadCredentialsException("Invalid email or password");
-        } catch (DisabledException e) {
-            log.warn("User login failed, email: {}, reason: Account disabled", loginRequest.getEmail());
-            throw new DisabledException("Account is disabled, please contact administrator");
-        } catch (AuthenticationException e) {
+            throw e; // 重新抛出已处理的异常
+        } catch (Exception e) {
             log.error("User login failed, email: {}, reason: {}", loginRequest.getEmail(), e.getMessage());
             throw new BadCredentialsException("Login failed, please check your credentials");
         }
@@ -118,12 +111,8 @@ public class AuthService {
                         return new BadCredentialsException("User not found or disabled");
                     });
 
-            // 创建新的认证对象，移除权限系统
-            Authentication authentication = new UsernamePasswordAuthenticationToken(
-                user, null, Collections.emptyList());
-
-            // 生成新的访问令牌
-            String newAccessToken = jwtTokenProvider.generateAccessToken(authentication);
+            // 生成新的访问令牌，使用新的generateAccessToken(User)方法
+            String newAccessToken = jwtTokenProvider.generateAccessToken(user);
 
             // 构建刷新令牌响应，使用MapStruct简化构建过程
             AuthResponse response = userMapper.toAuthResponse(
@@ -234,12 +223,8 @@ public class AuthService {
             log.info("User registration successful, ID: {}, email: {}, username: {}", 
                     savedUser.getId(), savedUser.getEmail(), savedUser.getUsername());
 
-            // 创建认证对象用于生成JWT令牌，移除权限系统
-            Authentication authentication = new UsernamePasswordAuthenticationToken(
-                savedUser, null, Collections.emptyList());
-
-            // 生成JWT令牌
-            String accessToken = jwtTokenProvider.generateAccessToken(authentication);
+            // 生成JWT令牌，使用新的generateAccessToken(User)方法
+            String accessToken = jwtTokenProvider.generateAccessToken(savedUser);
             String refreshToken = jwtTokenProvider.generateRefreshToken(savedUser.getEmail());
 
             // 构建注册响应，使用MapStruct简化构建过程

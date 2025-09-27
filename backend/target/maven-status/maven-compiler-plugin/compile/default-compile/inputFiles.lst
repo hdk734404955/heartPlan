@@ -2,6 +2,7 @@ E:\桌面\heartPlan\backend\src\main\java\com\heartplan\entity\BaseEntity.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\entity\User.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\security\JwtAuthenticationFilter.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\controller\AuthController.java
+E:\桌面\heartPlan\backend\src\main\java\com\heartplan\service\UserService.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\mapper\UserMapper.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\repository\UserRepository.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\RegisterRequest.java

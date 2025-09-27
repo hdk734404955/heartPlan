@@ -18,7 +18,10 @@ import java.time.LocalDateTime;
  * @author HeartPlan Team
  */
 @MappedSuperclass // JPA: 标记为映射超类，不会创建对应的数据库表
-@Data // Lombok: 自动生成getter、setter、toString、equals、hashCode方法
+@Getter // Lombok: 自动生成getter方法
+@Setter // Lombok: 自动生成setter方法
+@EqualsAndHashCode(onlyExplicitlyIncluded = true) // 只包含明确指定的字段
+@ToString(onlyExplicitlyIncluded = true) // 只包含明确指定的字段，避免循环引用
 @NoArgsConstructor // Lombok: 自动生成无参构造函数
 @AllArgsConstructor // Lombok: 自动生成全参构造函数
 @EntityListeners(AuditingEntityListener.class) // JPA: 启用审计监听器，自动管理时间字段
@@ -29,6 +32,8 @@ public abstract class BaseEntity implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include // 明确包含在equals和hashCode中
+    @ToString.Include // 明确包含在toString中
     private Long id;
 
     /**

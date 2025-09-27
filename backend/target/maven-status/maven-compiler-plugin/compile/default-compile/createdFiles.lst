@@ -10,6 +10,7 @@ com\heartplan\dto\AuthResponse$AuthResponseBuilder.class
 com\heartplan\entity\User$UserBuilder.class
 com\heartplan\HeartPlanApplication.class
 com\heartplan\config\GlobalResponseHandler.class
+com\heartplan\service\UserService.class
 com\heartplan\dto\LoginRequest.class
 com\heartplan\security\JwtAuthenticationEntryPoint.class
 com\heartplan\config\GlobalExceptionHandler.class

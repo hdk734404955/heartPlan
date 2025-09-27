@@ -1,5 +1,6 @@
 package com.heartplan.security;
 
+import com.heartplan.service.UserService;
 import com.heartplan.util.JwtTokenProvider;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -10,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -19,8 +19,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 /**
- * 极简化JWT认证过滤器
- * 只处理基本的JWT令牌验证，不涉及复杂的权限检查
+ * JWT认证过滤器
+ * 集成UserDetailsService，优先从JWT令牌获取完整用户信息
+ * 失败时通过UserService加载用户详情
  * 
  * @author HeartPlan Team
  */
@@ -30,7 +31,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtTokenProvider jwtTokenProvider;
-    private final UserDetailsService userDetailsService;
+    private final UserService userService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, 
@@ -43,19 +44,35 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             
             // 如果存在有效的JWT令牌，设置认证信息
             if (StringUtils.hasText(jwt) && jwtTokenProvider.validateToken(jwt)) {
-                String username = jwtTokenProvider.getUsernameFromToken(jwt);
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                UserDetails userDetails = null;
                 
-                // 创建认证对象（不包含权限信息，因为已经极简化）
-                UsernamePasswordAuthenticationToken authentication = 
-                    new UsernamePasswordAuthenticationToken(
-                        userDetails, 
-                        null, 
-                        userDetails.getAuthorities() // 返回空集合
-                    );
+                try {
+                    // 优先从JWT令牌获取完整用户信息
+                    userDetails = jwtTokenProvider.getUserDetailsFromToken(jwt);
+                    log.debug("成功从JWT令牌获取用户详情，用户ID: {}", userDetails.getUsername());
+                    
+                } catch (Exception e) {
+                    // 失败时使用UserService通过用户ID加载用户
+                    log.debug("从JWT令牌获取用户详情失败，尝试通过UserService加载: {}", e.getMessage());
+                    String userId = jwtTokenProvider.getUsernameFromToken(jwt);
+                    userDetails = userService.loadUserByUsername(userId);
+                    log.debug("成功通过UserService加载用户详情，用户ID: {}", userId);
+                }
                 
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                // 创建包含UserDetails的Authentication对象
+                if (userDetails != null && userDetails.isEnabled()) {
+                    UsernamePasswordAuthenticationToken authentication = 
+                        new UsernamePasswordAuthenticationToken(
+                            userDetails, 
+                            null, 
+                            userDetails.getAuthorities()
+                        );
+                    
+                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    
+                    log.debug("成功设置用户认证信息到SecurityContext，用户ID: {}", userDetails.getUsername());
+                }
             }
             
         } catch (Exception ex) {

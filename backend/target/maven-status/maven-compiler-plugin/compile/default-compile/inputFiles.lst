@@ -8,6 +8,7 @@ E:\桌面\heartPlan\backend\src\main\java\com\heartplan\repository\UserRepositor
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\RegisterRequest.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\GlobalResponseHandler.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\LoginRequest.java
+E:\桌面\heartPlan\backend\src\main\java\com\heartplan\security\UserPrincipal.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\UserInfoDTO.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\SwaggerConfig.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\AuthResponse.java

@@ -20,8 +20,7 @@ import java.io.IOException;
 
 /**
  * JWT认证过滤器
- * 集成UserDetailsService，优先从JWT令牌获取完整用户信息
- * 失败时通过UserService加载用户详情
+ * 从JWT令牌提取用户邮箱，通过UserService加载用户详情并设置认证上下文
  * 
  * @author HeartPlan Team
  */
@@ -39,39 +38,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                   FilterChain filterChain) throws ServletException, IOException {
         
         try {
-            // 从请求中提取JWT令牌
             String jwt = getJwtFromRequest(request);
             
-            // 如果存在有效的JWT令牌，设置认证信息
             if (StringUtils.hasText(jwt) && jwtTokenProvider.validateToken(jwt)) {
-                UserDetails userDetails = null;
+                String email = jwtTokenProvider.getUsernameFromToken(jwt);
+                UserDetails userDetails = userService.loadUserByUsername(email);
                 
-                try {
-                    // 优先从JWT令牌获取完整用户信息
-                    userDetails = jwtTokenProvider.getUserDetailsFromToken(jwt);
-                    log.debug("成功从JWT令牌获取用户详情，用户ID: {}", userDetails.getUsername());
-                    
-                } catch (Exception e) {
-                    // 失败时使用UserService通过用户ID加载用户
-                    log.debug("从JWT令牌获取用户详情失败，尝试通过UserService加载: {}", e.getMessage());
-                    String userId = jwtTokenProvider.getUsernameFromToken(jwt);
-                    userDetails = userService.loadUserByUsername(userId);
-                    log.debug("成功通过UserService加载用户详情，用户ID: {}", userId);
-                }
-                
-                // 创建包含UserDetails的Authentication对象
                 if (userDetails != null && userDetails.isEnabled()) {
                     UsernamePasswordAuthenticationToken authentication = 
                         new UsernamePasswordAuthenticationToken(
-                            userDetails, 
-                            null, 
-                            userDetails.getAuthorities()
-                        );
+                            userDetails, null, userDetails.getAuthorities());
                     
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
-                    
-                    log.debug("成功设置用户认证信息到SecurityContext，用户ID: {}", userDetails.getUsername());
                 }
             }
             
@@ -80,13 +59,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             SecurityContextHolder.clearContext();
         }
         
-        // 继续过滤器链
         filterChain.doFilter(request, response);
     }
     
     /**
-     * 从请求中提取JWT令牌
-     * 简化的令牌提取逻辑
+     * 从请求头中提取JWT令牌
+     * 
+     * @param request HTTP请求对象
+     * @return JWT令牌字符串，如果不存在则返回null
      */
     private String getJwtFromRequest(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");

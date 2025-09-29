@@ -4,6 +4,7 @@ import com.heartplan.dto.AuthResponse;
 import com.heartplan.dto.RegisterRequest;
 import com.heartplan.dto.UserInfoDTO;
 import com.heartplan.entity.User;
+import com.heartplan.security.UserPrincipal;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -37,6 +38,15 @@ public interface UserMapper {
      * @return UserInfoDTO
      */
     UserInfoDTO toUserInfo(User user);
+
+    /**
+     * 将User实体转换为UserPrincipal
+     * 用于Spring Security认证
+     * 
+     * @param user User实体对象
+     * @return UserPrincipal
+     */
+    UserPrincipal toUserPrincipal(User user);
 
     /**
      * 更新现有User实体的字段（排除敏感字段）

@@ -15,6 +15,7 @@ com\heartplan\dto\LoginRequest.class
 com\heartplan\security\JwtAuthenticationEntryPoint.class
 com\heartplan\config\GlobalExceptionHandler.class
 com\heartplan\dto\UserInfoDTO.class
+com\heartplan\security\UserPrincipal.class
 com\heartplan\security\JwtAuthenticationFilter.class
 com\heartplan\config\SwaggerConfig.class
 com\heartplan\repository\UserRepository.class

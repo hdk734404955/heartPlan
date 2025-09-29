@@ -173,8 +173,8 @@
               </u-radio-group>
             </u-form-item>
             
-            <!-- 头像选择 -->
-            <u-form-item label="Profile Picture">
+            <!-- 头像选择 (可选) -->
+            <u-form-item label="Profile Picture (Optional)">
               <view class="avatar-section">
                 <view class="current-avatar">
                   <u-avatar
@@ -428,17 +428,12 @@ export default {
     // 方法
     const handleBack = () => {
       if (currentStep.value > 0) {
+        // 第二步：返回第一步
         currentStep.value--
       } else {
-        // 确保能够返回到登录页面
-        uni.navigateBack({
-          delta: 1,
-          fail: () => {
-            // 如果navigateBack失败，直接跳转到登录页面
-            uni.redirectTo({
-              url: '/pages/auth/login'
-            })
-          }
+        // 第一步：返回登录页面
+        uni.reLaunch({
+          url: '/pages/auth/login'
         })
       }
     }
@@ -533,7 +528,7 @@ export default {
         })
         
         // 保存用户信息
-        userStore.setUserProfile(responseData.userProfile)
+        userStore.setUserProfile(responseData.user)
         
         // 显示成功提示
         uni.showToast({
@@ -565,6 +560,13 @@ export default {
     
     // 生命周期
     onMounted(() => {
+      // 隐藏底部tab（如果是tabBar页面）
+      try {
+        uni.hideTabBar()
+      } catch (error) {
+        // 非tabBar页面会报错，忽略即可
+      }
+      
       // 初始化默认头像
       if (!registerForm.avatarUrl) {
         registerForm.avatarUrl = '/static/avatars/default.png'

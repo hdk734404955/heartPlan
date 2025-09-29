@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 import { useAuthStore } from '@/store/modules/auth'
 import { useUserStore } from '@/store/modules/user'
 import { authAPI } from '@/api/auth'
@@ -186,7 +186,7 @@ export default {
         })
         
         // 保存用户信息
-        userStore.setUserProfile(responseData.userProfile)
+        userStore.setUserProfile(responseData.user)
         
         // 显示成功提示
         uni.showToast({
@@ -225,7 +225,15 @@ export default {
       })
     }
     
-    
+    // 生命周期
+    onMounted(() => {
+      // 隐藏底部tab（如果是tabBar页面）
+      try {
+        uni.hideTabBar()
+      } catch (error) {
+        // 非tabBar页面会报错，忽略即可
+      }
+    })
     
     return {
       // Store
@@ -253,8 +261,8 @@ export default {
 
 <style lang="scss" scoped>
 .login-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #FFF5F5 0%, #FEFEFE 100%);
   position: relative;
   overflow: hidden;

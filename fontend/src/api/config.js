@@ -62,35 +62,34 @@ export const requestInterceptor = (config) => {
  * - 统一响应格式处理逻辑，基于code字段判断成功/失败
  * - 简化错误处理流程，减少重复代码
  * - 提供向后兼容支持，同时支持新旧响应格式
+ * - 修复：即使HTTP状态码不是200，也要检查响应体中的ApiResponse格式
  * 
  * @param {Object} response - uni.request的响应对象
  * @returns {*} 处理后的响应数据或抛出错误
  */
 export const responseInterceptor = (response) => {
   const authStore = useAuthStore()
+  const responseData = response.data
 
-  // 处理HTTP状态码 - 只有200状态码才进行业务逻辑处理
-  if (response.statusCode === 200) {
-    const responseData = response.data
-    
-    // 检查是否为统一ApiResponse格式：{code, data, message}
-    if (responseData && typeof responseData === 'object' && 'code' in responseData) {
-      // 统一ApiResponse格式处理
-      // 基于code字段判断业务成功/失败状态
-      if (responseData.code >= 200 && responseData.code < 300) {
-        // 业务成功：直接返回data字段给业务代码使用
-        return responseData.data
-      } else {
-        // 业务错误：根据code字段统一处理不同类型的业务错误
-        return handleBusinessError(responseData, authStore)
-      }
+  // 首先检查是否为统一ApiResponse格式：{code, data, message}
+  if (responseData && typeof responseData === 'object' && 'code' in responseData) {
+    // 统一ApiResponse格式处理 - 无论HTTP状态码是什么，都基于code字段判断
+    if (responseData.code >= 200 && responseData.code < 300) {
+      // 业务成功：直接返回data字段给业务代码使用
+      return responseData.data
     } else {
-      // 向后兼容：支持旧格式响应，直接返回原始数据
-      return responseData
+      // 业务错误：根据code字段统一处理不同类型的业务错误
+      return handleBusinessError(responseData, authStore)
     }
   } else {
-    // HTTP错误状态码：统一处理网络层面的错误
-    return handleHttpError(response, authStore)
+    // 非ApiResponse格式，按HTTP状态码处理
+    if (response.statusCode === 200) {
+      // 向后兼容：支持旧格式响应，直接返回原始数据
+      return responseData
+    } else {
+      // HTTP错误状态码：统一处理网络层面的错误
+      return handleHttpError(response, authStore)
+    }
   }
 }
 
@@ -101,19 +100,41 @@ export const responseInterceptor = (response) => {
  * - 统一业务错误处理逻辑，基于code字段分类处理
  * - 简化错误提示显示，使用统一的用户体验
  * - 减少重复的错误处理代码
+ * - 修复：400错误（如登录失败）不应该跳转登录页面，只显示错误提示
  * 
  * @param {Object} responseData - ApiResponse格式的响应数据
  * @param {Object} authStore - 认证状态管理器
  * @returns {Promise} 拒绝的Promise，包含错误信息
  */
-const handleBusinessError = (responseData, authStore) => {
+const handleBusinessError = async (responseData, authStore) => {
   const { code, message } = responseData
   
   // 根据code字段统一处理不同类型的业务错误
   if (code === 401) {
-    // 401认证失败：自动清除认证信息并跳转登录
-    handleUnauthorizedError(authStore)
-    return Promise.reject(new Error(message || 'Unauthorized'))
+    // 401认证失败：JWT token无效/过期，尝试刷新令牌
+    try {
+      const refreshSuccess = await authStore.refreshAccessToken()
+      if (refreshSuccess) {
+        // 刷新成功，但这里无法重试原始请求，让调用方处理
+        return Promise.reject(new Error('TOKEN_REFRESHED'))
+      } else {
+        // 刷新失败，清除认证信息并跳转登录
+        handleUnauthorizedError(authStore)
+        return Promise.reject(new Error(message || 'Session expired'))
+      }
+    } catch (error) {
+      // 刷新令牌失败，清除认证信息并跳转登录
+      handleUnauthorizedError(authStore)
+      return Promise.reject(new Error(message || 'Session expired'))
+    }
+  } else if (code === 400) {
+    // 400客户端错误：登录凭据错误、参数错误等，只显示错误提示，不跳转
+    uni.showToast({
+      title: message || 'Invalid request',
+      icon: 'none',
+      duration: 3000
+    })
+    return Promise.reject(new Error(message || 'Bad Request'))
   } else if (code === 403) {
     // 403权限不足：显示权限错误提示
     uni.showModal({
@@ -123,8 +144,16 @@ const handleBusinessError = (responseData, authStore) => {
       confirmText: 'OK'
     })
     return Promise.reject(new Error(message || 'Access Denied'))
+  } else if (code === 409) {
+    // 409冲突错误：如邮箱已存在等
+    uni.showToast({
+      title: message || 'Data conflict occurred',
+      icon: 'none',
+      duration: 3000
+    })
+    return Promise.reject(new Error(message || 'Conflict'))
   } else if (code >= 400 && code < 500) {
-    // 4xx客户端错误：参数错误、资源不存在等
+    // 其他4xx客户端错误：参数错误、资源不存在等
     uni.showToast({
       title: message || 'Request failed',
       icon: 'none',
@@ -165,6 +194,8 @@ const handleBusinessError = (responseData, authStore) => {
  * @returns {Promise} 拒绝的Promise，包含错误信息
  */
 const handleHttpError = (response, authStore) => {
+  console.log(response)
+  
   const { statusCode, data } = response
   
   if (statusCode === 401) {

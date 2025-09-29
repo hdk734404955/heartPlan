@@ -10,9 +10,9 @@
     <view class="user-info-section">
       <u-card 
         :show-head="false" 
-        border="none" 
-        :box-shadow="true"
-        margin="0 0 24px 0"
+        :border="false" 
+        box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+        margin="0 0 48rpx 0"
       >
         <view class="user-info">
           <u-avatar
@@ -55,11 +55,11 @@
     <view class="menu-section">
       <u-card 
         :show-head="false" 
-        border="none" 
-        :box-shadow="true"
-        margin="0 0 16px 0"
+        :border="false" 
+        box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+        margin="0 0 32rpx 0"
       >
-        <u-cell-group border="none">
+        <u-cell-group :border="false">
           <u-cell 
             title="My Data Insights" 
             :is-link="true"
@@ -92,11 +92,11 @@
       
       <u-card 
         :show-head="false" 
-        border="none" 
-        :box-shadow="true"
-        margin="0 0 16px 0"
+        :border="false" 
+        box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+        margin="0 0 32rpx 0"
       >
-        <u-cell-group border="none">
+        <u-cell-group :border="false">
           <u-cell 
             title="Privacy Settings" 
             :is-link="true"
@@ -130,11 +130,11 @@
       <!-- 危险操作 -->
       <u-card 
         :show-head="false" 
-        border="none" 
-        :box-shadow="true"
-        margin="0 0 16px 0"
+        :border="false" 
+        box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+        margin="0 0 32rpx 0"
       >
-        <u-cell-group border="none">
+        <u-cell-group :border="false">
           <u-cell 
             title="Sign Out" 
             :is-link="true"
@@ -157,8 +157,9 @@
       </u-card>
     </view>
     
-    <!-- 底部导航 -->
-    <TabBar />
+
+    
+
   </view>
 </template>
 
@@ -167,13 +168,9 @@ import { ref, onMounted } from 'vue'
 import { beforePageLoad } from '@/utils/router-guard'
 import { useAuthStore } from '@/store/modules/auth'
 import { useUserStore } from '@/store/modules/user'
-import TabBar from '@/components/TabBar.vue'
 
 export default {
   name: 'ProfilePage',
-  components: {
-    TabBar
-  },
   setup() {
     // Store
     const authStore = useAuthStore()
@@ -183,7 +180,7 @@ export default {
     const editButtonStyle = {
       background: 'linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%)',
       border: 'none',
-      fontSize: '14px'
+      fontSize: '28rpx'
     }
     
     // 方法
@@ -322,11 +319,11 @@ export default {
 
 <style lang="scss" scoped>
 .profile-container {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #FFF5F5;
-  padding-bottom: 240rpx; /* 为底部导航栏预留空间 */
   box-sizing: border-box;
+  padding-bottom: 0;
   overflow-x: hidden;
 }
 
@@ -336,7 +333,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 4rpx 16rpx rgba(255, 107, 107, 0.1);
   
   .nav-title {
     font-size: 48rpx; /* 页面标题：48-64rpx */
@@ -393,7 +390,7 @@ export default {
 }
 
 /* 响应式适配 - iPhone 6/7/8（375px宽度，750rpx） */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750rpx) {
   .nav-header {
     padding: 32rpx 48rpx 24rpx;
   }

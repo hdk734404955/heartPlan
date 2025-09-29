@@ -11,9 +11,9 @@
       <!-- AI教练 - 置顶显示 -->
       <u-card 
         :show-head="false" 
-        border="none" 
-        :box-shadow="true"
-        margin="0 0 16px 0"
+        :border="false" 
+        box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+        margin="0 0 32rpx 0"
         @click="goToAICoach"
       >
         <view class="chat-item ai-coach">
@@ -72,21 +72,17 @@
       </view>
     </view>
     
-    <!-- 底部导航 -->
-    <TabBar />
+    
+
   </view>
 </template>
 
 <script>
 import { ref, onMounted } from 'vue'
 import { beforePageLoad } from '@/utils/router-guard'
-import TabBar from '@/components/TabBar.vue'
 
 export default {
   name: 'ChatPage',
-  components: {
-    TabBar
-  },
   setup() {
     // 按钮样式
     const buttonStyle = {
@@ -147,11 +143,11 @@ export default {
 
 <style lang="scss" scoped>
 .chat-container {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #FFF5F5;
-  padding-bottom: 240rpx; /* 为底部导航栏预留空间 */
   box-sizing: border-box;
+  padding-bottom: 0;
   overflow-x: hidden;
 }
 
@@ -161,7 +157,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 4rpx 16rpx rgba(255, 107, 107, 0.1);
   
   .nav-title {
     font-size: 48rpx; /* 页面标题：48-64rpx */
@@ -242,7 +238,7 @@ export default {
 }
 
 /* 响应式适配 - iPhone 6/7/8（375px宽度，750rpx） */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750rpx) {
   .nav-header {
     padding: 32rpx 48rpx 24rpx;
   }

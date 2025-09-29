@@ -49,9 +49,9 @@
             <view class="category-title">For Singles</view>
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('dating-management')"
             >
               <view class="template-item">
@@ -66,9 +66,9 @@
             
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('date-tracking')"
             >
               <view class="template-item">
@@ -83,9 +83,9 @@
             
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('charm-enhancement')"
             >
               <view class="template-item">
@@ -104,9 +104,9 @@
             <view class="category-title">For Couples</view>
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('relationship-dashboard')"
             >
               <view class="template-item">
@@ -121,9 +121,9 @@
             
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('important-dates')"
             >
               <view class="template-item">
@@ -138,9 +138,9 @@
             
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('conflict-resolution')"
             >
               <view class="template-item">
@@ -155,9 +155,9 @@
             
             <u-card 
               :show-head="false" 
-              border="none" 
-              :box-shadow="true"
-              margin="0 0 16px 0"
+              :border="false" 
+              box-shadow="0 4rpx 12rpx rgba(255, 107, 107, 0.1)"
+              margin="0 0 32rpx 0"
               @click="goToTemplate('growth-trajectory')"
             >
               <view class="template-item">
@@ -188,8 +188,7 @@
       </view>
     </view>
     
-    <!-- 底部导航 -->
-    <TabBar />
+
   </view>
 </template>
 
@@ -198,13 +197,9 @@ import { ref, computed, onMounted } from 'vue'
 import { useAuthStore } from '@/store/modules/auth'
 import { useUserStore } from '@/store/modules/user'
 import { beforePageLoad } from '@/utils/router-guard'
-import TabBar from '@/components/TabBar.vue'
 
 export default {
   name: 'MainPage',
-  components: {
-    TabBar
-  },
   setup() {
     // Store
     const authStore = useAuthStore()
@@ -234,23 +229,7 @@ export default {
       })
     }
     
-    const goToCommunity = () => {
-      uni.switchTab({
-        url: '/pages/community/index'
-      })
-    }
-    
-    const goToChat = () => {
-      uni.switchTab({
-        url: '/pages/chat/index'
-      })
-    }
-    
-    const goToProfile = () => {
-      uni.switchTab({
-        url: '/pages/profile/index'
-      })
-    }
+
     
     const checkAuthStatus = () => {
       // 检查认证状态
@@ -278,6 +257,9 @@ export default {
     
     // 生命周期
     onMounted(() => {
+      // 初始化用户数据
+      userStore.initUserProfile()
+      
       // 应用路由守卫
       beforePageLoad()
       
@@ -295,10 +277,7 @@ export default {
       statusDescription,
       
       // 方法
-      goToTemplate,
-      goToCommunity,
-      goToChat,
-      goToProfile
+      goToTemplate
     }
   }
 }
@@ -306,13 +285,13 @@ export default {
 
 <style lang="scss" scoped>
 .main-container {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #FFF5F5 0%, #FEFEFE 100%);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding-bottom: 160rpx; /* 为底部导航栏预留空间 */
+  padding-bottom: 0;
 }
 
 .nav-header {
@@ -464,13 +443,13 @@ export default {
 
 
 /* 响应式适配 - iPhone 6/7/8（375px宽度，750rpx） */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750rpx) {
   .nav-header {
     padding: 32rpx 48rpx 24rpx;
   }
   
   .content {
-    padding: 40rpx 48rpx 200rpx;
+    padding: 40rpx 48rpx 0;
   }
   
   .status-card {

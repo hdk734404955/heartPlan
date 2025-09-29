@@ -35,13 +35,15 @@ public class GlobalExceptionHandler {
     /**
      * 处理认证失败异常
      * BadCredentialsException - 用户名或密码错误
+     * 注意：登录时的用户名密码错误应该返回400，而不是401
+     * 401应该用于token无效/过期的情况
      */
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<Object>> handleBadCredentialsException(BadCredentialsException e) {
         log.warn("认证失败: {}", e.getMessage());
-        // 保留原始的错误信息，而不是统一替换为"Invalid credentials"
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body(ApiResponse.error(401, e.getMessage()));
+        // 登录凭据错误应该返回400 Bad Request，而不是401 Unauthorized
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(400, "Invalid email or password"));
     }
 
     /**
@@ -52,18 +54,20 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleDisabledException(DisabledException e) {
         log.warn("账户被禁用: {}", e.getMessage());
         return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                .body(ApiResponse.error(403, "Account disabled"));
+                .body(ApiResponse.error(403, "Account has been disabled"));
     }
 
     /**
      * 处理通用认证异常
-     * AuthenticationException - 其他认证相关异常
+     * AuthenticationException - 其他认证相关异常（主要是JWT token相关）
+     * 这里的401是合适的，因为通常是token无效/过期导致的
      */
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<ApiResponse<Object>> handleAuthenticationException(AuthenticationException e) {
         log.warn("认证异常: {}", e.getMessage());
+        // JWT token相关的认证失败才应该返回401
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body(ApiResponse.error(401, "Authentication failed"));
+                .body(ApiResponse.error(401, "Session expired, please login again"));
     }
 
     /**
@@ -177,12 +181,14 @@ public class GlobalExceptionHandler {
     /**
      * 处理用户不存在异常
      * UsernameNotFoundException - 用户名不存在
+     * 注意：用户不存在也应该返回400，因为这是客户端提供了错误的参数
      */
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<ApiResponse<Object>> handleUsernameNotFoundException(UsernameNotFoundException e) {
         log.warn("用户不存在: {}", e.getMessage());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body(ApiResponse.error(401, "User not found"));
+        // 用户不存在应该返回400 Bad Request
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(400, "Invalid email or password"));
     }
 
     /**

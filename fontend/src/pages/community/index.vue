@@ -78,21 +78,16 @@
       </u-button>
     </view>
     
-    <!-- 底部导航 -->
-    <TabBar />
+
   </view>
 </template>
 
 <script>
 import { ref, onMounted } from 'vue'
 import { beforePageLoad } from '@/utils/router-guard'
-import TabBar from '@/components/TabBar.vue'
 
 export default {
   name: 'CommunityPage',
-  components: {
-    TabBar
-  },
   setup() {
     // 响应式数据
     const currentTab = ref(0)
@@ -152,24 +147,24 @@ export default {
 
 <style lang="scss" scoped>
 .community-container {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #FFF5F5;
-  padding-bottom: 120px; /* 为底部导航栏预留空间 */
+  padding-bottom: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
 .nav-header {
   background: #FFFFFF;
-  padding: 20px 32px 16px;
+  padding: 40rpx 64rpx 32rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 4rpx 16rpx rgba(255, 107, 107, 0.1);
   
   .nav-title {
-    font-size: 20px;
+    font-size: 48rpx; /* 页面标题：48-64rpx */
     font-weight: 700;
     color: #2C3E50;
   }
@@ -177,17 +172,17 @@ export default {
 
 .tab-section {
   background: #FFFFFF;
-  padding: 0 32px;
+  padding: 0 64rpx;
   border-bottom: 1px solid #F0F0F0;
 }
 
 .content-area {
   flex: 1;
-  padding: 24px 32px;
+  padding: 48rpx 64rpx;
 }
 
 .tab-content {
-  min-height: 400px;
+  min-height: 800rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,33 +190,33 @@ export default {
 
 .fab-button {
   position: fixed;
-  bottom: 120px;
-  right: 32px;
+  bottom: 160rpx;
+  right: 64rpx;
   z-index: 999;
 }
 
 /* 安全区域适配 */
 .nav-header {
-  padding-top: calc(20px + constant(safe-area-inset-top));
-  padding-top: calc(20px + env(safe-area-inset-top));
+  padding-top: calc(40rpx + constant(safe-area-inset-top));
+  padding-top: calc(40rpx + env(safe-area-inset-top));
 }
 
 /* 响应式适配 */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750rpx) {
   .nav-header {
-    padding: 16px 24px 12px;
+    padding: 32rpx 48rpx 24rpx;
   }
   
   .tab-section {
-    padding: 0 24px;
+    padding: 0 48rpx;
   }
   
   .content-area {
-    padding: 20px 24px;
+    padding: 40rpx 48rpx;
   }
   
   .fab-button {
-    right: 24px;
+    right: 48rpx;
   }
 }
 </style>

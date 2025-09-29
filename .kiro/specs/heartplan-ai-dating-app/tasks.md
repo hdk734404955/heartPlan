@@ -73,25 +73,28 @@
 - [x] Pinia状态管理和网络请求配置
 - [x] 温暖信任系色彩主题配置
 - [x] 登录页面（基于uView组件库）
-- [x] 两步注册页面（基于uView组件库）
+- [x] 注册页面（基于uView组件库）
 - [x] 底部导航TabBar（基于uView组件库）
 - [x] 主要页面框架（AI Templates、Community、Chat、Profile）
 - [x] 认证状态管理和用户状态管理
 - [x] API请求封装和路由守卫
 - [x] Spring Boot 3.1.x + Lombok + MySQL + Redis + Security + JWT配置
-- [x] 用户实体类（User）和相关嵌入式对象（UserPreferences、PrivacySettings）
+- [x] 用户实体类（User）和相关嵌入式对象
 - [x] 认证控制器（AuthController）和服务（AuthService）
 - [x] JWT令牌生成和验证机制
-- [x] 文件上传服务和头像管理
 - [x] 数据库配置和安全配置
+- [x] 基础的用户注册登录功能
+- [x] MapStruct对象映射配置
+- [x] 全局异常处理和响应处理
+- [x] 主页面AI模板导航界面
 
 ### 🚧 待实现的功能模块
 
-## 阶段1：前端响应式布局优化
+## 阶段1：AI智能模板系统后端实现
 
-- [x] 1. 前端响应式布局和单位规范实施
+- [ ] 1. 创建AI智能模板相关实体类
 
-- [x] 1.1 uView组件库规范化改进
+
 
 
 
@@ -148,7 +151,27 @@
   - **安全区域适配**：使用constant()和env()函数适配刘海屏和底部安全区域
   - _需求: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15_
 
-## 阶段2：后端业务实体和数据库设计
+- [ ] 1.2 完善用户管理功能
+  - **扩展User实体类**：添加缺失的用户偏好和隐私设置字段
+    - 创建UserPreferences嵌入式对象（通知设置、语言偏好等）
+    - 创建PrivacySettings嵌入式对象（资料可见性、消息接收设置等）
+    - 添加用户简介bio字段和其他个人资料字段
+  - **完善UserController**：扩展用户管理API接口
+    - 添加获取用户资料接口（GET /api/users/profile）
+    - 添加更新用户资料接口（PUT /api/users/profile）
+    - 添加更新恋爱状态接口（PUT /api/users/relationship-status）
+    - 添加头像上传接口（POST /api/users/avatar）
+  - **完善UserService**：扩展用户管理业务逻辑
+    - 实现用户资料管理功能
+    - 实现头像上传和文件管理功能
+    - 实现用户状态切换逻辑
+  - **创建文件上传服务**：实现头像和图片上传功能
+    - 创建FileUploadService处理文件上传
+    - 配置文件存储路径和访问URL
+    - 实现图片压缩和格式验证
+  - _需求: 2.7, 7.1, 7.2, 7.3, 7.4_
+
+## 阶段2：AI智能模板系统后端实现
 
 - [ ] 2. 创建AI智能模板相关实体类
   - **DatingRecord实体**：使用Lombok创建约会记录实体类
@@ -176,7 +199,43 @@
     - 包含时间节点、发展阶段、里程碑等字段
   - _需求: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12_
 
-- [ ] 2.1 创建社区功能相关实体类
+- [ ] 2.1 实现AI智能模板Repository和Service层
+  - **创建Repository接口**：为所有模板实体创建数据访问层
+    - DatingRecordRepository、DateTrackingRecordRepository
+    - RelationshipDashboardRepository、ImportantDateRepository
+    - ConflictRecordRepository、GrowthTrajectoryRepository
+    - CharmEnhancementItemRepository
+    - 实现自定义查询方法和分页支持
+  - **创建TemplateService**：使用@Slf4j和@RequiredArgsConstructor创建模板服务
+    - 实现约会记录CRUD业务逻辑
+    - 实现关系仪表板管理逻辑
+    - 实现重要日期管理和提醒逻辑
+    - 实现冲突解决记录管理逻辑
+  - **创建DTO类**：创建模板相关的数据传输对象
+    - DatingRecordRequest/Response、RelationshipDashboardResponse
+    - ImportantDateRequest/Response、ConflictRecordRequest/Response
+    - CharmEnhancementRequest/Response、GrowthTrajectoryResponse
+  - _需求: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12_
+
+- [ ] 2.2 实现AI智能模板Controller和API
+  - **创建TemplateController**：使用@Slf4j和@RequiredArgsConstructor创建模板控制器
+    - 实现约会管理相关API接口（GET/POST/PUT/DELETE /api/templates/dating-management）
+    - 实现约会追踪相关API接口（GET/POST /api/templates/dating-tracker）
+    - 实现魅力提升相关API接口（GET/PUT /api/templates/charm-enhancement）
+    - 实现关系仪表板API接口（GET/POST /api/templates/relationship-dashboard）
+    - 实现重要日期管理API接口（GET/POST/PUT/DELETE /api/templates/important-dates）
+    - 实现冲突解决记录API接口（GET/POST /api/templates/conflict-resolution）
+    - 实现成长轨迹数据API接口（GET/POST /api/templates/growth-trajectory）
+  - **实现权限控制**：确保用户只能访问自己的模板数据
+    - 在所有API接口中添加用户身份验证
+    - 实现基于用户ID的数据过滤
+    - 添加恋爱状态验证（单身用户只能访问单身模板等）
+  - **数据规范**：所有接口必须返回数据库中的真实模板数据，严禁使用模拟数据
+  - _需求: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12_
+
+## 阶段3：社区功能后端实现
+
+- [ ] 3. 创建社区功能相关实体类
   - **CommunityPost实体**：使用Lombok创建社区帖子实体
     - 包含标题、内容、类型、状态、发布时间等字段
     - 建立与User实体的关联关系（作者）
@@ -194,7 +253,41 @@
     - 防止重复点赞
   - _需求: 5.1, 5.2, 5.3, 5.4, 5.11, 5.12, 5.13, 5.14_
 
-- [ ] 2.2 创建聊天功能相关实体类
+- [ ] 3.1 实现社区功能Repository和Service层
+  - **创建Repository接口**：为所有社区实体创建数据访问层
+    - CommunityPostRepository、CommentRepository
+    - UserFollowRepository、PostLikeRepository
+    - 实现复杂查询和统计功能
+    - 实现分页查询和排序功能
+  - **创建CommunityService**：使用@Slf4j和@RequiredArgsConstructor创建社区服务
+    - 实现帖子管理业务逻辑
+    - 实现用户互动业务逻辑（点赞、评论、关注）
+    - 实现推荐算法逻辑（基于用户恋爱状态、兴趣和互动历史）
+    - 实现搜索和过滤功能
+  - **创建DTO类**：创建社区相关的数据传输对象
+    - CommunityPostRequest/Response、CommentRequest/Response
+    - UserFollowResponse、PostInteractionResponse
+  - _需求: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14_
+
+- [ ] 3.2 实现社区功能Controller和API
+  - **创建CommunityController**：使用@Slf4j和@RequiredArgsConstructor创建社区控制器
+    - 实现帖子CRUD接口（GET/POST/PUT/DELETE /api/community/posts）
+    - 实现四个Tab的内容分类接口（GET /api/community/recommendations等）
+    - 实现推荐算法接口（GET /api/community/recommendations）
+    - 实现互动功能接口（POST /api/community/posts/{id}/like等）
+    - 实现评论系统API（GET/POST /api/community/posts/{postId}/comments）
+    - 实现用户关系API（POST /api/community/users/{userId}/follow）
+    - 实现搜索功能API（GET /api/community/search/posts）
+  - **实现内容审核**：基础的内容过滤和审核机制
+    - 实现敏感词过滤
+    - 实现内容长度和格式验证
+    - 实现用户举报功能
+  - **数据规范**：所有社区帖子必须来自数据库真实记录，严禁返回模拟帖子内容
+  - _需求: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 5.17, 5.18_
+
+## 阶段4：聊天功能后端实现
+
+- [ ] 4. 创建聊天功能相关实体类
   - **ChatMessage实体**：使用Lombok创建聊天消息实体
     - 支持文本和图片消息类型
     - 包含发送者、接收者、消息内容、发送时间等字段
@@ -210,25 +303,41 @@
     - 记录AI回应的生成时间和模式
   - _需求: 6.1, 6.2, 6.5, 6.6_
 
-## 阶段3：后端Repository和Service层实现
-
-- [ ] 3. 实现数据访问层Repository接口
-  - **模板相关Repository**：创建模板相关的数据访问层
-    - DatingRecordRepository、DateTrackingRecordRepository
-    - RelationshipDashboardRepository、ImportantDateRepository
-    - ConflictRecordRepository、GrowthTrajectoryRepository
-    - CharmEnhancementItemRepository
-  - **社区相关Repository**：创建社区相关的数据访问层
-    - CommunityPostRepository、CommentRepository
-    - UserFollowRepository、PostLikeRepository
-    - 实现复杂查询和统计功能
-  - **聊天相关Repository**：创建聊天相关的数据访问层
+- [ ] 4.1 实现聊天功能Repository和Service层
+  - **创建Repository接口**：为所有聊天实体创建数据访问层
     - ChatMessageRepository、ChatConversationRepository
     - AICoachMessageRepository
     - 实现消息查询和统计功能
-  - _需求: 4.1-4.12, 5.1-5.18, 6.1-6.10_
+    - 实现分页查询和消息状态更新
+  - **创建ChatService**：使用@Slf4j和@RequiredArgsConstructor创建聊天服务
+    - 实现消息发送和接收业务逻辑
+    - 实现消息状态管理
+    - 实现会话管理功能
+    - 实现联系人列表管理
+  - **创建DTO类**：创建聊天相关的数据传输对象
+    - ChatMessageRequest/Response、ChatConversationResponse
+    - AICoachMessageRequest/Response、ContactListResponse
+  - _需求: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10_
 
-- [ ] 3.1 实现AI服务集成
+- [ ] 4.2 实现聊天功能Controller和API
+  - **创建ChatController**：使用@Slf4j和@RequiredArgsConstructor创建聊天控制器
+    - 实现联系人列表接口（GET /api/chat/contacts），AI教练显示在顶部
+    - 实现聊天历史接口（GET /api/chat/conversations/{userId}/messages），支持分页加载
+    - 实现消息发送接口（POST /api/chat/conversations/{userId}/messages），支持文本和图片
+    - 实现消息状态更新接口（PUT /api/chat/messages/{messageId}/read）
+    - 实现AI教练对话接口（POST /api/chat/ai-coach/conversation）
+    - 实现AI教练历史记录接口（GET /api/chat/ai-coach/history）
+  - **配置WebSocket**：配置Spring WebSocket和消息代理
+    - 配置WebSocket端点和消息代理
+    - 实现用户认证和会话管理
+    - 实现实时消息传递处理器
+    - 管理用户在线状态
+  - **数据规范**：所有聊天消息必须存储到数据库，严禁使用模拟聊天数据
+  - _需求: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10_
+
+## 阶段5：AI服务集成
+
+- [ ] 5. 实现AI服务集成
   - **AIService创建**：使用@Slf4j和@RequiredArgsConstructor创建AI服务类
     - 集成OpenAI GPT-4 API，实现AI客户端配置
     - 实现兼容性评分算法，基于输入信息生成0-100%评分
@@ -246,84 +355,13 @@
   - **数据规范**：AI生成的内容必须保存到数据库，接口返回数据库中的真实记录
   - _需求: 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12, 5.5, 5.6, 5.10, 5.18, 6.4, 6.8, 6.10_
 
-## 阶段4：后端Controller层和API接口实现
+## 阶段6：前端AI智能模板页面实现
 
-- [ ] 4. 实现AI智能模板Controller和API
-  - **TemplateController**：使用@Slf4j和@RequiredArgsConstructor创建模板控制器
-    - 实现约会管理相关API接口（GET/POST/PUT/DELETE /api/templates/dating-management）
-    - 实现约会追踪相关API接口（GET/POST /api/templates/dating-tracker）
-    - 实现魅力提升相关API接口（GET/PUT /api/templates/charm-enhancement）
-    - 实现关系仪表板API接口（GET/POST /api/templates/relationship-dashboard）
-    - 实现重要日期管理API接口（GET/POST/PUT/DELETE /api/templates/important-dates）
-    - 实现冲突解决记录API接口（GET/POST /api/templates/conflict-resolution）
-    - 实现成长轨迹数据API接口（GET/POST /api/templates/growth-trajectory）
-  - **TemplateService**：使用@Slf4j和@RequiredArgsConstructor创建模板服务
-    - 实现约会记录CRUD业务逻辑
-    - 实现AI兼容性评分计算逻辑
-    - 实现约会分析和建议生成逻辑
-    - 实现关系健康评分和趋势分析逻辑
-  - **数据规范**：所有接口必须返回数据库中的真实模板数据，严禁使用模拟数据
-  - _需求: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12_
-
-- [ ] 4.1 实现社区功能Controller和API
-  - **CommunityController**：使用@Slf4j和@RequiredArgsConstructor创建社区控制器
-    - 实现帖子CRUD接口（GET/POST/PUT/DELETE /api/community/posts）
-    - 实现四个Tab的内容分类接口（GET /api/community/recommendations等）
-    - 实现推荐算法接口（GET /api/community/recommendations）
-    - 实现互动功能接口（POST /api/community/posts/{id}/like等）
-    - 实现评论系统API（GET/POST /api/community/posts/{postId}/comments）
-    - 实现用户关系API（POST /api/community/users/{userId}/follow）
-    - 实现搜索功能API（GET /api/community/search/posts）
-  - **CommunityService**：使用@Slf4j和@RequiredArgsConstructor创建社区服务
-    - 实现帖子管理业务逻辑
-    - 实现推荐算法逻辑（基于用户恋爱状态、兴趣和互动历史）
-    - 实现AI内容审核逻辑
-    - 实现用户互动业务逻辑
-    - 实现每周话题生成（AI基于热门恋爱主题和用户统计创建讨论提示）
-  - **数据规范**：所有社区帖子必须来自数据库真实记录，严禁返回模拟帖子内容
-  - _需求: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 5.17, 5.18_
-
-- [ ] 4.2 实现聊天功能Controller和API
-  - **ChatController**：使用@Slf4j和@RequiredArgsConstructor创建聊天控制器
-    - 实现联系人列表接口（GET /api/chat/contacts），AI教练显示在顶部
-    - 实现聊天历史接口（GET /api/chat/conversations/{userId}/messages），支持分页加载
-    - 实现消息发送接口（POST /api/chat/conversations/{userId}/messages），支持文本和图片
-    - 实现消息状态更新接口（PUT /api/chat/messages/{messageId}/read）
-    - 实现AI教练对话接口（POST /api/chat/ai-coach/conversation）
-    - 实现AI教练历史记录接口（GET /api/chat/ai-coach/history）
-  - **ChatService**：使用@Slf4j和@RequiredArgsConstructor创建聊天服务
-    - 实现消息发送和接收业务逻辑
-    - 实现消息状态管理
-    - 实现会话管理功能
-    - 实现AI教练对话逻辑（5秒内响应，个性化回应）
-  - **WebSocket配置**：配置Spring WebSocket和消息代理
-    - 配置WebSocket端点和消息代理
-    - 实现用户认证和会话管理
-    - 实现实时消息传递处理器
-    - 管理用户在线状态
-  - **数据规范**：所有聊天消息必须存储到数据库，严禁使用模拟聊天数据
-  - _需求: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10_
-
-- [ ] 4.3 完善用户管理Controller和API
-  - **UserController扩展**：扩展用户控制器，添加完整的资料管理接口
-    - 用户资料接口（GET /api/users/profile）
-    - 更新资料接口（PUT /api/users/profile）
-    - 恋爱状态更新接口（PUT /api/users/relationship-status）
-    - 头像上传接口（POST /api/users/avatar）
-    - 用户洞察数据接口（GET /api/users/insights）
-    - 隐私设置更新接口（PUT /api/users/privacy-settings）
-    - 数据导出接口（GET /api/users/export-data）
-    - 账户注销接口（DELETE /api/users/account）
-  - **UserService扩展**：扩展用户服务，实现完整的用户管理业务逻辑
-    - 用户资料管理、统计数据计算
-    - 隐私设置管理、数据导出处理
-    - 账户注销和数据清理逻辑
-  - **数据规范**：所有用户数据必须来自数据库真实记录，严禁使用模拟用户信息
-  - _需求: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11_
-
-## 阶段5：前端功能页面实现
-
-- [ ] 5. 实现AI智能模板前端页面
+- [ ] 6. 实现AI智能模板前端页面
+  - **创建模板页面基础结构**：基于用户恋爱状态显示相应模板
+    - 修改main/index.vue，完善模板导航功能
+    - 创建templates文件夹和路由配置
+    - 实现恋爱状态切换时的模板集合切换
   - **单身用户模板页面**：创建单身用户专用的模板页面
     - DatingManagementPage：约会管理页面（使用u-list、u-card、u-rate组件）
     - DateTrackingPage：约会追踪页面（使用u-form、u-textarea、u-alert组件）
@@ -333,12 +371,13 @@
     - ImportantDatesPage：重要日期管理页面（使用u-calendar、u-card、u-badge组件）
     - ConflictResolutionPage：冲突解决记录页面（使用u-form、u-slider、u-time-line组件）
     - GrowthTrajectoryPage：恋爱成长轨迹页面（使用图表组件展示成长轨迹）
-  - **模板切换功能**：实现恋爱状态改变时的模板集合切换
   - **TemplateStore状态管理**：完善模板相关的状态管理
   - **数据规范**：所有模板数据必须从API获取真实数据，不得使用硬编码示例数据
   - _需求: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12_
 
-- [ ] 5.1 实现社区功能前端页面
+## 阶段7：前端社区功能页面实现
+
+- [ ] 7. 实现社区功能前端页面
   - **CommunityHomePage完善**：完善社区主页面，实现四个Tab的具体内容
     - 推荐Tab：使用u-list展示智能推荐内容，支持下拉刷新和上拉加载
     - 成功故事Tab：使用u-card展示匿名成功故事，u-tag标识故事类别
@@ -355,7 +394,9 @@
   - **数据规范**：所有社区内容必须从API获取真实数据，严禁使用硬编码内容
   - _需求: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 5.17, 5.18_
 
-- [ ] 4.2 实现聊天功能前端页面
+## 阶段8：前端聊天功能页面实现
+
+- [ ] 8. 实现聊天功能前端页面
   - **ChatListPage完善**：完善聊天联系人列表页面
     - 使用u-list展示联系人列表，AI教练置顶显示
     - 使用u-avatar显示用户头像，u-badge显示未读消息数量
@@ -377,7 +418,9 @@
   - **数据规范**：所有聊天数据必须从API获取真实数据，严禁使用模拟聊天记录
   - _需求: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10_
 
-- [ ] 4.3 完善个人中心功能页面
+## 阶段9：前端个人中心功能完善
+
+- [ ] 9. 完善个人中心功能页面
   - **ProfilePage完善**：完善个人中心主页面
     - 使用u-avatar显示头像，支持点击更换
     - 使用u-text展示用户基本信息
@@ -402,6 +445,61 @@
   - **状态管理完善**：完善用户相关的状态管理
   - **数据规范**：所有个人数据必须从API获取真实数据，严禁使用模拟个人信息
   - _需求: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9_
+
+## 阶段10：系统优化和完善
+
+- [ ] 10. 性能优化和错误处理
+  - **Redis缓存策略**：实现系统缓存优化
+    - 用户会话缓存、JWT令牌黑名单管理
+    - 推荐算法结果缓存、热门内容缓存
+    - AI评分结果缓存、用户统计数据缓存
+    - 实现缓存失效和更新策略
+  - **数据库查询优化**：优化数据库性能
+    - 添加必要的索引（用户邮箱、帖子时间、消息查询等）
+    - 优化复杂查询和分页查询
+    - 实现数据库连接池优化
+  - **全局异常处理**：实现统一的错误处理机制
+    - 使用@Slf4j创建GlobalExceptionHandler
+    - 处理认证异常、业务异常、系统异常
+    - 统一错误响应格式和错误码
+  - **uni-app错误处理**：实现前端错误处理
+    - 使用Vue 3实现前端ErrorHandler工具类
+    - 网络错误处理、API错误处理
+    - 用户友好的错误提示和重试机制
+  - **图片处理优化**：优化文件上传和处理
+    - 实现图片压缩和格式转换
+    - 文件大小限制和类型验证
+    - 图片存储和CDN集成准备
+  - _需求: 系统性能和稳定性_
+
+- [ ] 10.1 最终集成和部署准备
+  - **功能完整性验证**：验证所有功能模块的完整性
+    - 认证流程端到端验证
+    - 模板功能完整性验证
+    - 社区功能交互验证
+    - 聊天功能实时通信验证
+    - 个人中心功能验证
+  - **数据流验证**：验证前后端数据流的正确性
+    - API接口数据格式验证
+    - 数据库数据一致性检查
+    - 缓存数据同步验证
+  - **跨平台兼容性验证**：确保uni-app跨平台兼容性
+    - H5平台功能验证
+    - 微信小程序平台验证
+    - APP平台基础功能验证
+  - **性能基准建立**：建立系统性能基准
+    - API响应时间基准
+    - 数据库查询性能基准
+    - 前端页面加载性能基准
+  - **安全性检查**：进行基础安全性验证
+    - JWT令牌安全性验证
+    - API接口权限验证
+    - 数据输入验证和SQL注入防护
+  - **部署配置准备**：准备生产环境部署配置
+    - 环境变量配置模板
+    - 数据库初始化脚本
+    - 应用配置文件模板
+  - _需求: 系统部署和质量保证_
 
 ## 阶段5：系统优化和完善
 
@@ -954,3 +1052,13 @@
 - [ ] 所有数据来自真实API，严禁使用模拟数据
 
 违反以上规范的代码将不被接受，必须重新实现。
+
+## 下一步执行建议
+
+基于当前代码分析，建议按以下优先级执行任务：
+
+1. **立即可执行**：任务1.2（完善用户管理功能）- 扩展现有的用户实体和服务
+2. **核心功能**：任务2（创建AI智能模板相关实体类）- 实现核心业务模型
+3. **逐步构建**：按阶段顺序实现后端API，然后对应的前端页面
+
+每个任务都有明确的技术要求和验收标准，确保实现质量和一致性。

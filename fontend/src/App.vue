@@ -40,5 +40,13 @@ export default {
 @import "uview-plus/index.scss";
 @import "@/styles/global.scss";
 
-/* App.vue 现在只负责导入全局样式，所有组件样式都在 global.scss 中 */
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+.page-content {
+  width: 100%;
+  height: 100%;
+}
 </style>

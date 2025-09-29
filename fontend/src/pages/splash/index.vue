@@ -118,6 +118,13 @@ export default {
     
     // 生命周期
     onMounted(() => {
+      // 隐藏底部tab（如果是tabBar页面）
+      try {
+        uni.hideTabBar()
+      } catch (error) {
+        // 非tabBar页面会报错，忽略即可
+      }
+      
       // 开始加载文本动画
       const textInterval = updateLoadingText()
       
@@ -138,8 +145,8 @@ export default {
 
 <style lang="scss" scoped>
 .splash-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB3BA 100%);
   position: relative;
   overflow: hidden;
@@ -162,26 +169,26 @@ export default {
     opacity: 0.2;
     
     &.circle-1 {
-      width: 300px;
-      height: 300px;
+      width: 600rpx;
+      height: 600rpx;
       background: rgba(255, 255, 255, 0.1);
-      top: -150px;
-      right: -150px;
+      top: -300rpx;
+      right: -300rpx;
       animation: float 6s ease-in-out infinite;
     }
     
     &.circle-2 {
-      width: 200px;
-      height: 200px;
+      width: 400rpx;
+      height: 400rpx;
       background: rgba(255, 255, 255, 0.15);
-      bottom: -100px;
-      left: -100px;
+      bottom: -200rpx;
+      left: -200rpx;
       animation: float 8s ease-in-out infinite reverse;
     }
     
     &.circle-3 {
-      width: 150px;
-      height: 150px;
+      width: 300rpx;
+      height: 300rpx;
       background: rgba(255, 255, 255, 0.1);
       top: 20%;
       left: 10%;
@@ -189,8 +196,8 @@ export default {
     }
     
     &.circle-4 {
-      width: 100px;
-      height: 100px;
+      width: 200rpx;
+      height: 200rpx;
       background: rgba(255, 255, 255, 0.2);
       bottom: 30%;
       right: 20%;
@@ -207,38 +214,38 @@ export default {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 60px 40px;
+  padding: 120rpx 80rpx;
   width: 100%;
   height: 100%;
 }
 
 .logo-section {
-  margin-bottom: 80px;
+  margin-bottom: 160rpx;
   animation: fadeInUp 1s ease-out;
   
   .logo-container {
-    margin-bottom: 24px;
+    margin-bottom: 48rpx;
     
     .logo-icon {
-      font-size: 80px;
+      font-size: 160rpx;
       animation: heartbeat 2s ease-in-out infinite;
     }
   }
   
   .app-name {
-    font-size: 36px;
+    font-size: 72rpx;
     font-weight: 700;
     color: #FFFFFF;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24rpx;
+    letter-spacing: 4rpx;
+    text-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
   }
   
   .app-tagline {
-    font-size: 16px;
+    font-size: 32rpx;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 2rpx;
   }
 }
 
@@ -246,12 +253,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 60px;
+  gap: 32rpx;
+  margin-bottom: 120rpx;
   animation: fadeInUp 1s ease-out 0.5s both;
   
   .loading-text {
-    font-size: 14px;
+    font-size: 28rpx;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 500;
     animation: pulse 1.5s ease-in-out infinite;
@@ -260,7 +267,7 @@ export default {
 
 .version-info {
   position: absolute;
-  bottom: 40px;
+  bottom: 80rpx;
   animation: fadeInUp 1s ease-out 1s both;
 }
 
@@ -268,7 +275,7 @@ export default {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(60rpx);
   }
   to {
     opacity: 1;
@@ -287,10 +294,10 @@ export default {
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0rpx) rotate(0deg);
   }
   50% {
-    transform: translateY(-20px) rotate(180deg);
+    transform: translateY(-40rpx) rotate(180deg);
   }
 }
 
@@ -306,22 +313,22 @@ export default {
 /* 响应式适配 */
 @media screen and (max-width: 375px) {
   .content {
-    padding: 40px 30px;
+    padding: 80rpx 60rpx;
   }
   
   .logo-section {
-    margin-bottom: 60px;
+    margin-bottom: 120rpx;
     
     .logo-container .logo-icon {
-      font-size: 60px;
+      font-size: 120rpx;
     }
     
     .app-name {
-      font-size: 28px;
+      font-size: 56rpx;
     }
     
     .app-tagline {
-      font-size: 14px;
+      font-size: 28rpx;
     }
   }
 }

@@ -114,6 +114,21 @@
 					"animationDuration": 250
 				}
 			}
+		},
+		{
+			"path": "pages/profile/editProfile",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "Edit Profile",
+				"app-plus": {
+					"animationType": "slide-in-right",
+					"animationDuration": 300
+				},
+				"h5": {
+					"animationType": "slide-in-right",
+					"animationDuration": 300
+				}
+			}
 		}
 	],
 	"tabBar": {

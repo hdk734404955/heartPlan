@@ -1,81 +1,79 @@
 <template>
-  <view class="edit-profile">
+  <view class="publicPage">
     <!-- 导航栏 -->
     <up-navbar
       title="Edit Profile"
       :border="false"
       bg-color="#fff"
       title-color="#333"
-      :autoBack="true"
+      :autoBack="false"
       :fixed="false"
+      @leftClick="handleBack"
     >
     </up-navbar>
-
-    <!-- 内容区域 -->
-    <view class="content">
-      <!-- 头像 -->
-      <view class="avatar-section">
-        <view class="avatar-container" @click="chooseAvatar">
-          <up-avatar
-            :src="userInfo.avatar || 'https://picsum.photos/200/200?random=1'"
-            size="100"
-            shape="circle"
-          ></up-avatar>
-          <view class="camera-icon">
-            <up-icon name="camera" color="#fff" size="16"></up-icon>
-          </view>
+    <!-- 头像 -->
+    <view class="avatar-section">
+      <view class="avatar-container" @click="chooseAvatar">
+        <up-avatar
+          :src="userInfo.avatar || 'https://picsum.photos/200/200?random=1'"
+          size="100"
+          shape="circle"
+        ></up-avatar>
+        <view class="camera-icon">
+          <up-icon name="camera" color="#fff" size="16"></up-icon>
         </view>
       </view>
+    </view>
+    <!-- 内容区域 -->
 
-      <!-- 表单项 -->
-      <view class="form-section">
-        <!-- 名字 -->
-        <up-cell-group :border="false">
-          <up-cell
-            title="Name"
-            :value="userInfo.nickname"
-            is-link
-            @click="editName"
-          ></up-cell>
-        </up-cell-group>
+    <!-- 表单项 -->
+    <view class="form-section">
+      <!-- 名字 -->
+      <up-cell-group :border="false">
+        <up-cell
+          title="Name"
+          :value="userInfo.nickname"
+          is-link
+          @click="editName"
+        ></up-cell>
+      </up-cell-group>
 
-        <!-- 简介 -->
-        <up-cell-group :border="false">
-          <up-cell
-            title="Bio"
-            :value="userInfo.bio || 'An interesting bio can attract followers'"
-            is-link
-            @click="editBio"
-          ></up-cell>
-        </up-cell-group>
+      <!-- 简介 -->
+      <up-cell-group :border="false">
+        <up-cell
+          title="Bio"
+          :value="userInfo.bio || 'An interesting bio can attract followers'"
+          is-link
+          @click="editBio"
+        ></up-cell>
+      </up-cell-group>
 
-        <!-- 性别 -->
-        <up-cell-group :border="false">
-          <up-cell
-            title="Gender"
-            :value="userInfo.gender"
-            is-link
-            @click="selectGender"
-          ></up-cell>
-        </up-cell-group>
+      <!-- 性别 -->
+      <up-cell-group :border="false">
+        <up-cell
+          title="Gender"
+          :value="userInfo.gender"
+          is-link
+          @click="selectGender"
+        ></up-cell>
+      </up-cell-group>
 
-        <!-- 背景图 -->
-        <up-cell-group :border="false">
-          <up-cell title="Background" is-link @click="chooseBackground">
-            <template #right-icon>
-              <view class="bg-preview">
-                <image
-                  v-if="userInfo.backgroundImage"
-                  :src="userInfo.backgroundImage"
-                  class="bg-thumb"
-                  mode="aspectFill"
-                />
-                <up-icon name="arrow-right" color="#909399" size="16"></up-icon>
-              </view>
-            </template>
-          </up-cell>
-        </up-cell-group>
-      </view>
+      <!-- 背景图 -->
+      <up-cell-group :border="false">
+        <up-cell title="Background" is-link @click="chooseBackground">
+          <template #right-icon>
+            <view class="bg-preview">
+              <image
+                v-if="userInfo.backgroundImage"
+                :src="userInfo.backgroundImage"
+                class="bg-thumb"
+                mode="aspectFill"
+              />
+              <up-icon name="arrow-right" color="#909399" size="16"></up-icon>
+            </view>
+          </template>
+        </up-cell>
+      </up-cell-group>
     </view>
 
     <!-- 弹窗 -->
@@ -279,7 +277,10 @@ const uploadImage = (filePath, type) => {
     // uploadToServer(filePath, type);
   }, 1500);
 };
-
+const handleBack = () => {
+  // 自定义返回逻辑
+  uni.navigateBack();
+};
 // 保存用户信息
 const saveUserInfo = () => {
   // 这里调用API保存用户信息
@@ -302,7 +303,6 @@ const saveUserInfo = () => {
   justify-content: center;
   padding: 60rpx 0;
   background: #fff;
-  margin-bottom: 20rpx;
 
   .avatar-container {
     position: relative;
@@ -324,6 +324,7 @@ const saveUserInfo = () => {
 }
 
 .form-section {
+  overflow: auto;
   .up-cell-group {
     margin-bottom: 20rpx;
   }

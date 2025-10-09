@@ -70,8 +70,12 @@
             }}</view>
           </view>
           <view class="option">
-            <view class="option-item"><up-icon name="edit-pen" color="#fff"></up-icon></view>
-            <view class="option-item"><up-icon name="setting" color="#fff"></up-icon></view>
+            <view class="option-item" @click="goToEditProfile"
+              ><up-icon name="edit-pen" color="#fff"></up-icon
+            ></view>
+            <view class="option-item"
+              ><up-icon name="setting" color="#fff"></up-icon
+            ></view>
           </view>
         </view>
       </view>
@@ -231,6 +235,12 @@ onMounted(() => {
   getUserInfo(); // 获取用户信息和主题色
   getUserPostList();
 });
+
+const goToEditProfile = () => {
+  uni.navigateTo({
+    url: "/pages/profile/editProfile",
+  });
+};
 </script>
 
 <style lang="scss" scoped>

@@ -5,14 +5,12 @@
       class="navigator"
       :style="{
         paddingTop: statusBarHeight + 'px',
-        backgroundColor: `rgba(${hexToRgb(data.themeColor)}, ${navOpacity})`,
+        backgroundColor: `rgba(${hexToRgb(themeColor)}, ${navOpacity})`,
       }"
     >
       <view class="nav-avatar" :class="{ show: showNavAvatar }">
         <up-avatar
-          :src="
-            data.userInfo.avatar || 'https://picsum.photos/200/200?random=1'
-          "
+          :src="userInfo.avatarUrl || 'https://picsum.photos/200/200?random=1'"
           size="30"
           shape="circle"
         ></up-avatar>
@@ -24,7 +22,7 @@
       class="out-scroll"
       scroll-y
       :style="{ height: scrollViewHeight + 'px' }"
-      :refresher-background="data.themeColor"
+      :refresher-background="themeColor"
       :refresher-enabled="true"
       :refresher-triggered="data.isTrigger"
       @scroll="handleScroll"
@@ -36,16 +34,14 @@
         class="info-box"
         :style="{
           height: infoBoxHeight + 'px',
-          backgroundImage: data.userInfo.backgroundImage
-            ? `url(${data.userInfo.backgroundImage})`
-            : 'none',
+          backgroundImage: userInfo.bgcUrl ? `url(${userInfo.bgcUrl})` : 'none',
         }"
       >
         <!-- 渐变蒙层 -->
         <view
           class="gradient-mask"
           :style="{
-            background: `linear-gradient(to bottom, transparent 0%, ${data.themeColor} 100%)`,
+            background: `linear-gradient(to bottom, transparent 0%, ${themeColor} 100%)`,
           }"
         ></view>
 
@@ -55,18 +51,17 @@
             <view class="user-avatar-container">
               <up-avatar
                 :src="
-                  data.userInfo.avatar ||
-                  'https://picsum.photos/200/200?random=1'
+                  userInfo.avatarUrl || 'https://picsum.photos/200/200?random=1'
                 "
                 size="80"
                 shape="circle"
               ></up-avatar>
               <!-- 用户名 -->
-              <view class="username">{{ data.userInfo.nickname || "K" }}</view>
+              <view class="username">{{ userInfo.username }}</view>
             </view>
             <!-- 用户简介 -->
             <view class="user-bio">{{
-              data.userInfo.bio || "暂时还没有简介"
+              userInfo.introduction || "No introduction yet"
             }}</view>
           </view>
           <view class="option">
@@ -83,7 +78,7 @@
       <!-- 内容区域 -->
       <view class="content">
         <!-- 标签栏 - 使用sticky定位 -->
-        <view class="tab-bar" :style="{ backgroundColor: data.themeColor }">
+        <view class="tab-bar" :style="{ backgroundColor: themeColor }">
           <view class="tab-container">
             <!-- 使用 up-tabs 组件替换 tab-item -->
             <up-tabs :list="data.tabList" @click="handleTabClick"></up-tabs>
@@ -105,7 +100,11 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref, onMounted, computed } from "vue";
+import { useUserStore } from "@/store/modules/user";
+
+// 使用用户store
+const userStore = useUserStore();
 
 // 响应式数据
 const data = reactive({
@@ -115,17 +114,16 @@ const data = reactive({
   activeTab: 0,
   // up-tabs 需要的数据格式
   tabList: [{ name: "笔记" }, { name: "收藏" }],
-  // 主题颜色 - 从接口获取
-  themeColor: "#FF6B6B",
-  // 用户信息 - 从接口获取
-  userInfo: {
-    avatar: "",
-    backgroundImage: "",
-    nickname: "",
-    bio: "",
-    // 其他用户信息...
-  },
 });
+
+// 计算属性
+const userInfo = computed(() => userStore.userProfile);
+
+// 计算主题颜色 - 使用背景图主色调
+const themeColor = computed(() => {
+  return userInfo.value.bgcMainColor || data.themeColor;
+});
+
 
 // 系统信息
 const statusBarHeight = ref(0);
@@ -185,32 +183,6 @@ const handleTabClick = (item) => {
   console.log("切换到标签:", item.name, "索引:", item.index);
 };
 
-// 获取用户信息 - 模拟接口调用
-const getUserInfo = async () => {
-  try {
-    // 模拟接口请求
-    // const response = await api.getUserInfo();
-
-    // 模拟接口返回的数据
-    const mockResponse = {
-      themeColor: "#FF6B6B", // 主题颜色
-      userInfo: {
-        avatar: "https://picsum.photos/200/200?random=1",
-        backgroundImage: "https://picsum.photos/800/600?random=2",
-        nickname: "K",
-        bio: "暂时还没有简介",
-        // 其他用户信息...
-      },
-    };
-
-    // 更新数据
-    data.themeColor = mockResponse.themeColor;
-    data.userInfo = mockResponse.userInfo;
-  } catch (error) {
-    console.error("获取用户信息失败:", error);
-  }
-};
-
 // 滚动到底部
 const scrolltolower = () => {
   getUserPostList();
@@ -231,8 +203,10 @@ const getUserPostList = () => {
 };
 
 onMounted(() => {
+  // 初始化用户store
+  userStore.initUserProfile();
+
   getSystemInfo();
-  getUserInfo(); // 获取用户信息和主题色
   getUserPostList();
 });
 

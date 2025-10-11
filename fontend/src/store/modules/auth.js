@@ -20,7 +20,7 @@ export const useAuthStore = defineStore('auth', () => {
     accessToken.value = tokens.accessToken
     refreshToken.value = tokens.refreshToken
     isLoggedIn.value = true
-    
+
     // 存储到本地
     uni.setStorageSync('accessToken', tokens.accessToken)
     uni.setStorageSync('refreshToken', tokens.refreshToken)
@@ -31,7 +31,7 @@ export const useAuthStore = defineStore('auth', () => {
     accessToken.value = ''
     refreshToken.value = ''
     isLoggedIn.value = false
-    
+
     // 清除本地存储
     uni.removeStorageSync('accessToken')
     uni.removeStorageSync('refreshToken')
@@ -43,7 +43,7 @@ export const useAuthStore = defineStore('auth', () => {
     const storedAccessToken = uni.getStorageSync('accessToken')
     const storedRefreshToken = uni.getStorageSync('refreshToken')
     const storedIsLoggedIn = uni.getStorageSync('isLoggedIn')
-    
+
     if (storedAccessToken && storedRefreshToken && storedIsLoggedIn) {
       accessToken.value = storedAccessToken
       refreshToken.value = storedRefreshToken
@@ -64,12 +64,17 @@ export const useAuthStore = defineStore('auth', () => {
       if (!refreshToken.value) {
         throw new Error('No refresh token available')
       }
-      
+
       // 调用刷新令牌的API - 响应拦截器已处理统一格式，直接获取data
       const { authAPI } = await import('@/api/auth')
       const responseData = await authAPI.refreshToken(refreshToken.value)
       setTokens(responseData)
-      
+
+      // Token刷新成功后，直接更新用户信息
+      const { useUserStore } = await import('./user')
+      const userStore = useUserStore()
+      userStore.updateUserProfile(responseData.user)
+
       return true
     } catch (error) {
       console.error('Token refresh failed:', error)
@@ -93,10 +98,10 @@ export const useAuthStore = defineStore('auth', () => {
     isLoggedIn,
     loginLoading,
     registerLoading,
-    
+
     // 计算属性
     isAuthenticated,
-    
+
     // 方法
     setTokens,
     clearTokens,

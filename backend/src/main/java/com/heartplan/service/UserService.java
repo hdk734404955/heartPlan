@@ -6,6 +6,7 @@ import com.heartplan.mapper.UserMapper;
 import com.heartplan.repository.UserRepository;
 import com.heartplan.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
+import com.heartplan.util.ColorExtractionUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -100,15 +101,28 @@ public class UserService implements UserDetailsService {
             }
         }
 
-        // 手动更新允许修改的字段
-        existingUser.setUsername(updateRequest.getUsername());
-        existingUser.setAge(updateRequest.getAge());
-        existingUser.setGender(updateRequest.getGender());
-        existingUser.setRelationshipStatus(updateRequest.getRelationshipStatus());
-        existingUser.setAvatarUrl(updateRequest.getAvatarUrl());
-        existingUser.setIntroduction(updateRequest.getIntroduction());
-        existingUser.setLocation(updateRequest.getLocation());
-        existingUser.setBgcUrl(updateRequest.getBgcUrl());
+        // 检查背景图是否发生变化（需要特殊处理）
+        String oldBgcUrl = existingUser.getBgcUrl();
+        String newBgcUrl = updateRequest.getBgcUrl();
+        boolean bgcUrlChanged = !java.util.Objects.equals(oldBgcUrl, newBgcUrl);
+        
+        if (bgcUrlChanged && newBgcUrl != null && !newBgcUrl.trim().isEmpty()) {
+            log.info("用户背景图发生变化，开始提取主要颜色，用户ID: {}, 新URL: {}", 
+                    existingUser.getId(), newBgcUrl);
+            
+            // 同步提取颜色，然后一起更新所有字段
+            String dominantColor = ColorExtractionUtil.extractDominantColor(newBgcUrl);
+            updateRequest.setBgcMainColor(dominantColor);
+            log.info("背景图主要颜色提取成功，用户ID: {}, 颜色: {}", userId, dominantColor);
+           
+        } else if (bgcUrlChanged && (newBgcUrl == null || newBgcUrl.trim().isEmpty())) {
+            // 如果背景图被清空，也清空主要颜色
+            updateRequest.setBgcMainColor(null);
+            log.info("背景图被清空，同时清空主要颜色，用户ID: {}", userId);
+        }
+        
+        // 使用MapStruct更新所有字段（包括提取到的主要颜色）
+        userMapper.updateUserFromUserInfoDTO(updateRequest, existingUser);
         
         // 保存更新后的用户
         User updatedUser = userRepository.save(existingUser);
@@ -132,4 +146,8 @@ public class UserService implements UserDetailsService {
             .filter(user -> !user.getId().equals(excludeUserId))
             .isEmpty();
     }
+
+
+
+
 }

@@ -22,4 +22,5 @@ E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\ApiResponse.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\DatabaseConfig.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\GlobalExceptionHandler.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\service\AuthService.java
+E:\桌面\heartPlan\backend\src\main\java\com\heartplan\util\ColorExtractionUtil.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\security\JwtAuthenticationEntryPoint.java

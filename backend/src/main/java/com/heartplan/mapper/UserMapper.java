@@ -49,19 +49,19 @@ public interface UserMapper {
     UserPrincipal toUserPrincipal(User user);
 
     /**
-     * 更新现有User实体的字段（排除敏感字段）
-     * 用于用户信息更新时的部分字段映射
+     * 从UserInfoDTO更新User实体（排除只读字段）
+     * 用于用户信息更新
      * 
-     * @param registerRequest 包含更新数据的请求DTO
+     * @param userInfoDTO 包含更新数据的UserInfoDTO
      * @param user 要更新的User实体
      */
     @Mapping(target = "id", ignore = true) // 不更新ID
-    @Mapping(target = "password", ignore = true) // 不更新密码
     @Mapping(target = "email", ignore = true) // 不更新邮箱
     @Mapping(target = "enabled", ignore = true) // 不更新启用状态
     @Mapping(target = "createdAt", ignore = true) // 不更新创建时间
-    @Mapping(target = "updatedAt", expression = "java(java.time.LocalDateTime.now())") // 不更新修改时间
-    void updateUserFromRequest(RegisterRequest registerRequest, @MappingTarget User user);
+    @Mapping(target = "updatedAt", expression = "java(java.time.LocalDateTime.now())") // 自动更新修改时间
+    @Mapping(target = "password", ignore = true) // 不更新密码
+    void updateUserFromUserInfoDTO(UserInfoDTO userInfoDTO, @MappingTarget User user);
 
     /**
      * 构建认证响应对象

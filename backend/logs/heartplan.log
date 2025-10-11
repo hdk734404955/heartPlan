@@ -310,3 +310,2227 @@
 2025-10-11 14:55:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-10-11 14:55:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-10-11 14:55:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-11 15:02:24 [main] INFO  com.heartplan.HeartPlanApplication - Starting HeartPlanApplication using Java 21.0.8 with PID 37588 (E:\桌面\heartPlan\backend\target\classes started by CD-273 in E:\桌面\heartPlan\backend)
+2025-10-11 15:02:24 [main] DEBUG com.heartplan.HeartPlanApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-10-11 15:02:24 [main] INFO  com.heartplan.HeartPlanApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 122 ms. Found 1 JPA repository interfaces.
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.heartplan.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-11 15:02:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2025-10-11 15:02:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-10-11 15:02:25 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-11 15:02:25 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-10-11 15:02:25 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-11 15:02:25 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1879 ms
+2025-10-11 15:02:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-11 15:02:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-10-11 15:02:26 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-10-11 15:02:26 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-11 15:02:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-11 15:02:26 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e8afdad
+2025-10-11 15:02:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-11 15:02:26 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-11 15:02:26 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-11 15:02:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-11 15:02:27 [main] DEBUG org.hibernate.SQL - 
+    alter table users 
+       add column bgc_main_color varchar(500)
+2025-10-11 15:02:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-11 15:02:28 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-11 15:02:28 [main] DEBUG c.h.security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-11 15:02:28 [main] INFO  com.heartplan.config.DatabaseConfig - 初始化数据库配置...
+2025-10-11 15:02:28 [main] INFO  com.heartplan.config.DatabaseConfig - JPA仓库扫描包: com.heartplan.repository
+2025-10-11 15:02:28 [main] INFO  com.heartplan.config.DatabaseConfig - 事务管理已启用
+2025-10-11 15:02:28 [main] INFO  com.heartplan.config.DatabaseConfig - 数据库配置初始化完成
+2025-10-11 15:02:28 [main] INFO  com.heartplan.config.RedisConfig - 正在配置Redis模板...
+2025-10-11 15:02:28 [main] INFO  com.heartplan.config.RedisConfig - Redis模板配置完成
+2025-10-11 15:02:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-11 15:02:29 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e0dec0c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3dd4f91d, org.springframework.security.web.context.SecurityContextHolderFilter@30c1447e, org.springframework.security.web.header.HeaderWriterFilter@4d001a14, org.springframework.web.filter.CorsFilter@4a65ce06, org.springframework.security.web.authentication.logout.LogoutFilter@57352624, com.heartplan.security.JwtAuthenticationFilter@14b4caba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a770af8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@330f3046, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30a0a440, org.springframework.security.web.session.SessionManagementFilter@1d8f835c, org.springframework.security.web.access.ExceptionTranslationFilter@1caf77f6, org.springframework.security.web.access.intercept.AuthorizationFilter@3b191676]
+2025-10-11 15:02:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-10-11 15:02:29 [main] INFO  com.heartplan.HeartPlanApplication - Started HeartPlanApplication in 5.739 seconds (process running for 6.094)
+2025-10-11 15:03:41 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-11 15:03:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-11 15:03:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-11 15:03:41 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /user/1
+2025-10-11 15:03:41 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:03:41 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /user/1
+2025-10-11 15:03:41 [http-nio-8080-exec-1] INFO  c.h.controller.UserController - 获取用户公开信息请求，用户ID: 1
+2025-10-11 15:03:41 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:03:41 [http-nio-8080-exec-1] INFO  c.h.controller.UserController - 用户公开信息获取成功，用户: ned
+2025-10-11 15:03:41 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:04:04 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /user/1
+2025-10-11 15:04:04 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:04:04 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /user/1
+2025-10-11 15:04:04 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 获取用户公开信息请求，用户ID: 1
+2025-10-11 15:04:04 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:04:04 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 用户公开信息获取成功，用户: ned
+2025-10-11 15:04:04 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:17:13 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2025-10-11 15:17:13 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-11 15:17:13 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2025-10-11 15:17:13 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 收到登录请求，邮箱: 734404955@qq.com
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4e8afdad (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6afca4e1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4c63893b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@24a986a7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@e48fe19 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@11c889d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@51e6e3d4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3912cbf1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@70e342fc (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@15de741d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:17:13 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - User attempting login, email: 734404955@qq.com
+2025-10-11 15:17:13 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:17:13 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - User login successful, ID: 1, Username: ned
+2025-10-11 15:17:13 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Generated login token for user: 734404955@qq.com
+2025-10-11 15:17:13 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 用户登录成功，邮箱: 734404955@qq.com, 用户ID: 1
+2025-10-11 15:17:13 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 15:17:43 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:17:43 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:17:43 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:17:43 [http-nio-8080-exec-7] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:17:43 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:17:43 [http-nio-8080-exec-7] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:17:43 [http-nio-8080-exec-7] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:17:43 [http-nio-8080-exec-7] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:26:53 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:26:53 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@65c1ea2 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2009d78b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1528f1b7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@736744be (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@21b63304 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4f6d1d36 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1d1ae825 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@54111d8c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@442f2a19 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@630c0b07 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 15:26:53 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:26:53 [http-nio-8080-exec-10] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:26:53 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:26:53 [http-nio-8080-exec-10] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:26:53 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:26:53 [http-nio-8080-exec-10] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:26:53 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:27:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-11 15:27:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-11 15:27:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-11 15:42:44 [main] INFO  com.heartplan.HeartPlanApplication - Starting HeartPlanApplication using Java 21.0.8 with PID 17196 (E:\桌面\heartPlan\backend\target\classes started by CD-273 in E:\桌面\heartPlan\backend)
+2025-10-11 15:42:44 [main] DEBUG com.heartplan.HeartPlanApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-10-11 15:42:44 [main] INFO  com.heartplan.HeartPlanApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 1 JPA repository interfaces.
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.heartplan.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-11 15:42:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-10-11 15:42:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-10-11 15:42:45 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-11 15:42:45 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-10-11 15:42:45 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-11 15:42:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1125 ms
+2025-10-11 15:42:45 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-11 15:42:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-10-11 15:42:46 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-10-11 15:42:46 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-11 15:42:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-11 15:42:46 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c31e410
+2025-10-11 15:42:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-11 15:42:46 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-11 15:42:46 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-11 15:42:46 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-11 15:42:46 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-11 15:42:47 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-11 15:42:47 [main] DEBUG c.h.security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-11 15:42:47 [main] INFO  com.heartplan.config.DatabaseConfig - 初始化数据库配置...
+2025-10-11 15:42:47 [main] INFO  com.heartplan.config.DatabaseConfig - JPA仓库扫描包: com.heartplan.repository
+2025-10-11 15:42:47 [main] INFO  com.heartplan.config.DatabaseConfig - 事务管理已启用
+2025-10-11 15:42:47 [main] INFO  com.heartplan.config.DatabaseConfig - 数据库配置初始化完成
+2025-10-11 15:42:47 [main] INFO  com.heartplan.config.RedisConfig - 正在配置Redis模板...
+2025-10-11 15:42:47 [main] INFO  com.heartplan.config.RedisConfig - Redis模板配置完成
+2025-10-11 15:42:47 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-11 15:42:47 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d2068ea, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65a42136, org.springframework.security.web.context.SecurityContextHolderFilter@246f9fa8, org.springframework.security.web.header.HeaderWriterFilter@55785ee7, org.springframework.web.filter.CorsFilter@5145dddc, org.springframework.security.web.authentication.logout.LogoutFilter@1817f7f0, com.heartplan.security.JwtAuthenticationFilter@76ac3ad0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7af85b32, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30c1447e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b191676, org.springframework.security.web.session.SessionManagementFilter@10bf2726, org.springframework.security.web.access.ExceptionTranslationFilter@2fd2a6a4, org.springframework.security.web.access.intercept.AuthorizationFilter@6e48dc84]
+2025-10-11 15:42:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-10-11 15:42:48 [main] INFO  com.heartplan.HeartPlanApplication - Started HeartPlanApplication in 3.755 seconds (process running for 4.066)
+2025-10-11 15:42:53 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-11 15:42:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-11 15:42:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-11 15:42:53 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:42:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:42:53 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:42:53 [http-nio-8080-exec-1] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:42:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:42:53 [http-nio-8080-exec-1] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:42:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:42:53 [http-nio-8080-exec-1] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:42:53 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:43:25 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:43:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:43:25 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:43:25 [http-nio-8080-exec-3] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:43:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:43:25 [http-nio-8080-exec-3] INFO  com.heartplan.service.UserService - 用户背景图发生变化，开始提取主要颜色，用户ID: 1, 新URL: https://s.utui.cc/u/2025/10/11/D51nfUW_.jpg
+2025-10-11 15:43:25 [http-nio-8080-exec-3] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: https://s.utui.cc/u/2025/10/11/D51nfUW_.jpg
+2025-10-11 15:43:32 [http-nio-8080-exec-3] DEBUG c.heartplan.util.ColorExtractionUtil - 图片下载成功: https://s.utui.cc/u/2025/10/11/D51nfUW_.jpg, 尺寸: 7008x4672
+2025-10-11 15:43:33 [http-nio-8080-exec-3] INFO  c.heartplan.util.ColorExtractionUtil - 图片主要颜色提取成功: https://s.utui.cc/u/2025/10/11/D51nfUW_.jpg -> #998375
+2025-10-11 15:43:33 [http-nio-8080-exec-3] INFO  com.heartplan.service.UserService - 背景图主要颜色提取成功，用户ID: 1, 颜色: #998375
+2025-10-11 15:43:33 [http-nio-8080-exec-3] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:43:33 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:43:33 [http-nio-8080-exec-3] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:43:33 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:43:51 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:43:51 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:43:51 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:43:51 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:43:51 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:43:51 [http-nio-8080-exec-4] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:43:51 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:43:51 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:43:51 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:44:02 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:44:02 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:44:02 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:44:02 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:44:02 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:44:02 [http-nio-8080-exec-5] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:44:02 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:44:02 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:44:02 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:45:06 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:45:06 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:45:06 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:45:06 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:45:06 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:45:06 [http-nio-8080-exec-8] INFO  com.heartplan.service.UserService - 用户背景图发生变化，开始提取主要颜色，用户ID: 1, 新URL: https://s.utui.cc/u/2025/10/11/VHkOudzC.jpg
+2025-10-11 15:45:06 [http-nio-8080-exec-8] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: https://s.utui.cc/u/2025/10/11/VHkOudzC.jpg
+2025-10-11 15:45:14 [http-nio-8080-exec-8] DEBUG c.heartplan.util.ColorExtractionUtil - 图片下载成功: https://s.utui.cc/u/2025/10/11/VHkOudzC.jpg, 尺寸: 7008x4672
+2025-10-11 15:45:14 [http-nio-8080-exec-8] INFO  c.heartplan.util.ColorExtractionUtil - 图片主要颜色提取成功: https://s.utui.cc/u/2025/10/11/VHkOudzC.jpg -> #998375
+2025-10-11 15:45:14 [http-nio-8080-exec-8] INFO  com.heartplan.service.UserService - 背景图主要颜色提取成功，用户ID: 1, 颜色: #998375
+2025-10-11 15:45:14 [http-nio-8080-exec-8] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:45:14 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:45:14 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:45:14 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 15:45:29 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-11 15:45:29 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 15:45:29 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-11 15:45:29 [http-nio-8080-exec-9] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-11 15:45:29 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-11 15:45:29 [http-nio-8080-exec-9] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:45:29 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-11 15:45:29 [http-nio-8080-exec-9] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-11 15:45:29 [http-nio-8080-exec-9] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-11 16:12:13 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:12:13 [http-nio-8080-exec-2] INFO  com.heartplan.util.JwtTokenProvider - JWT令牌已过期
+2025-10-11 16:12:13 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-11 16:12:13 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:12:13 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7c31e410 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7a7af8e4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@41484c99 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@db642a4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4e7f7b6b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@636f1798 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@60c0a3e8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:12:13 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:12:13 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:12:13 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:12:13 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:12:13 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:27:58 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:27:58 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:27:58 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:27:58 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:27:58 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@465b9a76 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@153bf325 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1e707aeb (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5762c3d8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5af9fde2 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5bc4683 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@67905019 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1faef468 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@17a20774 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2df83515 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:27:58 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:27:58 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:27:58 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:27:58 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:27:58 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:27:58 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:27:58 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:27:58 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:27:58 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:27:58 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:27:58 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:27:58 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:27:58 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:27:58 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:28:25 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:28:25 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:28:25 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:28:25 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:28:25 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:28:25 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:28:25 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:28:25 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:28:25 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:28:41 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:28:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:28:41 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:28:41 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:28:41 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:28:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:28:41 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:28:41 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:28:41 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:29:06 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:29:06 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:29:06 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:29:06 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:29:06 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:29:06 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:29:06 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:29:06 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:29:06 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:32:25 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:32:25 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@68292b68 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4a7000e1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4f8e833a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6e5d83c8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@88aba56 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@42b7d4ae (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@799b0891 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7b5a87a9 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@26dfca9e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5ab1784f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:32:25 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:32:25 [http-nio-8080-exec-7] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:32:25 [http-nio-8080-exec-7] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:32:25 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:32:25 [http-nio-8080-exec-7] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:32:25 [http-nio-8080-exec-7] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:32:25 [http-nio-8080-exec-7] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:35:22 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:35:22 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6004780d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@127dbbaa (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4555446e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6d298d9 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@56b50607 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@296a4790 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@46f300e7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@54755cb0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2a0eed07 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@51236911 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:35:22 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:35:22 [http-nio-8080-exec-8] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:35:22 [http-nio-8080-exec-8] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:35:22 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:35:22 [http-nio-8080-exec-8] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:35:22 [http-nio-8080-exec-8] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:35:22 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:35:47 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:35:47 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:35:47 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:35:47 [http-nio-8080-exec-9] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:35:47 [http-nio-8080-exec-9] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:35:47 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:35:47 [http-nio-8080-exec-9] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:35:47 [http-nio-8080-exec-9] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:35:47 [http-nio-8080-exec-9] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:36:03 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:36:03 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:36:03 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:36:03 [http-nio-8080-exec-10] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:36:03 [http-nio-8080-exec-10] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:36:03 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:36:03 [http-nio-8080-exec-10] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:36:03 [http-nio-8080-exec-10] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:36:03 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:36:26 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:36:26 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:36:26 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:36:26 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:36:26 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:36:26 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:36:26 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:36:26 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:36:26 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:36:28 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:36:28 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:36:28 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:36:28 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:36:28 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:36:28 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:36:28 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:36:28 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:36:28 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:40:18 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:40:18 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4a51e478 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@74dcd21b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@f8928cd (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4abe7f60 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@22cd54cf (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@30130687 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@769a8f08 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4f66bbc4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7c5e5cb (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2f4afc8a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:40:18 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:40:18 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:40:18 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:40:18 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:40:18 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:40:18 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:40:18 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:44:00 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:44:00 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6fe0881f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5fd9ea7c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1a35f082 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@717e23ab (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@537deca4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@43e776bd (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@76e33fa3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@768029af (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4aa4f317 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@320e3660 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 16:44:00 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:44:00 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:44:00 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:44:00 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:44:00 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:44:00 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:44:00 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:44:37 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:44:37 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:44:37 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:44:37 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:44:37 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:44:37 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:44:37 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:44:37 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:44:37 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:45:05 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:45:05 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:45:05 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:45:05 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:45:05 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:45:05 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:45:05 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:45:05 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:45:05 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:45:21 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:45:21 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:45:21 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:45:21 [http-nio-8080-exec-7] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:45:21 [http-nio-8080-exec-7] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:45:21 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:45:21 [http-nio-8080-exec-7] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:45:21 [http-nio-8080-exec-7] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:45:21 [http-nio-8080-exec-7] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 16:46:05 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 16:46:05 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:46:05 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 16:46:05 [http-nio-8080-exec-8] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 16:46:05 [http-nio-8080-exec-8] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 16:46:05 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 16:46:05 [http-nio-8080-exec-8] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 16:46:05 [http-nio-8080-exec-8] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 16:46:05 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 17:41:10 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 17:41:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@210daa79 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@523ecb6b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@9c30ad7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@455137f4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3d6de6e2 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@19ac17b7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@82823e7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1682ff04 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6f6a53cc (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@269472dd (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 17:41:10 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 17:41:10 [http-nio-8080-exec-9] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 17:41:10 [http-nio-8080-exec-9] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 17:41:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 17:41:10 [http-nio-8080-exec-9] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 17:41:10 [http-nio-8080-exec-9] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 17:41:10 [http-nio-8080-exec-9] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 17:43:10 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 17:43:10 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 17:43:10 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 17:43:10 [http-nio-8080-exec-10] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 17:43:10 [http-nio-8080-exec-10] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 17:43:10 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 17:43:10 [http-nio-8080-exec-10] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 17:43:10 [http-nio-8080-exec-10] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 17:43:10 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 17:44:58 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 17:44:59 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 17:44:59 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 17:44:59 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 17:44:59 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 17:44:59 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 17:44:59 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 17:44:59 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 17:44:59 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 18:03:02 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 18:03:02 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@f0a5cec (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@69e89abc (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@429188cf (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1f21414d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@70ff4caa (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5def1573 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@137629f1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6c839fb (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@c58bf94 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@29b977e1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:03:02 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 18:03:02 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 18:03:02 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 18:03:02 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:03:02 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 18:03:02 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 18:03:02 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 18:04:46 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 18:04:46 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:04:46 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 18:04:46 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 18:04:46 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 18:04:46 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:04:46 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 18:04:46 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 18:04:46 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 18:07:31 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 18:07:32 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@26ae0291 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@379c0a13 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7f34af15 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@295880e8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@c0e9f3f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5b15c03f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@103904f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6cb11f47 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@143e8289 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@615fac09 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:07:32 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 18:07:32 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 18:07:32 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 18:07:32 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:07:32 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 18:07:32 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 18:07:32 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 18:09:36 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 18:09:36 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@64460edf (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@484c7087 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4be99d5c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1f0d4208 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@22c27a8b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@921fe1c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@ea58119 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7bcd8fc7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4aeaa417 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4c3d7248 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-11 18:09:36 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 18:09:36 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 18:09:36 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 18:09:36 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:09:36 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 18:09:36 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 18:09:36 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 18:09:56 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 18:09:56 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:09:57 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 18:09:57 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 18:09:57 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 18:09:57 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:09:57 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 18:09:57 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 18:09:57 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-11 18:09:59 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-11 18:09:59 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:09:59 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-11 18:09:59 [http-nio-8080-exec-7] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-11 18:09:59 [http-nio-8080-exec-7] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-11 18:09:59 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-11 18:09:59 [http-nio-8080-exec-7] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-11 18:09:59 [http-nio-8080-exec-7] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-11 18:09:59 [http-nio-8080-exec-7] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse

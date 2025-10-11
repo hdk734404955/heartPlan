@@ -16,6 +16,7 @@ com\heartplan\service\UserService.class
 com\heartplan\config\ApiResponseAnnotations$DeleteResponse.class
 com\heartplan\config\ApiResponseAnnotations$StandardCrudResponse.class
 com\heartplan\config\ApiResponseAnnotations$FileUploadResponse.class
+com\heartplan\util\ColorExtractionUtil.class
 com\heartplan\dto\LoginRequest.class
 com\heartplan\security\JwtAuthenticationEntryPoint.class
 com\heartplan\config\GlobalExceptionHandler.class
@@ -39,5 +40,6 @@ com\heartplan\config\RedisConfig.class
 com\heartplan\dto\LoginRequest$LoginRequestBuilder.class
 com\heartplan\controller\AuthController.class
 com\heartplan\dto\ApiResponse$ApiResponseBuilder.class
+com\heartplan\util\ColorExtractionUtil$ColorResult.class
 com\heartplan\config\ApiResponseAnnotations$StandardGetResponse.class
 com\heartplan\config\ApiResponseAnnotations$ValidationResponse.class

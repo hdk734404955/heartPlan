@@ -85,6 +85,24 @@ public class User extends BaseEntity {
     private String avatarUrl;
 
     /**
+     * 用户简介（可选字段）
+     */
+    @Column(name = "introduction", length = 500)
+    private String introduction;
+
+    /**
+     * 用户背景图（可选字段）
+     */
+    @Column(name = "bgc_url", length = 1000)
+    private String bgcUrl;
+
+    /**
+     * 用户背景图颜色
+     */
+    @Column(name = "bgc_main_color", length = 500)
+    private String bgcMainColor;
+
+    /**
      * 用户所在位置（可选字段）
      */
     @Size(max = 100)

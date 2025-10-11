@@ -1,13 +1,14 @@
 package com.heartplan.controller;
 
+import com.heartplan.config.ApiResponseAnnotations.AuthApiResponse;
+import com.heartplan.config.ApiResponseAnnotations.ValidationResponse;
+import com.heartplan.config.ApiResponseAnnotations.StandardGetResponse;
 import com.heartplan.dto.AuthResponse;
 import com.heartplan.dto.LoginRequest;
 import com.heartplan.dto.RegisterRequest;
 import com.heartplan.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,13 +44,7 @@ public class AuthController {
      */
     @PostMapping("/login")
     @Operation(summary = "User Login", description = "Validate user email and password, return JWT access token and refresh token")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Login successful"),
-        @ApiResponse(responseCode = "400", description = "Invalid request parameters"),
-        @ApiResponse(responseCode = "401", description = "Invalid username or password"),
-        @ApiResponse(responseCode = "403", description = "Account disabled"),
-        @ApiResponse(responseCode = "500", description = "Internal server error")
-    })
+    @AuthApiResponse
     public AuthResponse login(
             @Parameter(description = "Login request data", required = true)
             @Valid @RequestBody LoginRequest loginRequest) {
@@ -74,12 +69,7 @@ public class AuthController {
      */
     @PostMapping("/refresh")
     @Operation(summary = "Refresh Access Token", description = "Use refresh token to get new access token")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Token refresh successful"),
-        @ApiResponse(responseCode = "400", description = "Invalid refresh token"),
-        @ApiResponse(responseCode = "401", description = "Refresh token expired"),
-        @ApiResponse(responseCode = "500", description = "Internal server error")
-    })
+    @AuthApiResponse
     public AuthResponse refreshToken(
             @Parameter(description = "Refresh token request", required = true)
             @RequestBody Map<String, String> refreshTokenRequest) {
@@ -110,10 +100,7 @@ public class AuthController {
      */
     @GetMapping("/check-email")
     @Operation(summary = "Check Email Existence", description = "Check if the specified email has been registered")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Check completed"),
-        @ApiResponse(responseCode = "400", description = "Invalid email format")
-    })
+    @ValidationResponse
     public Map<String, Object> checkEmail(
             @Parameter(description = "Email address to check", required = true)
             @RequestParam String email) {
@@ -150,10 +137,7 @@ public class AuthController {
      */
     @GetMapping("/check-username")
     @Operation(summary = "Check Username Existence", description = "Check if the specified username has been used")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Check completed"),
-        @ApiResponse(responseCode = "400", description = "Invalid username format")
-    })
+    @ValidationResponse
     public Map<String, Object> checkUsername(
             @Parameter(description = "Username to check", required = true)
             @RequestParam String username) {
@@ -184,11 +168,7 @@ public class AuthController {
      */
     @PostMapping("/register")
     @Operation(summary = "User Registration", description = "Create new user account, validate email and username uniqueness, return JWT token for direct access to main interface")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Registration successful"),
-        @ApiResponse(responseCode = "400", description = "Invalid request parameters or email/username already exists"),
-        @ApiResponse(responseCode = "500", description = "Internal server error")
-    })
+    @AuthApiResponse
     public AuthResponse register(
             @Parameter(description = "Registration request data", required = true)
             @Valid @RequestBody RegisterRequest registerRequest) {
@@ -214,9 +194,7 @@ public class AuthController {
      */
     @PostMapping("/logout")
     @Operation(summary = "User Logout", description = "User logout from system")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Logout successful")
-    })
+    @StandardGetResponse
     public String logout() {
         log.info("用户登出请求");
         

@@ -1,5 +1,6 @@
 package com.heartplan.service;
 
+import com.heartplan.dto.UserInfoDTO;
 import com.heartplan.entity.User;
 import com.heartplan.mapper.UserMapper;
 import com.heartplan.repository.UserRepository;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 用户服务类
@@ -54,5 +56,80 @@ public class UserService implements UserDetailsService {
             });
         
         return userMapper.toUserPrincipal(user);
+    }
+
+    /**
+     * 根据用户ID获取用户信息
+     * 
+     * @param userId 用户ID
+     * @return UserInfoDTO 用户信息DTO
+     * @throws UsernameNotFoundException 当用户不存在时抛出
+     */
+    public UserInfoDTO getUserById(Long userId) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new UsernameNotFoundException("用户不存在: " + userId));
+        
+        return userMapper.toUserInfo(user);
+    }
+
+    /**
+     * 更新用户信息
+     * 使用UserInfoDTO作为更新请求DTO
+     * 只更新允许修改的字段，不包括id、email、enabled、createdAt等字段
+     * 
+     * @param userId 用户ID
+     * @param updateRequest 更新请求数据（忽略id、email、enabled、createdAt字段）
+     * @return UserInfoDTO 更新后的用户信息
+     * @throws UsernameNotFoundException 当用户不存在时抛出
+     * @throws IllegalArgumentException 当用户名已被其他用户使用时抛出
+     */
+    @Transactional
+    public UserInfoDTO updateUserInfo(Long userId, UserInfoDTO updateRequest) {
+        // 查找要更新的用户
+        User existingUser = userRepository.findById(userId)
+            .orElseThrow(() -> new UsernameNotFoundException("用户不存在: " + userId));
+
+        // 检查用户名是否被其他用户使用
+        if (!existingUser.getUsername().equals(updateRequest.getUsername())) {
+            boolean usernameExists = userRepository.findByUsername(updateRequest.getUsername())
+                .filter(user -> !user.getId().equals(userId)) // 排除当前用户
+                .isPresent();
+            
+            if (usernameExists) {
+                throw new IllegalArgumentException("用户名已被使用: " + updateRequest.getUsername());
+            }
+        }
+
+        // 手动更新允许修改的字段
+        existingUser.setUsername(updateRequest.getUsername());
+        existingUser.setAge(updateRequest.getAge());
+        existingUser.setGender(updateRequest.getGender());
+        existingUser.setRelationshipStatus(updateRequest.getRelationshipStatus());
+        existingUser.setAvatarUrl(updateRequest.getAvatarUrl());
+        existingUser.setIntroduction(updateRequest.getIntroduction());
+        existingUser.setLocation(updateRequest.getLocation());
+        existingUser.setBgcUrl(updateRequest.getBgcUrl());
+        
+        // 保存更新后的用户
+        User updatedUser = userRepository.save(existingUser);
+        
+        log.info("用户信息更新成功，用户ID: {}, 用户名: {}", userId, updatedUser.getUsername());
+        
+        // 返回更新后的用户信息
+        return userMapper.toUserInfo(updatedUser);
+    }
+
+    /**
+     * 检查用户名是否可用（排除指定用户ID）
+     * 用于更新用户信息时检查用户名冲突
+     * 
+     * @param username 要检查的用户名
+     * @param excludeUserId 要排除的用户ID（当前用户）
+     * @return boolean 用户名是否可用
+     */
+    public boolean isUsernameAvailable(String username, Long excludeUserId) {
+        return userRepository.findByUsername(username)
+            .filter(user -> !user.getId().equals(excludeUserId))
+            .isEmpty();
     }
 }

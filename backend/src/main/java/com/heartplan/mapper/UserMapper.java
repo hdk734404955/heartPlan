@@ -60,7 +60,7 @@ public interface UserMapper {
     @Mapping(target = "email", ignore = true) // 不更新邮箱
     @Mapping(target = "enabled", ignore = true) // 不更新启用状态
     @Mapping(target = "createdAt", ignore = true) // 不更新创建时间
-    @Mapping(target = "updatedAt", ignore = true) // 不更新修改时间
+    @Mapping(target = "updatedAt", expression = "java(java.time.LocalDateTime.now())") // 不更新修改时间
     void updateUserFromRequest(RegisterRequest registerRequest, @MappingTarget User user);
 
     /**

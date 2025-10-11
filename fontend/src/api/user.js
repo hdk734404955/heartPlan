@@ -2,15 +2,27 @@
 import http from './request'
 
 export const userAPI = {
-  // 获取用户资料
+  // 获取当前用户资料
   getProfile() {
-    return http.get('/users/profile')
+    return http.get('/user/profile')
   },
 
-  // 更新用户资料
+  // 更新当前用户资料
   updateProfile(profileData) {
-    return http.put('/users/profile', profileData)
+    return http.put('/user/profile', profileData)
   },
+
+  // 检查用户名可用性
+  checkUsernameAvailability(username) {
+    return http.get('/user/check-username', { username })
+  },
+
+  // 获取指定用户的公开信息
+  getUserById(userId) {
+    return http.get(`/user/${userId}`)
+  },
+
+
 
   // 更新恋爱状态
   updateRelationshipStatus(status) {

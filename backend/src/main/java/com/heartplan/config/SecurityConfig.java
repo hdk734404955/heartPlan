@@ -79,6 +79,12 @@ public class SecurityConfig {
                 // 认证相关接口允许匿名访问
                 .requestMatchers("/auth/**").permitAll()
                 
+                // 文件上传接口允许匿名访问
+                .requestMatchers("/upload/**").permitAll()
+                
+                // 静态资源允许匿名访问
+                .requestMatchers("/uploads/**").permitAll()
+                
                 // 其他所有请求都需要认证（不区分权限）
                 .anyRequest().authenticated()
             )

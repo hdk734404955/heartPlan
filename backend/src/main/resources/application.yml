@@ -7,6 +7,14 @@ spring:
   application:
     name: heartplan-backend
   
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+      file-size-threshold: 512KB
+      location: ${java.io.tmpdir}
+  
   # 数据库配置
   datasource:
     url: jdbc:mysql://localhost:3306/heartplan?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8
@@ -39,14 +47,6 @@ spring:
           max-idle: 8
           min-idle: 0
           max-wait: -1ms
-  
-  # 文件上传配置
-  servlet:
-    multipart:
-      max-file-size: 5MB
-      max-request-size: 10MB
-      file-size-threshold: 512KB
-      location: ${java.io.tmpdir}
 
 # JWT配置
 jwt:
@@ -81,8 +81,11 @@ logging:
 
 # 文件上传配置（合并到上面的spring配置中）
 
-# 应用文件配置
+# 应用配置
 app:
+  upload:
+    path: ${FILE_UPLOAD_DIR:uploads}
+    max-size: 5242880  # 5MB
   file:
     upload-dir: ${FILE_UPLOAD_DIR:uploads}
     base-url: ${FILE_BASE_URL:http://localhost:8080/api/files}

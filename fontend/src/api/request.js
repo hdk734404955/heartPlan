@@ -33,7 +33,7 @@ class HttpRequest {
     return new Promise((resolve, reject) => {
       // 应用请求拦截器：添加认证头、基础URL等配置
       const config = this.interceptors.request(options)
-      
+
       uni.request({
         ...config,
         success: (response) => {
@@ -71,9 +71,9 @@ class HttpRequest {
     const queryString = Object.keys(params)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
       .join('&')
-    
+
     const fullUrl = queryString ? `${url}?${queryString}` : url
-    
+
     return this.request({
       url: fullUrl,
       method: 'GET',
@@ -131,12 +131,7 @@ class HttpRequest {
   }
 
   /**
-   * 文件上传方法
-   * 
-   * 优化说明：
-   * - 统一文件上传响应处理，支持ApiResponse格式
-   * - 简化响应解析逻辑，减少重复代码
-   * - 自动处理Content-Type，避免上传冲突
+   * 文件上传方法 - 基于uni.uploadFile规范
    * 
    * @param {string} url - 上传URL
    * @param {string} filePath - 文件路径
@@ -146,53 +141,98 @@ class HttpRequest {
    */
   upload(url, filePath, formData = {}, options = {}) {
     return new Promise((resolve, reject) => {
-      // 应用请求拦截器获取认证头，标记为上传请求
-      const config = this.interceptors.request({ 
-        url, 
-        method: 'POST',
-        header: {}, 
-        isUpload: true 
-      })
-      
-      // 移除Content-Type，让uni.uploadFile自动设置multipart/form-data
-      if (config.header['Content-Type']) {
-        delete config.header['Content-Type']
+      // 验证必要参数
+      if (!url) {
+        reject(new Error('Upload URL is required'))
+        return
       }
       
-      uni.uploadFile({
+      if (!filePath || typeof filePath !== 'string') {
+        reject(new Error('Valid file path is required'))
+        return
+      }
+
+      // 应用请求拦截器获取完整配置
+      const config = this.interceptors.request({
+        url,
+        method: 'POST',
+        header: {},
+        isUpload: true
+      })
+
+      // uni.uploadFile 配置
+      const uploadConfig = {
         url: config.url,
-        filePath,
-        name: options.name || 'file',
-        formData,
-        header: config.header,
-        success: (response) => {
+        filePath: filePath,
+        name: 'file', // 后端接收的字段名
+        formData: formData,
+        header: config.header || {},
+        success: (res) => {
+          console.log('上传成功响应:', res)
+          
           try {
-            // 解析JSON响应数据
-            const data = JSON.parse(response.data)
-            
-            // 检查是否为统一ApiResponse格式
-            if (data && typeof data === 'object' && 'code' in data) {
-              if (data.code >= 200 && data.code < 300) {
-                // 成功响应：返回data字段
-                resolve(data.data)
+            // 检查HTTP状态码
+            if (res.statusCode !== 200) {
+              reject(new Error(`HTTP Error: ${res.statusCode}`))
+              return
+            }
+
+            // 解析响应数据
+            let responseData
+            try {
+              responseData = JSON.parse(res.data)
+            } catch (parseError) {
+              reject(new Error('Invalid JSON response'))
+              return
+            }
+
+            // 检查是否为统一ApiResponse格式 {code, data, message}
+            if (responseData && typeof responseData === 'object' && 'code' in responseData) {
+              if (responseData.code >= 200 && responseData.code < 300) {
+                // 成功：返回data字段
+                resolve(responseData.data || responseData)
               } else {
-                // 错误响应：使用message字段
-                reject(new Error(data.message || 'Upload failed'))
+                // 业务错误：使用message字段
+                reject(new Error(responseData.message || 'Upload failed'))
               }
             } else {
-              // 向后兼容：支持旧格式响应
-              resolve(data)
+              // 非标准格式，直接返回
+              resolve(responseData)
             }
           } catch (error) {
-            reject(new Error('Upload response parse error'))
+            console.error('上传响应处理错误:', error)
+            reject(new Error('Response processing error: ' + error.message))
           }
         },
         fail: (error) => {
-          // 应用错误处理器
-          this.interceptors.error(error)
-          reject(error)
+          console.error('上传失败:', error)
+          
+          // 统一错误处理
+          let errorMessage = 'Upload failed'
+          if (error.errMsg) {
+            if (error.errMsg.includes('timeout')) {
+              errorMessage = 'Upload timeout'
+            } else if (error.errMsg.includes('network')) {
+              errorMessage = 'Network error'
+            } else {
+              errorMessage = error.errMsg
+            }
+          }
+          
+          reject(new Error(errorMessage))
         }
-      })
+      }
+
+      // 执行上传
+      console.log('开始上传文件:', uploadConfig)
+      const uploadTask = uni.uploadFile(uploadConfig)
+
+      // 可选：监听上传进度
+      if (options.onProgress && uploadTask.onProgressUpdate) {
+        uploadTask.onProgressUpdate((progressEvent) => {
+          options.onProgress(progressEvent)
+        })
+      }
     })
   }
 
@@ -210,12 +250,12 @@ class HttpRequest {
   download(url, options = {}) {
     return new Promise((resolve, reject) => {
       // 应用请求拦截器获取认证头和完整URL
-      const config = this.interceptors.request({ 
-        url, 
+      const config = this.interceptors.request({
+        url,
         method: 'GET',
-        header: {} 
+        header: {}
       })
-      
+
       uni.downloadFile({
         url: config.url,
         header: config.header,

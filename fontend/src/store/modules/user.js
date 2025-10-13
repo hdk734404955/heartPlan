@@ -120,16 +120,16 @@ export const useUserStore = defineStore('user', () => {
   const fetchUserProfile = async () => {
     try {
       setProfileLoading(true)
-      
+
       // 动态导入API
       const { userAPI } = await import('@/api/user')
-      
+
       // 从服务器获取最新用户信息
       const profile = await userAPI.getProfile()
-      
+
       // 更新store中的用户信息
       setUserProfile(profile)
-      
+
       console.log('用户信息获取成功:', profile)
       return profile
     } catch (error) {
@@ -143,22 +143,22 @@ export const useUserStore = defineStore('user', () => {
   const saveUserProfile = async (profileData) => {
     try {
       setUpdateLoading(true)
-      
+
       // 动态导入API
       const { userAPI } = await import('@/api/user')
-      
+
       // 保存到服务器
       const updatedProfile = await userAPI.updateProfile(profileData)
-      
+
       // 更新store中的用户信息
       setUserProfile(updatedProfile)
-      
+
       uni.showToast({
         title: 'Profile updated successfully',
         icon: 'success',
         duration: 2000
       })
-      
+
       console.log('用户信息保存成功:', updatedProfile)
       return updatedProfile
     } catch (error) {
@@ -171,6 +171,29 @@ export const useUserStore = defineStore('user', () => {
       throw error
     } finally {
       setUpdateLoading(false)
+    }
+  }
+
+  const uploadImage = async (filePath, type = 'image') => {
+    try {
+      console.log('Store上传图片:', { filePath, type })
+
+      // 验证文件路径
+      if (!filePath || typeof filePath !== 'string') {
+        throw new Error('Invalid file path')
+      }
+
+      // 动态导入API
+      const { userAPI } = await import('@/api/user')
+
+      // 上传图片
+      const result = await userAPI.uploadImage(filePath, type)
+
+      console.log('图片上传成功:', result)
+      return result
+    } catch (error) {
+      console.error('图片上传失败:', error)
+      throw error
     }
   }
 
@@ -195,6 +218,8 @@ export const useUserStore = defineStore('user', () => {
     setUpdateLoading,
     updateRelationshipStatus,
     updateAvatar,
-    saveUserProfile
+    fetchUserProfile,
+    saveUserProfile,
+    uploadImage
   }
 })

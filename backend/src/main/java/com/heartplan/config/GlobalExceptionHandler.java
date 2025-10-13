@@ -214,6 +214,18 @@ public class GlobalExceptionHandler {
     }
 
     /**
+     * 处理文件上传大小超限异常
+     * MaxUploadSizeExceededException - 文件上传大小超限
+     */
+    @ExceptionHandler(org.springframework.web.multipart.MaxUploadSizeExceededException.class)
+    public ResponseEntity<ApiResponse<Object>> handleMaxUploadSizeExceededException(
+            org.springframework.web.multipart.MaxUploadSizeExceededException e) {
+        log.warn("文件上传大小超限: {}", e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(400, "File size exceeds the maximum limit of 5MB"));
+    }
+
+    /**
      * 处理运行时异常
      * RuntimeException - 运行时异常
      */

@@ -2,9 +2,11 @@ E:\桌面\heartPlan\backend\src\main\java\com\heartplan\entity\User.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\controller\AuthController.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\service\UserService.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\mapper\UserMapper.java
+E:\桌面\heartPlan\backend\src\main\java\com\heartplan\service\FileUploadService.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\GlobalResponseHandler.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\ApiResponseAnnotations.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\LoginRequest.java
+E:\桌面\heartPlan\backend\src\main\java\com\heartplan\controller\FileController.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\UserInfoDTO.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\SwaggerConfig.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\AuthResponse.java
@@ -17,6 +19,7 @@ E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\RegisterRequest.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\controller\UserController.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\security\UserPrincipal.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\RedisConfig.java
+E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\WebConfig.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\SecurityConfig.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\dto\ApiResponse.java
 E:\桌面\heartPlan\backend\src\main\java\com\heartplan\config\DatabaseConfig.java

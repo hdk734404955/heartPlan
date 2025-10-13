@@ -323,9 +323,54 @@ const chooseAvatar = () => {
     count: 1,
     sizeType: ["compressed"],
     sourceType: ["album", "camera"],
-    success: (res) => {
-      userInfo.avatarUrl = res.tempFilePaths[0];
-      uploadImage(res.tempFilePaths[0], "avatar");
+    success: async (res) => {
+      try {
+        console.log('选择图片结果:', res);
+        
+        // 检查文件大小 (5MB限制)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (res.tempFiles && res.tempFiles[0] && res.tempFiles[0].size > maxSize) {
+          uni.showToast({
+            title: "Image size cannot exceed 5MB",
+            icon: "none",
+            duration: 3000
+          });
+          return;
+        }
+        
+        // 使用userStore的上传方法
+        const result = await userStore.uploadImage(
+          res.tempFilePaths[0],
+          "avatar"
+        );
+
+        // 更新用户信息中的头像URL
+        userInfo.avatarUrl = result.url;
+
+        uni.showToast({
+          title: "Avatar updated successfully",
+          icon: "success",
+        });
+
+        // 保存更新后的用户信息
+        await saveUserInfo();
+      } catch (error) {
+        console.error("头像上传失败:", error);
+        
+        // 根据错误类型给出不同提示
+        let errorMessage = "Upload failed";
+        if (error.message && error.message.includes("size")) {
+          errorMessage = "Image size too large, please select a smaller image";
+        } else if (error.message && error.message.includes("format")) {
+          errorMessage = "Unsupported image format";
+        }
+        
+        uni.showToast({
+          title: errorMessage,
+          icon: "none",
+          duration: 3000
+        });
+      }
     },
   });
 };
@@ -336,27 +381,59 @@ const chooseBackground = () => {
     count: 1,
     sizeType: ["compressed"],
     sourceType: ["album", "camera"],
-    success: (res) => {
-      userInfo.bgcUrl = res.tempFilePaths[0];
-      uploadImage(res.tempFilePaths[0], "background");
+    success: async (res) => {
+      try {
+        // 检查文件大小 (5MB限制)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (res.tempFiles && res.tempFiles[0] && res.tempFiles[0].size > maxSize) {
+          uni.showToast({
+            title: "Image size cannot exceed 5MB",
+            icon: "none",
+            duration: 3000
+          });
+          return;
+        }
+        
+        // 使用userStore的上传方法
+        const result = await userStore.uploadImage(
+          res.tempFilePaths[0],
+          "background"
+        );
+
+        // 更新用户信息中的背景图URL
+        userInfo.bgcUrl = result.url;
+
+        // 如果后端返回了主色调，也更新它
+        if (result.mainColor) {
+          userInfo.bgcMainColor = result.mainColor;
+        }
+
+        uni.showToast({
+          title: "Background updated successfully",
+          icon: "success",
+        });
+
+        // 保存更新后的用户信息
+        await saveUserInfo();
+      } catch (error) {
+        console.error("背景图上传失败:", error);
+        
+        // 根据错误类型给出不同提示
+        let errorMessage = "Upload failed";
+        if (error.message && error.message.includes("size")) {
+          errorMessage = "Image size too large, please select a smaller image";
+        } else if (error.message && error.message.includes("format")) {
+          errorMessage = "Unsupported image format";
+        }
+        
+        uni.showToast({
+          title: errorMessage,
+          icon: "none",
+          duration: 3000
+        });
+      }
     },
   });
-};
-
-// 上传图片
-const uploadImage = (filePath, type) => {
-  uni.showLoading({ title: "Uploading..." });
-
-  // 暂时直接使用本地路径，实际项目中需要上传到服务器
-  setTimeout(() => {
-    uni.hideLoading();
-    uni.showToast({
-      title: "Upload Success",
-      icon: "success",
-    });
-
-    saveUserInfo();
-  }, 1000);
 };
 
 const handleBack = () => {

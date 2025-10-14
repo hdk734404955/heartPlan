@@ -110,11 +110,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // 允许的源（开发环境）
-        configuration.setAllowedOriginPatterns(Arrays.asList(
-            "http://localhost:*",
-            "http://127.0.0.1:*"
-        ));
+        // 允许的源（开发环境）- 允许所有源以支持各种开发环境
+        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
         
         // 允许的HTTP方法
         configuration.setAllowedMethods(Arrays.asList(

@@ -1,10 +1,47 @@
 // API配置文件
 import { useAuthStore } from '@/store/modules/auth'
 
+/**
+ * 获取API基础URL
+ * 根据运行环境自动选择合适的URL
+ */
+function getBaseURL() {
+  // 检查是否在uni-app环境中
+  if (typeof uni !== 'undefined') {
+    // 获取系统信息
+    const systemInfo = uni.getSystemInfoSync()
+    
+    // 如果是Android平台（包括模拟器）
+    if (systemInfo.platform === 'android') {
+      // Android模拟器使用10.0.2.2访问宿主机
+      return 'http://10.0.2.2:8080/api'
+    }
+    
+    // 如果是iOS平台
+    if (systemInfo.platform === 'ios') {
+      // iOS模拟器可以直接使用localhost
+      return 'http://localhost:8080/api'
+    }
+  }
+  
+  // Web环境或其他情况
+  if (process.env.NODE_ENV === 'development') {
+    // 开发环境使用代理
+    return '/api'
+  } else {
+    // 生产环境使用完整URL
+    return 'http://localhost:8080/api'
+  }
+}
+
+// 获取并打印BASE_URL用于调试
+const baseURL = getBaseURL()
+console.log('API_CONFIG - 当前BASE_URL:', baseURL)
+
 // API基础配置
 export const API_CONFIG = {
-  // 后端API基础URL - 开发环境使用代理，生产环境使用完整URL
-  BASE_URL: process.env.NODE_ENV === 'development' ? '/api' : 'http://localhost:8080/api',
+  // 后端API基础URL - 根据运行环境自动选择
+  BASE_URL: baseURL,
   
   // 请求超时时间（毫秒）
   TIMEOUT: 15000,

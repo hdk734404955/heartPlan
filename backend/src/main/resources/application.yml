@@ -94,15 +94,18 @@ app:
 cors:
   allowed-origins: 
     - http://localhost:3000      # React开发服务器
+    - http://localhost:5100      # uni-app开发服务器
     - http://localhost:8080      # Flutter Web开发服务器
     - http://localhost:8081      # React Native开发服务器
     - http://localhost:9000      # Flutter Web备用端口
     - http://localhost:19006     # Expo开发服务器
     - http://127.0.0.1:3000      # 本地IP变体
+    - http://127.0.0.1:5100      # uni-app本地IP
     - http://127.0.0.1:8080      # 本地IP变体
     - http://127.0.0.1:8081      # 本地IP变体
     - http://127.0.0.1:9000      # 本地IP变体
     - http://10.0.2.2:8080       # Android模拟器访问宿主机
+    - http://172.16.1.116:5100   # 当前网络IP地址
     - capacitor://localhost      # Capacitor应用
     - ionic://localhost          # Ionic应用
   allowed-methods:

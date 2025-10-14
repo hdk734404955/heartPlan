@@ -233,8 +233,6 @@ const genderOptions = [
 const relationshipOptions = [
   { name: "Single", value: "SINGLE" },
   { name: "In a relationship", value: "IN_RELATIONSHIP" },
-  { name: "Married", value: "MARRIED" },
-  { name: "Complicated", value: "COMPLICATED" },
 ];
 
 // 选择器配置
@@ -325,19 +323,23 @@ const chooseAvatar = () => {
     sourceType: ["album", "camera"],
     success: async (res) => {
       try {
-        console.log('选择图片结果:', res);
-        
+        console.log("选择图片结果:", res);
+
         // 检查文件大小 (5MB限制)
         const maxSize = 5 * 1024 * 1024; // 5MB
-        if (res.tempFiles && res.tempFiles[0] && res.tempFiles[0].size > maxSize) {
+        if (
+          res.tempFiles &&
+          res.tempFiles[0] &&
+          res.tempFiles[0].size > maxSize
+        ) {
           uni.showToast({
             title: "Image size cannot exceed 5MB",
             icon: "none",
-            duration: 3000
+            duration: 3000,
           });
           return;
         }
-        
+
         // 使用userStore的上传方法
         const result = await userStore.uploadImage(
           res.tempFilePaths[0],
@@ -356,7 +358,7 @@ const chooseAvatar = () => {
         await saveUserInfo();
       } catch (error) {
         console.error("头像上传失败:", error);
-        
+
         // 根据错误类型给出不同提示
         let errorMessage = "Upload failed";
         if (error.message && error.message.includes("size")) {
@@ -364,11 +366,11 @@ const chooseAvatar = () => {
         } else if (error.message && error.message.includes("format")) {
           errorMessage = "Unsupported image format";
         }
-        
+
         uni.showToast({
           title: errorMessage,
           icon: "none",
-          duration: 3000
+          duration: 3000,
         });
       }
     },
@@ -385,15 +387,19 @@ const chooseBackground = () => {
       try {
         // 检查文件大小 (5MB限制)
         const maxSize = 5 * 1024 * 1024; // 5MB
-        if (res.tempFiles && res.tempFiles[0] && res.tempFiles[0].size > maxSize) {
+        if (
+          res.tempFiles &&
+          res.tempFiles[0] &&
+          res.tempFiles[0].size > maxSize
+        ) {
           uni.showToast({
             title: "Image size cannot exceed 5MB",
             icon: "none",
-            duration: 3000
+            duration: 3000,
           });
           return;
         }
-        
+
         // 使用userStore的上传方法
         const result = await userStore.uploadImage(
           res.tempFilePaths[0],
@@ -417,7 +423,7 @@ const chooseBackground = () => {
         await saveUserInfo();
       } catch (error) {
         console.error("背景图上传失败:", error);
-        
+
         // 根据错误类型给出不同提示
         let errorMessage = "Upload failed";
         if (error.message && error.message.includes("size")) {
@@ -425,11 +431,11 @@ const chooseBackground = () => {
         } else if (error.message && error.message.includes("format")) {
           errorMessage = "Unsupported image format";
         }
-        
+
         uni.showToast({
           title: errorMessage,
           icon: "none",
-          duration: 3000
+          duration: 3000,
         });
       }
     },

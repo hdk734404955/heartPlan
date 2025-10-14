@@ -1,6 +1,7 @@
 // 用户信息状态管理
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { userAPI } from '@/api/user'
 
 export const useUserStore = defineStore('user', () => {
   // 状态
@@ -121,9 +122,6 @@ export const useUserStore = defineStore('user', () => {
     try {
       setProfileLoading(true)
 
-      // 动态导入API
-      const { userAPI } = await import('@/api/user')
-
       // 从服务器获取最新用户信息
       const profile = await userAPI.getProfile()
 
@@ -143,9 +141,6 @@ export const useUserStore = defineStore('user', () => {
   const saveUserProfile = async (profileData) => {
     try {
       setUpdateLoading(true)
-
-      // 动态导入API
-      const { userAPI } = await import('@/api/user')
 
       // 保存到服务器
       const updatedProfile = await userAPI.updateProfile(profileData)
@@ -182,9 +177,6 @@ export const useUserStore = defineStore('user', () => {
       if (!filePath || typeof filePath !== 'string') {
         throw new Error('Invalid file path')
       }
-
-      // 动态导入API
-      const { userAPI } = await import('@/api/user')
 
       // 上传图片
       const result = await userAPI.uploadImage(filePath, type)

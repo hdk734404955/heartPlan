@@ -4100,3 +4100,2479 @@ Caused by: org.apache.tomcat.util.http.fileupload.impl.SizeLimitExceededExceptio
 2025-10-13 17:26:34 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-10-13 17:26:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-10-13 17:26:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-13 17:26:47 [main] INFO  com.heartplan.HeartPlanApplication - Starting HeartPlanApplication using Java 21.0.8 with PID 31132 (E:\桌面\heartPlan\backend\target\classes started by CD-273 in E:\桌面\heartPlan\backend)
+2025-10-13 17:26:47 [main] DEBUG com.heartplan.HeartPlanApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-10-13 17:26:47 [main] INFO  com.heartplan.HeartPlanApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 1 JPA repository interfaces.
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.heartplan.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-13 17:26:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-10-13 17:26:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-10-13 17:26:48 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-13 17:26:48 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-10-13 17:26:48 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-13 17:26:48 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1245 ms
+2025-10-13 17:26:48 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-13 17:26:48 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-10-13 17:26:48 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-10-13 17:26:48 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-13 17:26:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-13 17:26:48 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f112f70
+2025-10-13 17:26:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-13 17:26:48 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-13 17:26:48 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-13 17:26:49 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-13 17:26:49 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-13 17:26:49 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-13 17:26:50 [main] DEBUG c.h.security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.DatabaseConfig - 初始化数据库配置...
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.DatabaseConfig - JPA仓库扫描包: com.heartplan.repository
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.DatabaseConfig - 事务管理已启用
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.DatabaseConfig - 数据库配置初始化完成
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.RedisConfig - 正在配置Redis模板...
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.RedisConfig - Redis模板配置完成
+2025-10-13 17:26:50 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-13 17:26:50 [main] INFO  com.heartplan.config.WebConfig - 配置静态资源路径: /uploads/** -> E:\桌面\heartPlan\backend/uploads/
+2025-10-13 17:26:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47d8c666, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dba2d07, org.springframework.security.web.context.SecurityContextHolderFilter@e206be5, org.springframework.security.web.header.HeaderWriterFilter@3f76c712, org.springframework.web.filter.CorsFilter@685dceb8, org.springframework.security.web.authentication.logout.LogoutFilter@271bbb75, com.heartplan.security.JwtAuthenticationFilter@59845cb3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21590b35, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d2068ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f3616d2, org.springframework.security.web.session.SessionManagementFilter@5a816a78, org.springframework.security.web.access.ExceptionTranslationFilter@205c5cd0, org.springframework.security.web.access.intercept.AuthorizationFilter@a700311]
+2025-10-13 17:26:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-10-13 17:26:50 [main] INFO  com.heartplan.HeartPlanApplication - Started HeartPlanApplication in 4.075 seconds (process running for 4.39)
+2025-10-13 17:27:00 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-13 17:27:00 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-13 17:27:00 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-13 17:27:00 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:27:00 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:27:00 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:27:00 [http-nio-8080-exec-1] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner4.webp, 类型=avatar, 大小=184KB
+2025-10-13 17:27:00 [http-nio-8080-exec-1] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:00 [http-nio-8080-exec-1] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner4.webp -> http://localhost:8080/api/uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:00 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:27:00 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:00 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:27:00 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:00 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:27:00 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:27:00 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:27:00 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:00 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:27:00 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:01 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: SINGLE
+2025-10-13 17:27:01 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:27:01 [http-nio-8080-exec-4] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:27:01 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:27:01 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:27:01 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:27:12 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 17:27:12 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:27:12 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 17:27:12 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 17:27:12 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 17:27:12 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:27:12 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 17:27:12 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 17:27:12 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 17:27:12 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:12 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:27:12 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:12 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:27:12 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:27:12 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:28:11 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:28:11 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:28:11 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:29:01 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:29:01 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:29:01 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:29:04 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:29:04 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:29:04 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:30:07 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:30:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6f112f70 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6f0ac8e5 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2c37667b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3fd53531 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@31662e60 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@8129549 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1f813e8e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@96bfcf2 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@9fed691 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@155ab23a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:30:07 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:30:07 [http-nio-8080-exec-2] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:30:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:30:07 [http-nio-8080-exec-2] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:30:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:30:07 [http-nio-8080-exec-2] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:30:07 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:30:20 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:30:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:30:20 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:30:20 [http-nio-8080-exec-8] ERROR c.h.config.GlobalExceptionHandler - 运行时异常发生: JSON parse error: Cannot deserialize value of type `com.heartplan.entity.User$RelationshipStatus` from String "MARRIED": not one of the values accepted for Enum class: [SINGLE, IN_RELATIONSHIP]
+org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.heartplan.entity.User$RelationshipStatus` from String "MARRIED": not one of the values accepted for Enum class: [SINGLE, IN_RELATIONSHIP]
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:406)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:136)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.heartplan.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.heartplan.entity.User$RelationshipStatus` from String "MARRIED": not one of the values accepted for Enum class: [SINGLE, IN_RELATIONSHIP]
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 65] (through reference chain: com.heartplan.dto.UserInfoDTO["relationshipStatus"])
+	at com.fasterxml.jackson.databind.exc.InvalidFormatException.from(InvalidFormatException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.weirdStringException(DeserializationContext.java:2002)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleWeirdStringValue(DeserializationContext.java:1230)
+	at com.fasterxml.jackson.databind.deser.std.EnumDeserializer._deserializeAltString(EnumDeserializer.java:415)
+	at com.fasterxml.jackson.databind.deser.std.EnumDeserializer._fromString(EnumDeserializer.java:279)
+	at com.fasterxml.jackson.databind.deser.std.EnumDeserializer.deserialize(EnumDeserializer.java:248)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:392)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2105)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1481)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	... 98 common frames omitted
+2025-10-13 17:30:20 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应已经是ApiResponse格式，直接返回
+2025-10-13 17:30:27 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:30:27 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:30:27 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:30:27 [http-nio-8080-exec-4] ERROR c.h.config.GlobalExceptionHandler - 运行时异常发生: JSON parse error: Cannot deserialize value of type `com.heartplan.entity.User$RelationshipStatus` from String "MARRIED": not one of the values accepted for Enum class: [SINGLE, IN_RELATIONSHIP]
+org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.heartplan.entity.User$RelationshipStatus` from String "MARRIED": not one of the values accepted for Enum class: [SINGLE, IN_RELATIONSHIP]
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:406)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:136)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.heartplan.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.heartplan.entity.User$RelationshipStatus` from String "MARRIED": not one of the values accepted for Enum class: [SINGLE, IN_RELATIONSHIP]
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 65] (through reference chain: com.heartplan.dto.UserInfoDTO["relationshipStatus"])
+	at com.fasterxml.jackson.databind.exc.InvalidFormatException.from(InvalidFormatException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.weirdStringException(DeserializationContext.java:2002)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleWeirdStringValue(DeserializationContext.java:1230)
+	at com.fasterxml.jackson.databind.deser.std.EnumDeserializer._deserializeAltString(EnumDeserializer.java:415)
+	at com.fasterxml.jackson.databind.deser.std.EnumDeserializer._fromString(EnumDeserializer.java:279)
+	at com.fasterxml.jackson.databind.deser.std.EnumDeserializer.deserialize(EnumDeserializer.java:248)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:392)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2105)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1481)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	... 98 common frames omitted
+2025-10-13 17:30:27 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应已经是ApiResponse格式，直接返回
+2025-10-13 17:30:42 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:30:42 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:30:42 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:31:15 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:31:15 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:31:15 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:45:58 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:45:58 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:45:58 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:46:05 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6b5f40c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@e72eaed (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5dd7bcb3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@74eb2691 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3089803f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@29b53141 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@49e732e0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@64955ae3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@18e1a636 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@18deb352 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:46:05 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:46:05 [http-nio-8080-exec-10] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner4.webp, 类型=background, 大小=184KB
+2025-10-13 17:46:05 [http-nio-8080-exec-10] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-10] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner4.webp -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:46:05 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:05 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:46:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:46:05 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:46:05 [http-nio-8080-exec-2] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:46:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:46:05 [http-nio-8080-exec-2] INFO  com.heartplan.service.UserService - 用户背景图发生变化，开始提取主要颜色，用户ID: 1, 新URL: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-2] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:05 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:05 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-2] WARN  c.heartplan.util.ColorExtractionUtil - 图片格式不支持或损坏: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-2] WARN  c.heartplan.util.ColorExtractionUtil - 无法下载图片: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:05 [http-nio-8080-exec-2] INFO  com.heartplan.service.UserService - 背景图主要颜色提取成功，用户ID: 1, 颜色: #FF6B6B
+2025-10-13 17:46:05 [http-nio-8080-exec-2] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:46:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:46:05 [http-nio-8080-exec-2] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:46:05 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:46:20 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 17:46:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:46:20 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 17:46:20 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 17:46:20 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 17:46:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:46:20 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 17:46:20 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 17:46:20 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 17:46:20 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:20 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:20 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:20 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:20 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:20 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:21 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:21 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:21 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:32 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:32 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:32 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:32 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:32 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:46:32 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174605_60a0b521.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:46:37 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:46:37 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:46:37 [http-nio-8080-exec-1] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner3.webp, 类型=background, 大小=259KB
+2025-10-13 17:46:37 [http-nio-8080-exec-1] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-1] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner3.webp -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:46:37 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:37 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:46:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:46:37 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:46:37 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:46:37 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:46:37 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:37 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-4] INFO  com.heartplan.service.UserService - 用户背景图发生变化，开始提取主要颜色，用户ID: 1, 新URL: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-4] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:37 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:46:38 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:38 [http-nio-8080-exec-4] WARN  c.heartplan.util.ColorExtractionUtil - 图片格式不支持或损坏: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:38 [http-nio-8080-exec-4] WARN  c.heartplan.util.ColorExtractionUtil - 无法下载图片: http://localhost:8080/api/uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:46:38 [http-nio-8080-exec-4] INFO  com.heartplan.service.UserService - 背景图主要颜色提取成功，用户ID: 1, 颜色: #FF6B6B
+2025-10-13 17:46:38 [http-nio-8080-exec-4] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:46:38 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:46:38 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:46:38 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:50:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-13 17:50:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-13 17:50:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-13 17:51:04 [main] INFO  com.heartplan.HeartPlanApplication - Starting HeartPlanApplication using Java 21.0.8 with PID 34340 (E:\桌面\heartPlan\backend\target\classes started by CD-273 in E:\桌面\heartPlan\backend)
+2025-10-13 17:51:04 [main] DEBUG com.heartplan.HeartPlanApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-10-13 17:51:04 [main] INFO  com.heartplan.HeartPlanApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 174 ms. Found 1 JPA repository interfaces.
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.heartplan.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-13 17:51:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2025-10-13 17:51:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-10-13 17:51:06 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-13 17:51:06 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-10-13 17:51:06 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-13 17:51:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2142 ms
+2025-10-13 17:51:07 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-13 17:51:07 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-10-13 17:51:07 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-10-13 17:51:07 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-13 17:51:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-13 17:51:07 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30fa8a6b
+2025-10-13 17:51:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-13 17:51:07 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-13 17:51:07 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-13 17:51:08 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-13 17:51:08 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-13 17:51:08 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-13 17:51:09 [main] DEBUG c.h.security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.DatabaseConfig - 初始化数据库配置...
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.DatabaseConfig - JPA仓库扫描包: com.heartplan.repository
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.DatabaseConfig - 事务管理已启用
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.DatabaseConfig - 数据库配置初始化完成
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.RedisConfig - 正在配置Redis模板...
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.RedisConfig - Redis模板配置完成
+2025-10-13 17:51:09 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-13 17:51:09 [main] INFO  com.heartplan.config.WebConfig - 配置静态资源路径: /uploads/** -> E:\桌面\heartPlan\backend/uploads/
+2025-10-13 17:51:09 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f3616d2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e5c04a4, org.springframework.security.web.context.SecurityContextHolderFilter@6e48dc84, org.springframework.security.web.header.HeaderWriterFilter@57352624, org.springframework.web.filter.CorsFilter@6212dc7d, org.springframework.security.web.authentication.logout.LogoutFilter@295d1a45, com.heartplan.security.JwtAuthenticationFilter@1fcb01f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2449dff5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b191676, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64bcf689, org.springframework.security.web.session.SessionManagementFilter@e206be5, org.springframework.security.web.access.ExceptionTranslationFilter@18791f7b, org.springframework.security.web.access.intercept.AuthorizationFilter@47d8c666]
+2025-10-13 17:51:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-10-13 17:51:09 [main] INFO  com.heartplan.HeartPlanApplication - Started HeartPlanApplication in 5.631 seconds (process running for 6.161)
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-13 17:51:13 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 17:51:13 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:13 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:13 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:13 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_174637_2f776000.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:13 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:13 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:13 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 17:51:13 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 17:51:13 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 17:51:13 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 17:51:23 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:51:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:23 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:51:23 [http-nio-8080-exec-6] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner4.webp, 类型=background, 大小=184KB
+2025-10-13 17:51:23 [http-nio-8080-exec-6] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-6] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:23 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-6] WARN  c.heartplan.util.ColorExtractionUtil - 图片格式不支持或损坏: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-6] WARN  c.heartplan.util.ColorExtractionUtil - 无法下载图片: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-6] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175123_1112e817.webp -> #FF6B6B
+2025-10-13 17:51:23 [http-nio-8080-exec-6] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner4.webp -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:51:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:23 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:23 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:51:23 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:23 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:51:23 [http-nio-8080-exec-10] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:51:23 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:51:23 [http-nio-8080-exec-10] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:51:23 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:51:23 [http-nio-8080-exec-10] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:51:23 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:51:37 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 17:51:37 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:37 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 17:51:37 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 17:51:37 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 17:51:37 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:37 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 17:51:37 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 17:51:37 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 17:51:37 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:37 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:37 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:37 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:37 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:37 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:38 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:38 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:38 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:40 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:40 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:40 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:40 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:40 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:40 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175123_1112e817.webp
+2025-10-13 17:51:46 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:51:46 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:46 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:51:46 [http-nio-8080-exec-9] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=mindexbaner.jpg, 类型=background, 大小=2321KB
+2025-10-13 17:51:46 [http-nio-8080-exec-9] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:46 [http-nio-8080-exec-9] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:46 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:46 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:46 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:47 [http-nio-8080-exec-9] DEBUG c.heartplan.util.ColorExtractionUtil - 图片下载成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175146_8277e850.jpg, 尺寸: 7360x4912
+2025-10-13 17:51:48 [http-nio-8080-exec-9] INFO  c.heartplan.util.ColorExtractionUtil - 图片主要颜色提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175146_8277e850.jpg -> #314664
+2025-10-13 17:51:48 [http-nio-8080-exec-9] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175146_8277e850.jpg -> #314664
+2025-10-13 17:51:48 [http-nio-8080-exec-9] INFO  c.h.service.FileUploadService - 图片上传成功: mindexbaner.jpg -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:48 [http-nio-8080-exec-9] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:51:48 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:48 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:48 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:48 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:51:48 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:51:48 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:51:48 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:48 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:48 [http-nio-8080-exec-2] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:51:48 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:48 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:51:48 [http-nio-8080-exec-2] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:51:48 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:51:48 [http-nio-8080-exec-2] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:51:48 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:51:57 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:51:57 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:57 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:57 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:51:57 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175146_8277e850.jpg
+2025-10-13 17:51:57 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:52:04 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:52:04 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:52:04 [http-nio-8080-exec-7] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner4.webp, 类型=background, 大小=184KB
+2025-10-13 17:52:04 [http-nio-8080-exec-7] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-7] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:04 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-7] WARN  c.heartplan.util.ColorExtractionUtil - 图片格式不支持或损坏: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-7] WARN  c.heartplan.util.ColorExtractionUtil - 无法下载图片: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-7] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175204_712e08d5.webp -> #FF6B6B
+2025-10-13 17:52:04 [http-nio-8080-exec-7] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner4.webp -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-7] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:52:04 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:04 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:52:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:52:04 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:04 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:04 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:52:04 [http-nio-8080-exec-10] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:52:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:52:04 [http-nio-8080-exec-10] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:52:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:52:04 [http-nio-8080-exec-10] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:52:04 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:52:14 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:52:14 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:14 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:14 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:14 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175204_712e08d5.webp
+2025-10-13 17:52:14 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:52:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:52:28 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:52:28 [http-nio-8080-exec-2] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner3.webp, 类型=background, 大小=259KB
+2025-10-13 17:52:28 [http-nio-8080-exec-2] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-2] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:28 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-2] WARN  c.heartplan.util.ColorExtractionUtil - 图片格式不支持或损坏: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-2] WARN  c.heartplan.util.ColorExtractionUtil - 无法下载图片: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-2] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175228_f25e2668.webp -> #FF6B6B
+2025-10-13 17:52:28 [http-nio-8080-exec-2] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner3.webp -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:52:28 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:28 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:52:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:52:28 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:28 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:52:28 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175228_f25e2668.webp
+2025-10-13 17:52:28 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:52:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:52:28 [http-nio-8080-exec-8] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:52:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:52:28 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:52:28 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:52:53 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:52:53 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:52:53 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:52:53 [http-nio-8080-exec-6] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=mindexbaner.jpg, 类型=background, 大小=2321KB
+2025-10-13 17:52:53 [http-nio-8080-exec-6] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:53 [http-nio-8080-exec-6] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:53 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:53 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:53 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:55 [http-nio-8080-exec-6] DEBUG c.heartplan.util.ColorExtractionUtil - 图片下载成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175253_073772cc.jpg, 尺寸: 7360x4912
+2025-10-13 17:52:55 [http-nio-8080-exec-6] INFO  c.heartplan.util.ColorExtractionUtil - 图片主要颜色提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175253_073772cc.jpg -> #314664
+2025-10-13 17:52:55 [http-nio-8080-exec-6] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175253_073772cc.jpg -> #314664
+2025-10-13 17:52:55 [http-nio-8080-exec-6] INFO  c.h.service.FileUploadService - 图片上传成功: mindexbaner.jpg -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:55 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:52:55 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:55 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:55 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:55 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:52:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:52:55 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:52:55 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:52:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:52:55 [http-nio-8080-exec-4] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:52:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:52:55 [http-nio-8080-exec-4] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:52:55 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:52:55 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:52:55 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:52:55 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175253_073772cc.jpg
+2025-10-13 17:53:52 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:53:52 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:53:52 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:53:52 [http-nio-8080-exec-2] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=indexbaner4.webp, 类型=background, 大小=184KB
+2025-10-13 17:53:52 [http-nio-8080-exec-2] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-2] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:53:52 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-2] WARN  c.heartplan.util.ColorExtractionUtil - 图片格式不支持或损坏: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-2] WARN  c.heartplan.util.ColorExtractionUtil - 无法下载图片: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-2] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175352_92db480c.webp -> #FF6B6B
+2025-10-13 17:53:52 [http-nio-8080-exec-2] INFO  c.h.service.FileUploadService - 图片上传成功: indexbaner4.webp -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:53:52 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:53:52 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:53:52 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:53:52 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:53:52 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:53:52 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:53:52 [http-nio-8080-exec-8] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:53:52 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:53:52 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:53:52 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:53:52 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:53:52 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 17:58:23 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:58:23 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:58:23 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:58:23 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:58:23 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175352_92db480c.webp
+2025-10-13 17:58:23 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 17:58:29 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /upload/image
+2025-10-13 17:58:29 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@30fa8a6b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@786f0c27 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2cc7b833 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2b6ad073 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4c3d8d51 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4c33aec5 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5d249150 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@20302bcf (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@477d9d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5153bed6 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 17:58:29 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /upload/image
+2025-10-13 17:58:29 [http-nio-8080-exec-3] INFO  c.h.controller.FileController - 接收到图片上传请求: 文件名=mindexbaner.jpg, 类型=background, 大小=2321KB
+2025-10-13 17:58:29 [http-nio-8080-exec-3] INFO  c.h.service.FileUploadService - 文件保存成功: uploads\2025\10\13\background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:29 [http-nio-8080-exec-3] INFO  c.heartplan.util.ColorExtractionUtil - 开始提取图片主要颜色: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:29 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:29 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:58:29 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:31 [http-nio-8080-exec-3] DEBUG c.heartplan.util.ColorExtractionUtil - 图片下载成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg, 尺寸: 7360x4912
+2025-10-13 17:58:31 [http-nio-8080-exec-3] INFO  c.heartplan.util.ColorExtractionUtil - 图片主要颜色提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg -> #314664
+2025-10-13 17:58:31 [http-nio-8080-exec-3] INFO  c.h.service.FileUploadService - 背景图片主色调提取成功: http://localhost:8080/api/uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg -> #314664
+2025-10-13 17:58:31 [http-nio-8080-exec-3] INFO  c.h.service.FileUploadService - 图片上传成功: mindexbaner.jpg -> http://localhost:8080/api/uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:31 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: HashMap, 包装后: ApiResponse
+2025-10-13 17:58:31 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:31 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:58:31 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:31 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 17:58:31 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 17:58:31 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:31 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 17:58:31 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 17:58:31 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 17:58:31 [http-nio-8080-exec-7] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 18, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 17:58:31 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 17:58:31 [http-nio-8080-exec-7] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:58:31 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 17:58:31 [http-nio-8080-exec-7] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 17:58:31 [http-nio-8080-exec-7] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 18:12:26 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:12:26 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:12:26 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:12:26 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:12:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@639eac33 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6f09b27e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@715ae00 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@11fc65e5 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4f05358f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6dbde453 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4772224a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3553a40c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@539c4664 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5181af38 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:12:26 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:12:26 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:12:26 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:12:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:12:26 [http-nio-8080-exec-4] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:12:26 [http-nio-8080-exec-4] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:12:26 [http-nio-8080-exec-4] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:13:06 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:13:06 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:13:06 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:13:06 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:13:06 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:13:06 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:13:06 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:13:06 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:13:06 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:13:06 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:13:06 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:13:06 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:13:19 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:13:19 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:13:19 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:13:19 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:13:19 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:13:19 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:13:19 [http-nio-8080-exec-8] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:13:19 [http-nio-8080-exec-8] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:13:19 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:13:19 [http-nio-8080-exec-8] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:13:19 [http-nio-8080-exec-8] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:13:19 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:13:33 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:13:33 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:13:33 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:13:33 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:13:33 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:13:33 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:13:33 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:13:33 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:13:33 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:13:33 [http-nio-8080-exec-5] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:13:33 [http-nio-8080-exec-5] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:13:33 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:15:09 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:15:09 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:15:09 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:15:09 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:15:09 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:15:09 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:15:09 [http-nio-8080-exec-1] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:15:09 [http-nio-8080-exec-1] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:15:09 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:15:10 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:15:10 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:15:10 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:15:10 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:15:10 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:15:10 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:15:10 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:15:10 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:15:10 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:15:17 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:15:17 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:15:17 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:15:17 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:15:17 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:15:17 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:15:24 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /user/profile
+2025-10-13 18:15:24 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:15:24 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /user/profile
+2025-10-13 18:15:24 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 更新用户信息请求，用户ID: 1, 新用户名: ned, 年龄: 19, 性别: MALE, 关系状态: IN_RELATIONSHIP
+2025-10-13 18:15:24 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-13 18:15:24 [http-nio-8080-exec-5] INFO  com.heartplan.service.UserService - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 18:15:24 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        avatar_url=?,
+        bgc_main_color=?,
+        bgc_url=?,
+        email=?,
+        enabled=?,
+        gender=?,
+        introduction=?,
+        location=?,
+        password=?,
+        relationship_status=?,
+        updated_at=?,
+        username=? 
+    where
+        id=?
+2025-10-13 18:15:24 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 用户信息更新成功，用户ID: 1, 用户名: ned
+2025-10-13 18:15:24 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-13 18:24:20 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:24:20 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:24:20 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:24:20 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:24:20 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1e388f3e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@322347d8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@693d6d7c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@33a64e1a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3ee6df3d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@165352be (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@14078b85 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@15d0c181 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1d47eb31 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@110d9c85 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2025-10-13 18:24:20 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:24:20 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:24:20 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:24:20 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:24:20 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:24:20 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:24:20 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:24:30 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:24:30 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:24:30 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:24:30 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:24:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:24:30 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:24:30 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:24:30 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:24:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:24:30 [http-nio-8080-exec-6] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:24:30 [http-nio-8080-exec-6] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:24:30 [http-nio-8080-exec-6] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:24:46 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /auth/refresh
+2025-10-13 18:25:08 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /auth/login
+2025-10-13 18:25:09 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /auth/login
+2025-10-13 18:27:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-13 18:27:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-13 18:27:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-13 18:27:33 [main] INFO  com.heartplan.HeartPlanApplication - Starting HeartPlanApplication using Java 21.0.8 with PID 31780 (E:\桌面\heartPlan\backend\target\classes started by CD-273 in E:\桌面\heartPlan\backend)
+2025-10-13 18:27:33 [main] DEBUG com.heartplan.HeartPlanApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-10-13 18:27:33 [main] INFO  com.heartplan.HeartPlanApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 1 JPA repository interfaces.
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.heartplan.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-13 18:27:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2025-10-13 18:27:34 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-10-13 18:27:34 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-13 18:27:34 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-10-13 18:27:35 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-13 18:27:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1229 ms
+2025-10-13 18:27:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-13 18:27:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-10-13 18:27:35 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-10-13 18:27:35 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-13 18:27:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-13 18:27:35 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@df9d400
+2025-10-13 18:27:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-13 18:27:35 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-13 18:27:35 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-13 18:27:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-13 18:27:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-13 18:27:36 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-13 18:27:36 [main] DEBUG c.h.security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-13 18:27:36 [main] INFO  com.heartplan.config.DatabaseConfig - 初始化数据库配置...
+2025-10-13 18:27:36 [main] INFO  com.heartplan.config.DatabaseConfig - JPA仓库扫描包: com.heartplan.repository
+2025-10-13 18:27:36 [main] INFO  com.heartplan.config.DatabaseConfig - 事务管理已启用
+2025-10-13 18:27:36 [main] INFO  com.heartplan.config.DatabaseConfig - 数据库配置初始化完成
+2025-10-13 18:27:37 [main] INFO  com.heartplan.config.RedisConfig - 正在配置Redis模板...
+2025-10-13 18:27:37 [main] INFO  com.heartplan.config.RedisConfig - Redis模板配置完成
+2025-10-13 18:27:37 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-13 18:27:37 [main] INFO  com.heartplan.config.WebConfig - 配置静态资源路径: /uploads/** -> E:\桌面\heartPlan\backend/uploads/
+2025-10-13 18:27:37 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4191774f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@429ad94a, org.springframework.security.web.context.SecurityContextHolderFilter@3b191676, org.springframework.security.web.header.HeaderWriterFilter@633aedeb, org.springframework.web.filter.CorsFilter@76bfecef, org.springframework.security.web.authentication.logout.LogoutFilter@3e9053b3, com.heartplan.security.JwtAuthenticationFilter@16d31c48, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31d96cd6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30a0a440, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@661ec798, org.springframework.security.web.session.SessionManagementFilter@4d2068ea, org.springframework.security.web.access.ExceptionTranslationFilter@21590b35, org.springframework.security.web.access.intercept.AuthorizationFilter@64bcf689]
+2025-10-13 18:27:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-10-13 18:27:37 [main] INFO  com.heartplan.HeartPlanApplication - Started HeartPlanApplication in 4.042 seconds (process running for 4.389)
+2025-10-13 18:27:39 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-13 18:27:39 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-13 18:27:39 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-10-13 18:27:39 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /auth/login
+2025-10-13 18:27:39 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2025-10-13 18:27:39 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:27:39 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2025-10-13 18:27:40 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 收到登录请求，邮箱: 734404955@qq.com
+2025-10-13 18:27:40 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - User attempting login, email: 734404955@qq.com
+2025-10-13 18:27:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:27:40 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - User login successful, ID: 1, Username: ned
+2025-10-13 18:27:40 [http-nio-8080-exec-2] INFO  com.heartplan.service.AuthService - Generated login token for user: 734404955@qq.com
+2025-10-13 18:27:40 [http-nio-8080-exec-2] INFO  c.h.controller.AuthController - 用户登录成功，邮箱: 734404955@qq.com, 用户ID: 1
+2025-10-13 18:27:40 [http-nio-8080-exec-2] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:28:08 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:28:08 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:08 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:28:08 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:28:08 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:08 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:28:08 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:08 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:28:08 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:13 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /auth/refresh
+2025-10-13 18:28:13 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-13 18:28:14 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:28:14 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-13 18:28:14 [http-nio-8080-exec-10] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-13 18:28:14 [http-nio-8080-exec-10] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-13 18:28:14 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-13 18:28:14 [http-nio-8080-exec-10] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-13 18:28:14 [http-nio-8080-exec-10] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-13 18:28:14 [http-nio-8080-exec-10] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-13 18:28:14 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:28:14 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:28:14 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:14 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-13 18:28:14 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:28:14 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:14 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-13 18:28:14 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-13 18:28:14 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp

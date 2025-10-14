@@ -19,6 +19,7 @@ export default defineConfig({
   },
   server: {
     port: 5100,
+    host: '0.0.0.0', // 允许外部访问，包括模拟器
     fs: {
       // Allow serving files from one level up to the project root
       allow: ['..']

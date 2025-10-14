@@ -1,5 +1,6 @@
 package com.heartplan.service;
 
+import com.heartplan.util.ColorExtractionUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,19 @@ public class FileUploadService {
             result.put("fileName", fileName);
             result.put("fileSize", file.getSize());
             result.put("type", type);
+            
+            // 如果是背景图片，提取主色调
+            if ("background".equals(type)) {
+                try {
+                    String mainColor = ColorExtractionUtil.extractDominantColor(imageUrl);
+                    result.put("mainColor", mainColor);
+                    log.info("背景图片主色调提取成功: {} -> {}", imageUrl, mainColor);
+                } catch (Exception e) {
+                    log.warn("背景图片主色调提取失败: {}, 使用默认颜色", e.getMessage());
+                    // 不影响上传流程，使用默认颜色
+                    result.put("mainColor", "#FF6B6B");
+                }
+            }
             
             log.info("图片上传成功: {} -> {}", file.getOriginalFilename(), imageUrl);
             return result;

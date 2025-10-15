@@ -14444,3 +14444,210 @@
         u1_0.id=?
 2025-10-15 17:06:42 [http-nio-8080-exec-5] INFO  c.h.controller.UserController - 用户信息获取成功，用户: ned
 2025-10-15 17:06:42 [http-nio-8080-exec-5] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-15 17:07:19 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-15 17:07:19 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-15 17:07:19 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-15 17:07:19 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-15 17:07:19 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-15 17:07:19 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-15 17:07:19 [http-nio-8080-exec-3] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-15 17:07:19 [http-nio-8080-exec-3] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-15 17:07:19 [http-nio-8080-exec-3] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-15 17:07:20 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-15 17:07:20 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-15 17:07:20 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/background_20251013_175829_2f6e22d1.jpg
+2025-10-15 17:07:20 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-15 17:07:20 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-15 17:07:20 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-15 17:07:20 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /user/profile
+2025-10-15 17:07:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-15 17:07:20 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /user/profile
+2025-10-15 17:07:20 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 获取用户信息请求，用户ID: 1
+2025-10-15 17:07:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-15 17:07:20 [http-nio-8080-exec-8] INFO  c.h.controller.UserController - 用户信息获取成功，用户: ned
+2025-10-15 17:07:20 [http-nio-8080-exec-8] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse
+2025-10-15 17:07:20 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-15 17:07:20 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-15 17:07:20 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /uploads/2025/10/13/avatar_20251013_172700_b5d8fb0d.webp
+2025-10-15 17:07:21 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/refresh
+2025-10-15 17:07:21 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-15 17:07:21 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/refresh
+2025-10-15 17:07:21 [http-nio-8080-exec-9] INFO  c.h.controller.AuthController - 收到刷新令牌请求
+2025-10-15 17:07:21 [http-nio-8080-exec-9] INFO  com.heartplan.service.AuthService - Attempting to refresh access token
+2025-10-15 17:07:21 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-15 17:07:21 [http-nio-8080-exec-9] INFO  com.heartplan.service.AuthService - Successfully refreshed access token for user: 734404955@qq.com
+2025-10-15 17:07:21 [http-nio-8080-exec-9] INFO  c.h.controller.AuthController - 令牌刷新成功，用户: 734404955@qq.com
+2025-10-15 17:07:21 [http-nio-8080-exec-9] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: AuthResponse, 包装后: ApiResponse
+2025-10-15 17:07:24 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /user/profile
+2025-10-15 17:07:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+        and u1_0.enabled
+2025-10-15 17:07:24 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /user/profile
+2025-10-15 17:07:24 [http-nio-8080-exec-1] INFO  c.h.controller.UserController - 获取用户信息请求，用户ID: 1
+2025-10-15 17:07:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.avatar_url,
+        u1_0.bgc_main_color,
+        u1_0.bgc_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.gender,
+        u1_0.introduction,
+        u1_0.location,
+        u1_0.password,
+        u1_0.relationship_status,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-10-15 17:07:24 [http-nio-8080-exec-1] INFO  c.h.controller.UserController - 用户信息获取成功，用户: ned
+2025-10-15 17:07:24 [http-nio-8080-exec-1] DEBUG c.h.config.GlobalResponseHandler - 响应包装完成，原始类型: UserInfoDTO, 包装后: ApiResponse

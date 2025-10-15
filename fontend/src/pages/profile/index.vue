@@ -21,7 +21,9 @@
     <scroll-view
       class="out-scroll"
       scroll-y
-      :style="{ height: scrollViewHeight + 'px' }"
+      :style="{
+        height: scrollViewHeight + 'px',
+      }"
       :refresher-background="themeColor"
       :refresher-enabled="true"
       :refresher-triggered="data.isTrigger"
@@ -34,6 +36,7 @@
         class="info-box"
         :style="{
           height: infoBoxHeight + 'px',
+          paddingTop: statusBarHeight + 'px',
           backgroundImage: userInfo.bgcUrl ? `url(${userInfo.bgcUrl})` : 'none',
         }"
       >
@@ -124,7 +127,6 @@ const themeColor = computed(() => {
   return userInfo.value.bgcMainColor || data.themeColor;
 });
 
-
 // 系统信息
 const statusBarHeight = ref(0);
 const scrollViewHeight = ref(0);
@@ -157,7 +159,8 @@ const getSystemInfo = () => {
   // 计算scroll-view高度
   const windowHeight = systemInfo.windowHeight;
   const navHeightPx = uni.upx2px(navigatorHeight.value);
-  scrollViewHeight.value = windowHeight - statusBarHeight.value;
+
+  scrollViewHeight.value = windowHeight - statusBarHeight.value + navHeightPx;
 
   // info-box 占 scroll-view 高度的一半
   infoBoxHeight.value = scrollViewHeight.value / 2;
@@ -195,11 +198,10 @@ const refresherrefresh = () => {
 };
 
 // 获取用户帖子列表
-const getUserPostList = () => {
+const getUserPostList = async () => {
   // 您的接口请求逻辑
-  setTimeout(() => {
-    data.isTrigger = false;
-  }, 1000);
+  await userStore.fetchUserProfile();
+  data.isTrigger = false;
 };
 
 onMounted(() => {
@@ -220,6 +222,8 @@ const goToEditProfile = () => {
 <style lang="scss" scoped>
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 .profile-container {
   height: 100%;
@@ -237,6 +241,7 @@ const goToEditProfile = () => {
   left: 0;
   right: 0;
   z-index: 1001;
+  box-sizing: content-box;
 
   .nav-avatar {
     opacity: 0;
@@ -301,7 +306,7 @@ const goToEditProfile = () => {
       .option {
         display: flex;
         justify-content: flex-end;
-        gap: 20rpx;
+        margin: 0 -15rpx;
         .option-item {
           font-size: 24rpx;
           border: 1px solid #fff;
@@ -311,6 +316,7 @@ const goToEditProfile = () => {
           display: flex;
           align-items: center;
           justify-content: center;
+          margin: 0 15rpx;
         }
       }
     }
@@ -319,10 +325,11 @@ const goToEditProfile = () => {
   .content {
     .tab-bar {
       position: sticky;
-      top: 80rpx;
+      top: calc(80rpx + var(--status-bar-height));
       z-index: 1000;
       // 背景色通过内联样式动态设置
       height: 104rpx;
+      border: none;
 
       .tab-container {
         height: 104rpx;
@@ -376,13 +383,5 @@ const goToEditProfile = () => {
 /* #ifdef APP-PLUS */
 .tab-bar {
   position: sticky;
-}
-/* #endif */
-
-// 适配安全区域
-@supports (bottom: env(safe-area-inset-bottom)) {
-  .main {
-    padding-bottom: calc(200rpx + env(safe-area-inset-bottom));
-  }
 }
 </style>

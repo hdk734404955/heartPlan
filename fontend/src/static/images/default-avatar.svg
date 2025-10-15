@@ -1,0 +1,20 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 温暖的渐变背景 -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8E8E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆 -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgGradient)"/>
+  
+  <!-- 用户图标 -->
+  <g fill="white" opacity="0.9">
+    <!-- 头部 -->
+    <circle cx="100" cy="75" r="30"/>
+    <!-- 身体 -->
+    <ellipse cx="100" cy="155" rx="50" ry="45"/>
+  </g>
+</svg>

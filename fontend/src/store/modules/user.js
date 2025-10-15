@@ -2,6 +2,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { userAPI } from '@/api/user'
+import { formatImageUrl } from '@/utils/common'
 
 export const useUserStore = defineStore('user', () => {
   // 状态
@@ -46,14 +47,16 @@ export const useUserStore = defineStore('user', () => {
   // 操作方法
   const setUserProfile = (profile) => {
     userProfile.value = { ...userProfile.value, ...profile }
-
+    userProfile.value.avatarUrl = formatImageUrl(userProfile.value.avatarUrl)
+    userProfile.value.bgcUrl = formatImageUrl(userProfile.value.bgcUrl)
     // 存储到本地
     uni.setStorageSync('userProfile', userProfile.value)
   }
 
   const updateUserProfile = (updates) => {
     userProfile.value = { ...userProfile.value, ...updates }
-
+    userProfile.value.avatarUrl = formatImageUrl(userProfile.value.avatarUrl)
+    userProfile.value.bgcUrl = formatImageUrl(userProfile.value.bgcUrl)
     // 更新本地存储
     uni.setStorageSync('userProfile', userProfile.value)
   }
@@ -85,6 +88,8 @@ export const useUserStore = defineStore('user', () => {
     const storedProfile = uni.getStorageSync('userProfile')
     if (storedProfile) {
       userProfile.value = storedProfile
+      userProfile.value.avatarUrl = formatImageUrl(userProfile.value.avatarUrl)
+      userProfile.value.bgcUrl = formatImageUrl(userProfile.value.bgcUrl)
     }
   }
 

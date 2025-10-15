@@ -19,7 +19,7 @@ export function debounce(func, wait, immediate = false) {
 // 节流函数
 export function throttle(func, limit) {
   let inThrottle
-  return function(...args) {
+  return function (...args) {
     if (!inThrottle) {
       func.apply(this, args)
       inThrottle = true
@@ -111,7 +111,7 @@ export function generateRandomString(length = 8) {
 
 // 生成UUID
 export function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     const r = Math.random() * 16 | 0
     const v = c === 'x' ? r : (r & 0x3 | 0x8)
     return v.toString(16)
@@ -299,9 +299,9 @@ export function navigateTo(url, params = {}) {
   const queryString = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     .join('&')
-  
+
   const fullUrl = queryString ? `${url}?${queryString}` : url
-  
+
   uni.navigateTo({
     url: fullUrl
   })
@@ -312,9 +312,9 @@ export function redirectTo(url, params = {}) {
   const queryString = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     .join('&')
-  
+
   const fullUrl = queryString ? `${url}?${queryString}` : url
-  
+
   uni.redirectTo({
     url: fullUrl
   })
@@ -335,16 +335,31 @@ export function recordAppUsage(action, data = {}) {
     timestamp: new Date().toISOString(),
     page: getCurrentPages().pop()?.route || 'unknown'
   }
-  
+
   // 获取现有统计数据
   const existingStats = storage.getItem('appUsageStats', [])
   existingStats.push(usageData)
-  
+
   // 只保留最近1000条记录
   if (existingStats.length > 1000) {
     existingStats.splice(0, existingStats.length - 1000)
   }
-  
+
   // 保存统计数据
   storage.setItem('appUsageStats', existingStats)
+}
+// utils/urlFormat.js
+
+// utils/urlFormat.js
+
+export function formatImageUrl(url) {
+  if (!url) return '';
+
+  // #ifdef APP-PLUS
+  if (uni.getSystemInfoSync().platform === 'android') {
+    return url.replace(/localhost|127\.0\.0\.1/g, '10.0.2.2');
+  }
+  // #endif
+
+  return url;
 }

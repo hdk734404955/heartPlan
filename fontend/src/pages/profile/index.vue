@@ -25,7 +25,7 @@
         height: scrollViewHeight + 'px',
       }"
       :refresher-background="themeColor"
-      :refresher-enabled="true"
+      :refresher-enabled="!showNavAvatar"
       :refresher-triggered="data.isTrigger"
       @scroll="handleScroll"
       @refresherrefresh="refresherrefresh"
@@ -133,6 +133,7 @@ const scrollViewHeight = ref(0);
 const infoBoxHeight = ref(0);
 const navOpacity = ref(0);
 const showNavAvatar = ref(false);
+const screenWidth = ref(0);
 
 // 滚动相关变量
 const navigatorHeight = ref(80); // navigator高度(rpx)
@@ -155,6 +156,8 @@ const hexToRgb = (hex) => {
 const getSystemInfo = () => {
   const systemInfo = uni.getSystemInfoSync();
   statusBarHeight.value = systemInfo.statusBarHeight || 0;
+  screenWidth.value = systemInfo.screenWidth || 0;
+  console.log(systemInfo);
 
   // 计算scroll-view高度
   const windowHeight = systemInfo.windowHeight;
@@ -192,16 +195,18 @@ const scrolltolower = () => {
 };
 
 // 下拉刷新
-const refresherrefresh = () => {
+const refresherrefresh = async () => {
   data.isTrigger = true;
+  await userStore.fetchUserProfile();
   getUserPostList();
 };
 
 // 获取用户帖子列表
 const getUserPostList = async () => {
   // 您的接口请求逻辑
-  await userStore.fetchUserProfile();
-  data.isTrigger = false;
+  setTimeout(() => {
+    data.isTrigger = false;
+  }, 1500);
 };
 
 onMounted(() => {
@@ -259,9 +264,15 @@ const goToEditProfile = () => {
   .info-box {
     position: relative;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
+    background-size: 100% 100%;
+    background-position: center center;
     background-repeat: no-repeat;
+    .bgcImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
 
     .gradient-mask {
       position: absolute;
